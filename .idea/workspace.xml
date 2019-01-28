@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="6d696e3f-8b70-4e02-81b5-7e1f8fedf0a4" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
@@ -10,6 +11,20 @@
       <change afterPath="$PROJECT_DIR$/graph/src/SpannedCluster.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/graph/src/testsForCluster.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/Sp_Cons.java" afterDir="false" />
+=======
+    <list default="true" id="9cf3e283-423d-4556-bd5b-98cbb4990a64" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/graph/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/graph/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/out/production/graph/Edge.class" beforeDir="false" afterPath="$PROJECT_DIR$/graph/out/production/graph/Edge.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/out/production/graph/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/graph/out/production/graph/Graph.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/out/production/graph/GraphInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/graph/out/production/graph/GraphInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/out/production/graph/Vertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/graph/out/production/graph/Vertex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/out/production/graph/tests.class" beforeDir="false" afterPath="$PROJECT_DIR$/graph/out/production/graph/tests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/src/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/graph/src/Edge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/src/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/graph/src/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/src/GraphInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/graph/src/GraphInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/src/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/graph/src/Vertex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/src/tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/graph/src/tests.java" afterDir="false" />
+>>>>>>> 4fb7d3d30c2e0f0598263eedfb55172adeb985d6
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,6 +32,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
@@ -42,6 +58,18 @@
                 <element signature="e#4684#4860#1" />
                 <element signature="method#removeVertex#0;class#Graph#0" />
               </folding>
+=======
+  <component name="FavoritesManager">
+    <favorites_list name="Mini-Project-on-Graph" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/graph/src/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+>>>>>>> 4fb7d3d30c2e0f0598263eedfb55172adeb985d6
             </state>
           </provider>
         </entry>
@@ -49,15 +77,42 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/graph/src/tests.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="153">
               <caret line="162" column="24" selection-start-line="162" selection-start-column="24" selection-end-line="162" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
+=======
+            <state relative-caret-position="376">
+              <caret line="473" column="54" selection-start-line="473" selection-start-column="54" selection-end-line="473" selection-end-column="54" />
+              <folding>
+                <element signature="e#7308#7440#0" />
+                <element signature="e#7445#7738#0" />
+                <element signature="e#7743#7883#0" />
+                <element signature="e#7888#8014#0" />
+                <element signature="e#8019#8359#0" />
+                <element signature="e#8364#8489#0" />
+                <element signature="e#8494#8918#0" />
+                <element signature="e#8923#9354#0" />
+                <element signature="e#9359#9858#0" />
+                <element signature="e#9863#10398#0" />
+                <element signature="e#11403#11721#0" />
+                <element signature="e#11726#12039#0" />
+                <element signature="e#12044#12510#0" />
+                <element signature="e#12515#12998#0" />
+                <element signature="e#13003#13550#0" />
+                <element signature="e#13555#13940#0" />
+                <element signature="e#13945#14355#0" />
+                <element signature="e#14360#14882#0" />
+                <element signature="e#14887#15189#0" />
+                <element signature="e#15966#16392#0" />
+>>>>>>> 4fb7d3d30c2e0f0598263eedfb55172adeb985d6
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/graph/src/testsForCluster.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -126,18 +181,55 @@
               <caret column="12" lean-forward="true" selection-start-column="12" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/graph/src/Vertex.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#458#459#0" expanded="true" />
+                <element signature="e#537#538#0" expanded="true" />
+>>>>>>> 4fb7d3d30c2e0f0598263eedfb55172adeb985d6
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/graph/src/SpannedCluster.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
               <caret line="21" column="62" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
+=======
+        <entry file="file://$PROJECT_DIR$/graph/src/Graph.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="986">
+              <caret line="123" column="36" selection-start-line="123" selection-start-column="21" selection-end-line="123" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#getVertex#0;class#Graph#0" />
+                <element signature="method#getEdge#0;class#Graph#0" />
+                <element signature="method#addEdge#0;class#Graph#0" />
+                <element signature="method#addEdge#1;class#Graph#0" />
+                <element signature="method#addVertex#0;class#Graph#0" />
+                <element signature="e#3501#3502#0" expanded="true" />
+                <element signature="e#3557#3558#0" expanded="true" />
+                <element signature="e#3603#3604#0" expanded="true" />
+                <element signature="e#3654#3655#0" expanded="true" />
+                <element signature="e#3704#3705#0" expanded="true" />
+                <element signature="e#3750#3751#0" expanded="true" />
+                <element signature="e#5789#5790#0" expanded="true" />
+                <element signature="e#5833#5834#0" expanded="true" />
+                <element signature="e#5878#5879#0" expanded="true" />
+                <element signature="e#5922#5923#0" expanded="true" />
+                <element signature="e#5967#5968#0" expanded="true" />
+                <element signature="e#6005#6006#0" expanded="true" />
+                <element signature="e#6063#6064#0" expanded="true" />
+                <element signature="e#6116#6117#0" expanded="true" />
+>>>>>>> 4fb7d3d30c2e0f0598263eedfb55172adeb985d6
               </folding>
             </state>
           </provider>
@@ -145,6 +237,7 @@
       </file>
     </leaf>
   </component>
+<<<<<<< HEAD
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -152,6 +245,12 @@
         <option value="Class" />
       </list>
     </option>
+=======
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>graphTestGetEdge1</find>
+    </findStrings>
+>>>>>>> 4fb7d3d30c2e0f0598263eedfb55172adeb985d6
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -159,6 +258,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/Partition.java" />
         <option value="$PROJECT_DIR$/src/SpannedCluster.java" />
         <option value="$PROJECT_DIR$/src/Down_Part.java" />
@@ -172,10 +272,16 @@
         <option value="$PROJECT_DIR$/graph/src/ClusterInterface.java" />
         <option value="$PROJECT_DIR$/graph/src/Cluster.java" />
         <option value="$PROJECT_DIR$/src/Sp_Cons.java" />
+=======
+        <option value="$PROJECT_DIR$/graph/src/Graph.java" />
+        <option value="$PROJECT_DIR$/graph/src/tests.java" />
+        <option value="$PROJECT_DIR$/graph/src/Vertex.java" />
+>>>>>>> 4fb7d3d30c2e0f0598263eedfb55172adeb985d6
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+<<<<<<< HEAD
     <option name="x" value="37" />
     <option name="y" value="3" />
     <option name="width" value="1260" />
@@ -187,11 +293,25 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+=======
+    <option name="width" value="683" />
+    <option name="height" value="728" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <showMembers ProjectPane="true" />
+      <hideEmptyPackages ProjectPane="false" />
+      <abbreviatePackageNames ProjectPane="true" />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+>>>>>>> 4fb7d3d30c2e0f0598263eedfb55172adeb985d6
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="Mini-Project-on-Graph" type="b2602c69:ProjectViewProjectNode" />
+<<<<<<< HEAD
               <item name="Mini-Project-on-Graph" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -209,12 +329,16 @@
               <item name="Mini-Project-on-Graph" type="b2602c69:ProjectViewProjectNode" />
               <item name="Mini-Project-on-Graph" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+>>>>>>> 4fb7d3d30c2e0f0598263eedfb55172adeb985d6
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
+<<<<<<< HEAD
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -232,6 +356,17 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Katya\Mini-Project-on-Graph\graph\src" />
     </key>
+=======
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548685586307" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/graph" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+>>>>>>> 4fb7d3d30c2e0f0598263eedfb55172adeb985d6
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -245,20 +380,83 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
+=======
+  <component name="RunManager">
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="tests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tests" />
+      <module name="Mini-Project-on-Graph" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.tests" />
+      </list>
+    </recent_temporary>
+  </component>
+>>>>>>> 4fb7d3d30c2e0f0598263eedfb55172adeb985d6
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="6d696e3f-8b70-4e02-81b5-7e1f8fedf0a4" name="Default Changelist" comment="" />
       <created>1548683192689</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1548683192689</updated>
+=======
+      <changelist id="9cf3e283-423d-4556-bd5b-98cbb4990a64" name="Default Changelist" comment="" />
+      <created>1548682459881</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1548682459881</updated>
+>>>>>>> 4fb7d3d30c2e0f0598263eedfb55172adeb985d6
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
@@ -331,10 +529,71 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+=======
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4942717" visible="true" weight="0.26096824" />
+      <window_info id="Structure" order="1" sideWeight="0.5057283" side_tool="true" visible="true" weight="0.26096824" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" sideWeight="0.5057283" side_tool="true" weight="0.26096824" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3289689" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3289689" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Image Layers" order="0" />
+      <window_info id="Designer" order="1" />
+      <window_info id="UI Designer" order="2" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.24962178" />
+      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Terminal" order="1" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="3" weight="0.3289689" />
+      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="Find" order="5" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.39934534" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="10" />
+      <window_info anchor="right" id="Palette" order="0" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Theme Preview" order="2" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" id="Commander" order="5" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
+    </layout-to-restore>
+>>>>>>> 4fb7d3d30c2e0f0598263eedfb55172adeb985d6
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/graph/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state>
           <folding>
             <element signature="imports" expanded="true" />
@@ -409,11 +668,16 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="17">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+>>>>>>> 4fb7d3d30c2e0f0598263eedfb55172adeb985d6
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/graph/src/Graph.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="442">
           <caret line="46" selection-start-line="46" selection-end-line="54" selection-end-column="5" />
           <folding>
@@ -430,10 +694,36 @@
             <element signature="method#removeEdge#1;class#Graph#0" />
             <element signature="e#4684#4860#1" />
             <element signature="method#removeVertex#0;class#Graph#0" />
+=======
+        <state relative-caret-position="986">
+          <caret line="123" column="36" selection-start-line="123" selection-start-column="21" selection-end-line="123" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getVertex#0;class#Graph#0" />
+            <element signature="method#getEdge#0;class#Graph#0" />
+            <element signature="method#addEdge#0;class#Graph#0" />
+            <element signature="method#addEdge#1;class#Graph#0" />
+            <element signature="method#addVertex#0;class#Graph#0" />
+            <element signature="e#3501#3502#0" expanded="true" />
+            <element signature="e#3557#3558#0" expanded="true" />
+            <element signature="e#3603#3604#0" expanded="true" />
+            <element signature="e#3654#3655#0" expanded="true" />
+            <element signature="e#3704#3705#0" expanded="true" />
+            <element signature="e#3750#3751#0" expanded="true" />
+            <element signature="e#5789#5790#0" expanded="true" />
+            <element signature="e#5833#5834#0" expanded="true" />
+            <element signature="e#5878#5879#0" expanded="true" />
+            <element signature="e#5922#5923#0" expanded="true" />
+            <element signature="e#5967#5968#0" expanded="true" />
+            <element signature="e#6005#6006#0" expanded="true" />
+            <element signature="e#6063#6064#0" expanded="true" />
+            <element signature="e#6116#6117#0" expanded="true" />
+>>>>>>> 4fb7d3d30c2e0f0598263eedfb55172adeb985d6
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/graph/src/Cluster.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -443,10 +733,38 @@
             <element signature="e#836#837#0" expanded="true" />
             <element signature="e#862#863#0" expanded="true" />
             <element signature="e#1133#1141#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/graph/src/tests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="473" column="54" selection-start-line="473" selection-start-column="54" selection-end-line="473" selection-end-column="54" />
+          <folding>
+            <element signature="e#7308#7440#0" />
+            <element signature="e#7445#7738#0" />
+            <element signature="e#7743#7883#0" />
+            <element signature="e#7888#8014#0" />
+            <element signature="e#8019#8359#0" />
+            <element signature="e#8364#8489#0" />
+            <element signature="e#8494#8918#0" />
+            <element signature="e#8923#9354#0" />
+            <element signature="e#9359#9858#0" />
+            <element signature="e#9863#10398#0" />
+            <element signature="e#11403#11721#0" />
+            <element signature="e#11726#12039#0" />
+            <element signature="e#12044#12510#0" />
+            <element signature="e#12515#12998#0" />
+            <element signature="e#13003#13550#0" />
+            <element signature="e#13555#13940#0" />
+            <element signature="e#13945#14355#0" />
+            <element signature="e#14360#14882#0" />
+            <element signature="e#14887#15189#0" />
+            <element signature="e#15966#16392#0" />
+>>>>>>> 4fb7d3d30c2e0f0598263eedfb55172adeb985d6
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Sp_Cons.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="508">
@@ -454,6 +772,14 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Procedure_SC#0;class#Sp_Cons#0" />
+=======
+    <entry file="file://$PROJECT_DIR$/graph/src/Vertex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#458#459#0" expanded="true" />
+            <element signature="e#537#538#0" expanded="true" />
+>>>>>>> 4fb7d3d30c2e0f0598263eedfb55172adeb985d6
           </folding>
         </state>
       </provider>
@@ -521,6 +847,21 @@
           </splitter-proportions>
         </settings>
       </state>
+<<<<<<< HEAD
+=======
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+>>>>>>> 4fb7d3d30c2e0f0598263eedfb55172adeb985d6
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
           <splitter-proportions>
