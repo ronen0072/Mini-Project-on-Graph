@@ -3,6 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="9cf3e283-423d-4556-bd5b-98cbb4990a64" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/graph/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/graph/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/out/production/graph/Edge.class" beforeDir="false" afterPath="$PROJECT_DIR$/graph/out/production/graph/Edge.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/out/production/graph/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/graph/out/production/graph/Graph.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/out/production/graph/GraphInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/graph/out/production/graph/GraphInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/out/production/graph/Vertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/graph/out/production/graph/Vertex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/out/production/graph/tests.class" beforeDir="false" afterPath="$PROJECT_DIR$/graph/out/production/graph/tests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/src/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/graph/src/Edge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/src/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/graph/src/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/src/GraphInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/graph/src/GraphInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/src/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/graph/src/Vertex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/src/tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/graph/src/tests.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -229,6 +239,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4942717" visible="true" weight="0.26096824" />
       <window_info id="Structure" order="1" sideWeight="0.5057283" side_tool="true" visible="true" weight="0.26096824" />

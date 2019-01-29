@@ -51,6 +51,4 @@ public interface GraphInterface {
     int numOfVertices();
 
     int numOfEdges();
-
-    double sumOfEdges(Collection<? extends Edge> vars);
 }

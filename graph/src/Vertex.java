@@ -1,4 +1,4 @@
-public class Vertex implements Cloneable {
+public class Vertex {
     protected int id;
     protected String name;
     protected int degree = 0;
@@ -9,14 +9,6 @@ public class Vertex implements Cloneable {
     public Vertex(int id){
         this.id = id;
         this.name = null;
-    }
-    private Vertex(int id, String name ,int degree){
-        this.id = id;
-        this.name = name;
-        this.degree =degree;
-    }
-    public Vertex clone(){
-        return new Vertex(this.getId(),this.getName(),this.getDegree());
     }
 
     public int getId() {
@@ -48,5 +40,4 @@ public class Vertex implements Cloneable {
     public boolean equals(Vertex otherVertex){
         return this.getId()== otherVertex.getId();
     }
-
 }

@@ -1,4 +1,4 @@
-public class Edge implements Cloneable{
+public class Edge {
     private double DEFAULT_EDGE_WEIGHT = 1.0;
     protected Vertex sourceVertex, targetVertex;
     protected double weight;
@@ -12,10 +12,6 @@ public class Edge implements Cloneable{
         this.sourceVertex=sourceVertex;
         this.targetVertex=targetVertex;
         this.weight = DEFAULT_EDGE_WEIGHT;
-    }
-
-    public Edge clone(){
-       return new  Edge(this.getSourceVertex(), this.getTargetVertex(), this.getWeight());
     }
 
     public Vertex getSourceVertex() {
