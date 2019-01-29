@@ -14,6 +14,7 @@ public class Graph implements GraphInterface{
         this.vertices = vertices;
         this.edges = edges;
     }
+
     public Graph(String graphName){
         this.graphName = graphName;
         this.vertices = new HashSet<Vertex>();
@@ -212,6 +213,7 @@ public class Graph implements GraphInterface{
         }
         return sum;
     }
+
     public  Set<Vertex> getNeighbors(Vertex v){
         Set<Vertex> res = new HashSet<Vertex>();
         Set<Edge> incomingEdges =  this.incomingEdgesOf(v);
@@ -224,6 +226,7 @@ public class Graph implements GraphInterface{
         res.remove(v);
         return res;
     }
+
     public  Set<Vertex> getNeighbors(Set<Vertex> rv){
         Set<Vertex> res = new HashSet<Vertex>();
         Iterator vertex = rv.iterator();
