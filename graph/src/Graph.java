@@ -2,30 +2,21 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.HashSet;
-import java.util.function.Supplier;
 
-public class Graph implements GraphInterface{
+
+public class Graph extends Cluster implements GraphInterface{
     protected String graphName;
     protected Set<Vertex> vertices;
     protected Set<Edge> edges;
 
     public Graph(String graphName, Set<Vertex> vertices, Set<Edge> edges){
-        this.graphName = graphName;
-        this.vertices = vertices;
+        super(graphName, vertices);
         this.edges = edges;
     }
+
     public Graph(String graphName){
-        this.graphName = graphName;
-        this.vertices = new HashSet<Vertex>();
+        super(graphName);
         this.edges = new HashSet<Edge>();
-    }
-
-    public String getGraphName() {
-        return graphName;
-    }
-
-    public Set<Vertex> getVertices() {
-        return vertices;
     }
 
     public Set<Edge> getEdges() {
@@ -33,25 +24,11 @@ public class Graph implements GraphInterface{
     }
 
     public String toString() {
-        return "{"+this.getGraphName()+":"+this.getVertices()+","+this.getEdges()+"}";
-    }
-
-    public int numOfVertices() {
-        return vertices.size();
+        return "{"+this.getName()+":"+this.getVertices()+","+this.getEdges()+"}";
     }
 
     public int numOfEdges() {
         return edges.size();
-    }
-
-    public Vertex getVertex(int vertexId){
-        Iterator verticesIrer = vertices.iterator();
-        while (verticesIrer.hasNext()) {
-            Vertex v = (Vertex) verticesIrer.next();
-            if (v.getId()== vertexId)
-                return v;
-        }
-        return null;
     }
 
     public Edge getEdge(Vertex sourceVertex, Vertex targetVertex) {
@@ -102,23 +79,12 @@ public class Graph implements GraphInterface{
         }
     }
 
-    public boolean addVertex(Vertex toAdd) {
-        if(vertices.contains(toAdd))
-            return false;
-        vertices.add(toAdd);
-        return true;
-    }
-
     public boolean containsEdge(Vertex var1, Vertex var2) {
         return (this.getEdge(var1,var2) != null);
     }
 
     public boolean containsEdge(Edge edge) {
         return (this.getEdge(edge) != null);
-    }
-
-    public boolean containsVertex(Vertex var1) {
-        return vertices.contains(var1);
     }
 
     public Set<Edge> incomingEdgesOf(Vertex var) {
@@ -180,7 +146,7 @@ public class Graph implements GraphInterface{
     public boolean removeVertex(Vertex var) {
         Set<Edge> edgesToRemove = this.incomingEdgesOf(var);
         this.removeAllEdges(edgesToRemove);
-        return vertices.remove(var);
+        return super.removeVertex(var);
     }
 
     public Vertex getEdgeSource(Edge var) {
@@ -212,6 +178,7 @@ public class Graph implements GraphInterface{
         }
         return sum;
     }
+
     public  Set<Vertex> getNeighbors(Vertex v){
         Set<Vertex> res = new HashSet<Vertex>();
         Set<Edge> incomingEdges =  this.incomingEdgesOf(v);
@@ -224,6 +191,7 @@ public class Graph implements GraphInterface{
         res.remove(v);
         return res;
     }
+
     public  Set<Vertex> getNeighbors(Set<Vertex> rv){
         Set<Vertex> res = new HashSet<Vertex>();
         Iterator vertex = rv.iterator();
@@ -234,5 +202,47 @@ public class Graph implements GraphInterface{
         res.removeAll(rv);
         return res;
     }
+
+    /*public void dijkstra() {
+        int verticesCount = this.numOfVertices();
+        double[] wt = new double[verticesCount];
+        for (int i = 0; i < wt.length; i++) {
+            wt[i] = Double.MAX_VALUE;
+        }
+        wt[0] = 0.0;
+        Edge[] fr  = new Edge[verticesCount];
+        Edge[] mst = new Edge[verticesCount];
+        int min = -1;
+        Edge edge = null;
+        for (int v = 0; min != 0; v = min) {
+            min = 0;
+            for (int w = 1; w < verticesCount; w++) {
+                if (mst[w] == null) {
+                    double P = 0.0;
+                    edge = this.getEdge(this.getVertex(v), this.getVertex(v));
+                    if (edge != null) {
+                        if ((P = wt[v] + edge.getWeight()) < wt[w]) {
+                            wt[w] = P;
+                            fr[w] = edge;
+                        }
+                    }
+
+                    if (wt[w] < wt[min]) {
+                        min = w;
+                    }
+                }
+            }
+
+            if (min != 0) {
+                mst[min] = fr[min];
+            }
+        }
+
+        for (int v = 0; v < verticesCount; v++) {
+            if (mst[v] != null) {
+                System.out.print(mst[v].getSourceVertex() + "->" + mst[v].getTargetVertex() + " ");
+            }
+        }
+    }*/
 
 }

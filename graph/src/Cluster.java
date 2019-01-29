@@ -1,7 +1,3 @@
-package src;
-
-import sun.security.provider.certpath.Vertex;
-
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -13,6 +9,10 @@ public class  Cluster implements ClusterInterface{
 
     public Cluster(String name){
         this.vertices = new HashSet<Vertex>();
+        this.name = name;
+    }
+    public Cluster(String name,Set<Vertex> vertices) {
+        this.vertices =vertices;
         this.name = name;
     }
     public Vertex getVertex(int vertexId){
@@ -37,31 +37,40 @@ public class  Cluster implements ClusterInterface{
         return true;
     }
     public boolean addVertices(Set<Vertex> add){
+        boolean res = true;
         Iterator iter = add.iterator();
         while (iter.hasNext()) {
-            Vertex v = (Vertex) iter.next().clone();
-            this.vertices.addVertex(v);
+            Vertex v = ((Vertex) iter.next()).clone();
+            res &= this.addVertex(v);
         }
+        return res;
     }
     public String getName(){
         return this.name;
     }
 
-    boolean containsVertex(Vertex vert){
+    public boolean containsVertex(Vertex vert){
         Iterator verticesIter = vertices.iterator();
         while (verticesIter.hasNext()) {
             Vertex v = (Vertex) verticesIter.next();
-            if (vart.getId() == v.getId())
+            if (vert.getId() == v.getId())
                 return true;
         }
         return false;
     }
 
-    boolean removeAllVertixes(Collection<? extends Vertex> vert){
-            vertices.clear();
+    public boolean removeAllVertixes(Collection<? extends Vertex> vert){
+        boolean res = true;
+        Iterator verticesIter = vert.iterator();
+        while (verticesIter.hasNext()) {
+            Vertex toRemove = (Vertex) verticesIter.next();
+            res &= this.removeVertex(toRemove);
+        }
+        return res;
     }
 
-    boolean removeVertex(Vertex vert){
+
+    public boolean removeVertex(Vertex vert){
         Iterator verticesIter = vertices.iterator();
         while (verticesIter.hasNext()) {
             Vertex v = (Vertex) verticesIter.next();
@@ -77,7 +86,7 @@ public class  Cluster implements ClusterInterface{
         Set<Vertex> ret = new HashSet<Vertex>();
         Iterator iter = this.vertices.iterator();
         while (iter.hasNext()) {
-            Vertex v = (Vertex) iter.next().clone();
+            Vertex v = ((Vertex) iter.next()).clone();
             ret.add(v);
         }
         return ret;

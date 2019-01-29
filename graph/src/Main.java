@@ -2,10 +2,10 @@ import java.util.HashSet;
 import java.util.Set;
 class Main {
     public static void main(String[] args) {
-        System.out.println("tests:");
-        tests t1 = new tests();
-        System.out.println("vertexsTest:"+t1.verticesTest());
-        System.out.println("edgesTest:"+t1.edgesTest());
+       // System.out.println("tests:");
+        //tests t1 = new tests();
+        //System.out.println("vertexsTest:"+t1.verticesTest());
+       //System.out.println("edgesTest:"+t1.edgesTest());
         /*Set<Vertex> vertexs = new HashSet<Vertex>();
         Set<Edge> edges = new HashSet<Edge>();
         Vertex v1 = new Vertex(1);

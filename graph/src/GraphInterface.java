@@ -11,7 +11,7 @@ public interface GraphInterface {
 
     Edge addEdge(Vertex var1, Vertex var2);
 
-    Edge addEdge(Edge e);
+    Edge getEdge(Edge edge);
 
     boolean addVertex(Vertex var1);
 
@@ -32,7 +32,7 @@ public interface GraphInterface {
 
     boolean removeEdge(Edge var1);
 
-    boolean removeVertex(Vertex var1);
+    boolean removeVertex(Vertex var);
 
     Vertex getEdgeSource(Edge var1);
 
@@ -42,9 +42,7 @@ public interface GraphInterface {
 
     void setEdgeWeight(Edge var1, double var2);
 
-    default void setEdgeWeight(Vertex sourceVertex, Vertex targetVertex, double weight) {
-        this.setEdgeWeight(this.getEdge(sourceVertex, targetVertex), weight);
-    }
+    void setEdgeWeight(Vertex sourceVertex, Vertex targetVertex, double weight);
 
     String toString();
 
