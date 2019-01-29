@@ -3,6 +3,7 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
+<<<<<<< HEAD
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/graph" type="java-resource" />
     </content>
@@ -17,5 +18,11 @@
         <SOURCES />
       </library>
     </orderEntry>
+=======
+      <sourceFolder url="file://$MODULE_DIR$/graph/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+>>>>>>> 4fb7d3d30c2e0f0598263eedfb55172adeb985d6
   </component>
 </module>

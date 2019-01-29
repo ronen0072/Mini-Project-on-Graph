@@ -1,4 +1,4 @@
-public class Vertex implements Cloneable {
+public class Vertex {
     protected int id;
     protected String name;
     protected int degree = 0;

@@ -20,13 +20,19 @@ public class  Cluster implements ClusterInterface{
         while (verticesIrer.hasNext()) {
             Vertex v = (Vertex) verticesIrer.next();
             if (v.getId()== vertexId)
-                return v;
+                return v.clone();
         }
         return null;
     }
-    public boolean addVertex(Vertex toAdd) {//ToDo: make iterate for checking dups
+    public boolean addVertex(Vertex toAdd) {//adding vertex while checking for dupes
         if(vertices.contains(toAdd))
             return false;
+        Iterator verticesIrer = vertices.iterator();
+        while (verticesIrer.hasNext()) {
+            Vertex v = (Vertex) verticesIrer.next();
+            if (v.getId() == toAdd.getId())
+                return false;
+        }
         vertices.add(toAdd);
         return true;
     }
@@ -37,7 +43,7 @@ public class  Cluster implements ClusterInterface{
             this.vertices.addVertex(v);
         }
     }
-    public String getClusterName(){
+    public String getName(){
         return this.name;
     }
     boolean containsVertex(Vertex var1);
@@ -58,6 +64,8 @@ public class  Cluster implements ClusterInterface{
 
     String toString();
 
-    int numOfVertices();
+    public int numOfVertices(){
+        return this.vertices.size();
+    }
 
 }

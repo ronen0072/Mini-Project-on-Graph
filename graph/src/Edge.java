@@ -1,4 +1,4 @@
-public class Edge implements Cloneable{
+public class Edge {
     private double DEFAULT_EDGE_WEIGHT = 1.0;
     protected Vertex sourceVertex, targetVertex;
     protected double weight;
