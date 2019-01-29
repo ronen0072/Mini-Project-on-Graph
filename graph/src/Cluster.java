@@ -16,9 +16,9 @@ public class  Cluster implements ClusterInterface{
         this.name = name;
     }
     public Vertex getVertex(int vertexId){
-        Iterator verticesIrer = vertices.iterator();
-        while (verticesIrer.hasNext()) {
-            Vertex v = (Vertex) verticesIrer.next();
+        Iterator verticesIter = vertices.iterator();
+        while (verticesIter.hasNext()) {
+            Vertex v = (Vertex) verticesIter.next();
             if (v.getId()== vertexId)
                 return v.clone();
         }
@@ -27,9 +27,9 @@ public class  Cluster implements ClusterInterface{
     public boolean addVertex(Vertex toAdd) {//adding vertex while checking for dupes
         if(vertices.contains(toAdd))
             return false;
-        Iterator verticesIrer = vertices.iterator();
-        while (verticesIrer.hasNext()) {
-            Vertex v = (Vertex) verticesIrer.next();
+        Iterator verticesIter = vertices.iterator();
+        while (verticesIter.hasNext()) {
+            Vertex v = (Vertex) verticesIter.next();
             if (v.getId() == toAdd.getId())
                 return false;
         }
@@ -46,11 +46,32 @@ public class  Cluster implements ClusterInterface{
     public String getName(){
         return this.name;
     }
-    boolean containsVertex(Vertex var1);
 
-    boolean removeAllVertixes(Collection<? extends Vertex> var1);
+    boolean containsVertex(Vertex vert){
+        Iterator verticesIter = vertices.iterator();
+        while (verticesIter.hasNext()) {
+            Vertex v = (Vertex) verticesIter.next();
+            if (vart.getId() == v.getId())
+                return true;
+        }
+        return false;
+    }
 
-    boolean removeVertex(Vertex var1);
+    boolean removeAllVertixes(Collection<? extends Vertex> vert){
+            vertices.clear();
+    }
+
+    boolean removeVertex(Vertex vert){
+        Iterator verticesIter = vertices.iterator();
+        while (verticesIter.hasNext()) {
+            Vertex v = (Vertex) verticesIter.next();
+            if(v.getId() == vert.getId()){
+                vertices.remove(v);
+                return true;
+            }
+        }
+        return false;
+    }
 
     public Set<Vertex> getVertices(){
         Set<Vertex> ret = new HashSet<Vertex>();
@@ -62,7 +83,9 @@ public class  Cluster implements ClusterInterface{
         return ret;
     }
 
-    String toString();
+    public String toString(){
+        return "{" + this.getName() + ":" + this.getVertices() + "}";
+    }
 
     public int numOfVertices(){
         return this.vertices.size();

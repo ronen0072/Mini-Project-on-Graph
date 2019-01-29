@@ -20,11 +20,19 @@ public class Sp_Cons {
         while(!vertexSetU.isEmpty()){
             int i=1;
             Cluster S = new Cluster("S"+i);
+            Cluster shell = new Cluster("Shell"+i);
             Vertex v = vertexSetU.iterator().next();
             S.addVertex(v);
-            while (calcNeighbors(s, vertexSetU,G) >= (n^(1/k))){
+            while (calcNeighbors(s, vertexSetU,G) >= ((n^(1/k))*(s.numOfVertices()))){
                 s.addVertices(expendNeighbors(s, vertexSetU,G));
             }
+            shell.addVertices(s.getVertices());
+            shell.addVertices(expendNeighbors(shell, vertexSetU,G));
+            SpannedCluster shellSC = new SpannedCluster (V,shell);
+            partitionSTag.addSpannedCluster(shellSC);
+            Set<Edge> spTree = new hashSet<Edge>;
+            spTree = g.getSpanningTree(V,s.getVertices());
+            SpannedCluster clusterSC = new SpannedCluster (V,s,spTree);
         }
     }
 
