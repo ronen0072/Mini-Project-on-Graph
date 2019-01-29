@@ -2,12 +2,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class tests {
-    public static void main(String[] args) {
+    public void main(String[] args) {
         System.out.println("tests:");
-        tests t1 = new tests();
-        System.out.println("vertexsTest:" + t1.verticesTest());
-        System.out.println("edgesTest:" + t1.edgesTest());
-        System.out.println("graphTest:" + t1.graphTest());
+        System.out.println("vertexs Test:" + verticesTest());
+        System.out.println("edges Test:" + edgesTest());
+        System.out.println("graph Test:" + graphTest());
     }
     public int verticesTest(){
         int failCuont =0;
