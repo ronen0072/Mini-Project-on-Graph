@@ -3,7 +3,7 @@ import java.util.Set;
 
 public class testsForCluster {
 
-    public static void main(String[] args) {
+    public void main(String[] args) {
         System.out.println("tests:");
         System.out.println("cluster test:" + this.testCluster());
     }
