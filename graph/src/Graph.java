@@ -4,9 +4,7 @@ import java.util.Set;
 import java.util.HashSet;
 
 
-public class Graph extends Cluster implements GraphInterface{
-    protected String graphName;
-    protected Set<Vertex> vertices;
+public class Graph extends Cluster implements GraphInterface,Cloneable{
     protected Set<Edge> edges;
 
     public Graph(String graphName, Set<Vertex> vertices, Set<Edge> edges){
@@ -19,8 +17,18 @@ public class Graph extends Cluster implements GraphInterface{
         this.edges = new HashSet<Edge>();
     }
 
+    public Graph clone(){
+        return new Graph(this.getName(),this.getVertices(),this.getEdges());
+    }
+
     public Set<Edge> getEdges() {
-        return edges;
+        Set<Edge> ret = new HashSet<Edge>();
+        Iterator iter = this.edges.iterator();
+        while (iter.hasNext()) {
+            Edge e = ((Edge) iter.next()).clone();
+            ret.add(e);
+        }
+        return ret;
     }
 
     public String toString() {
@@ -203,13 +211,58 @@ public class Graph extends Cluster implements GraphInterface{
         return res;
     }
 
-    /*public void dijkstra() {
+    public Graph getSPTForUnWeightGraph(Vertex sourceVertex, Integer radius) {
+        Set<Vertex> verticesWeCovered = new HashSet<Vertex>();
+        verticesWeCovered.add(sourceVertex);
+        Set<Edge> treeEdges = this.getSPTForUnWeightGraph(verticesWeCovered, radius);
+        return new Graph("SPT Of" +this.getName(), this.getVertices(),treeEdges );
+    }
+    public Set<Edge> getSPTForUnWeightGraph(Set<Vertex> verticesWeCovered, Integer radius) {
+        Set<Edge> treeEdges = new HashSet<Edge>();
+        Set<Vertex> neighbors = this.getNeighbors(verticesWeCovered);
+        Iterator<Vertex> neighborsIter = neighbors.iterator();
+        while (neighborsIter.hasNext()){
+            radius += 1;
+            Vertex neighbor = (Vertex)neighborsIter.next();
+            Iterator<Vertex> iter = verticesWeCovered.iterator();
+            boolean foundEdge = false;
+            while (iter.hasNext() && !foundEdge){
+                Vertex sourceVertex = (Vertex)iter.next();
+                Edge edge = this.getEdge(sourceVertex,neighbor);
+                if (edge != null){
+                    treeEdges.add(edge);
+                    foundEdge = true;
+                }
+            }
+        }
+        verticesWeCovered.addAll(neighbors);
+        if(this.numOfEdges() == verticesWeCovered.size()){
+            return treeEdges;
+        }
+        else {
+            return this.getSPTForUnWeightGraph(verticesWeCovered, radius);
+        }
+    }
+    public Graph getSubGraph(Cluster cluster){
+        Graph gSub = this.clone();
+        Set<Vertex> toRemove = this.getVertices();
+        toRemove.removeAll(cluster.getVertices());
+        gSub.removeAllVertixes(toRemove);
+        return gSub;
+    }
+    public SpannedCluster getSpannedCluster(Vertex center, Cluster cluster){
+        Graph gSub = this.getSubGraph(cluster);
+        Integer radius = new Integer(0);
+        Graph sptTree = gSub.getSPTForUnWeightGraph(center, radius);
+        return new SpannedCluster(sptTree.getName(), center, sptTree.getVertices(),sptTree.getEdges(), radius.intValue());
+    }
+    /*public void dijkstra(Vertex sourceVertex) {
         int verticesCount = this.numOfVertices();
         double[] wt = new double[verticesCount];
         for (int i = 0; i < wt.length; i++) {
             wt[i] = Double.MAX_VALUE;
         }
-        wt[0] = 0.0;
+        wt[sourceVertex.getId()] = 0.0;
         Edge[] fr  = new Edge[verticesCount];
         Edge[] mst = new Edge[verticesCount];
         int min = -1;
@@ -219,7 +272,7 @@ public class Graph extends Cluster implements GraphInterface{
             for (int w = 1; w < verticesCount; w++) {
                 if (mst[w] == null) {
                     double P = 0.0;
-                    edge = this.getEdge(this.getVertex(v), this.getVertex(v));
+                    edge = this.getEdge(this.getVertex(v), this.getVertex(w));
                     if (edge != null) {
                         if ((P = wt[v] + edge.getWeight()) < wt[w]) {
                             wt[w] = P;
