@@ -69,27 +69,35 @@ public class Graph implements GraphInterface{
     }
 
     public Edge addEdge(Vertex sourceVertex, Vertex targetVertex) {
-        Edge toAdd = this.getEdge(sourceVertex, targetVertex);
-        if (toAdd == null){
-            toAdd = new Edge(sourceVertex, targetVertex);
-            this.edges.add(toAdd);
-            sourceVertex.increaseDegree();
-            targetVertex.increaseDegree();
-            return toAdd;
+        if (this.containsVertex(sourceVertex)&& this.containsVertex(targetVertex)) {
+            Edge toAdd = this.getEdge(sourceVertex, targetVertex);
+            if (toAdd == null) {
+                toAdd = new Edge(sourceVertex, targetVertex);
+                this.edges.add(toAdd);
+                sourceVertex.increaseDegree();
+                targetVertex.increaseDegree();
+                return toAdd;
+            }
+            else System.out.println("the edge:" + toAdd + " is already in the graph.");
         }
-        System.out.println("the edge:"+toAdd+" is already in the graph.");
+        else System.out.println("the edge:("+sourceVertex+","+targetVertex+") contains vertex which does not exist in the graph.");
         return null;
     }
 
     public Edge addEdge(Edge toAdd){
-        if(!this.containsEdge(toAdd)){
-            this.edges.add(toAdd);
-            toAdd.getSourceVertex().increaseDegree();
-            toAdd.getTargetVertex().increaseDegree();
-            return toAdd;
+        if (this.containsVertex(toAdd.getSourceVertex())&& this.containsVertex(toAdd.getTargetVertex())) {
+            if (!this.containsEdge(toAdd)) {
+                this.edges.add(toAdd);
+                toAdd.getSourceVertex().increaseDegree();
+                toAdd.getTargetVertex().increaseDegree();
+                return toAdd;
+            } else {
+                System.out.println("the edge:" + toAdd + " is already in the graph.");
+                return null;
+            }
         }
         else {
-            System.out.println("the edge:"+toAdd+" is already in the graph.");
+            System.out.println("the edge:"+toAdd+" contains vertex which does not exist in the graph.");
             return null;
         }
     }
@@ -122,7 +130,7 @@ public class Graph implements GraphInterface{
                 incomingEdges.add(e);
         }
         if(incomingEdges.isEmpty())
-            return null;
+            return incomingEdges;
         return incomingEdges;
     }
 
@@ -165,7 +173,7 @@ public class Graph implements GraphInterface{
             edges.remove(toRemove);
             return true;
         }
-        System.out.println("the edge:"+toRemove+" is not existing in the graph.");
+        System.out.println("the edge:"+var+" is not existing in the graph.");
         return false;
     }
 
@@ -193,6 +201,38 @@ public class Graph implements GraphInterface{
 
     public void setEdgeWeight(Vertex sourceVertex, Vertex targetVertex, double weight) {
         (this.getEdge(sourceVertex,targetVertex)).setWeight(weight);
+    }
+
+    public  double sumOfEdges(Collection<? extends Edge> vars){
+        double sum = 0;
+        Iterator edge = edges.iterator();
+        while (edge.hasNext()) {
+            Edge toRemove = (Edge) edge.next();
+            sum += toRemove.getWeight();
+        }
+        return sum;
+    }
+    public  Set<Vertex> getNeighbors(Vertex v){
+        Set<Vertex> res = new HashSet<Vertex>();
+        Set<Edge> incomingEdges =  this.incomingEdgesOf(v);
+        Iterator edge = incomingEdges.iterator();
+        while (edge.hasNext()) {
+            Edge toAdd = (Edge) edge.next();
+            res.add(toAdd.getSourceVertex());
+            res.add(toAdd.getTargetVertex());
+        }
+        res.remove(v);
+        return res;
+    }
+    public  Set<Vertex> getNeighbors(Set<Vertex> rv){
+        Set<Vertex> res = new HashSet<Vertex>();
+        Iterator vertex = rv.iterator();
+        while (vertex.hasNext()) {
+            Vertex v = (Vertex) vertex.next();
+            res.addAll(this.getNeighbors(v));
+        }
+        res.removeAll(rv);
+        return res;
     }
 
 }
