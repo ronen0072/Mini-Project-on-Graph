@@ -1,7 +1,3 @@
-package src;
-
-import sun.security.provider.certpath.Vertex;
-
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -13,6 +9,10 @@ public class  Cluster implements ClusterInterface{
 
     public Cluster(String name){
         this.vertices = new HashSet<Vertex>();
+        this.name = name;
+    }
+    public Cluster(String name, Set<Vertex> vertices){
+        this.vertices = vertices;
         this.name = name;
     }
     public Vertex getVertex(int vertexId){
@@ -30,10 +30,10 @@ public class  Cluster implements ClusterInterface{
         vertices.add(toAdd);
         return true;
     }
-    public boolean addVertices(Set<Vertex> add){
+    public void addVertices(Set<Vertex> add){
         Iterator iter = add.iterator();
         while (iter.hasNext()) {
-            Vertex v = (Vertex) iter.next().clone();
+            Vertex v = ((Vertex) iter.next()).clone();
             this.vertices.addVertex(v);
         }
     }

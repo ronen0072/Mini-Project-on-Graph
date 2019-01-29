@@ -1,31 +1,21 @@
+
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.function.Supplier;
 
-public class Graph implements GraphInterface{
-    protected String graphName;
-    protected Set<Vertex> vertices;
+public class Graph extends Cluster implements GraphInterface{
     protected Set<Edge> edges;
 
-    public Graph(String graphName, Set<Vertex> vertices, Set<Edge> edges){
-        this.graphName = graphName;
-        this.vertices = vertices;
+    public Graph(String graphName,  Set<Vertex> vertices, Set<Edge> edges){
+        super(graphName, vertices);
         this.edges = edges;
     }
+
     public Graph(String graphName){
-        this.graphName = graphName;
-        this.vertices = new HashSet<Vertex>();
+        super(graphName);
         this.edges = new HashSet<Edge>();
-    }
-
-    public String getGraphName() {
-        return graphName;
-    }
-
-    public Set<Vertex> getVertices() {
-        return vertices;
     }
 
     public Set<Edge> getEdges() {
@@ -33,18 +23,14 @@ public class Graph implements GraphInterface{
     }
 
     public String toString() {
-        return "{"+this.getGraphName()+":"+this.getVertices()+","+this.getEdges()+"}";
-    }
-
-    public int numOfVertices() {
-        return vertices.size();
+        return "{"+this.getName()+":"+this.getVertices()+","+this.getEdges()+"}";
     }
 
     public int numOfEdges() {
         return edges.size();
     }
 
-    public Vertex getVertex(int vertexId){
+    /*public Vertex getVertex(int vertexId){
         Iterator verticesIrer = vertices.iterator();
         while (verticesIrer.hasNext()) {
             Vertex v = (Vertex) verticesIrer.next();
@@ -52,7 +38,7 @@ public class Graph implements GraphInterface{
                 return v;
         }
         return null;
-    }
+    }*/
 
     public Edge getEdge(Vertex sourceVertex, Vertex targetVertex) {
         Iterator edgesIrer = edges.iterator();
@@ -117,9 +103,9 @@ public class Graph implements GraphInterface{
         return (this.getEdge(edge) != null);
     }
 
-    public boolean containsVertex(Vertex var1) {
+    /*public boolean containsVertex(Vertex var1) {
         return vertices.contains(var1);
-    }
+    }*/
 
     public Set<Edge> incomingEdgesOf(Vertex var) {
         Set<Edge> incomingEdges = new HashSet<Edge>();

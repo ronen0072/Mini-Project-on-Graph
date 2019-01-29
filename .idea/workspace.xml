@@ -2,17 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cf3e283-423d-4556-bd5b-98cbb4990a64" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/graph/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graph/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/graph/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/out/production/graph/Edge.class" beforeDir="false" afterPath="$PROJECT_DIR$/graph/out/production/graph/Edge.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/out/production/graph/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/graph/out/production/graph/Graph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/out/production/graph/GraphInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/graph/out/production/graph/GraphInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/out/production/graph/Vertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/graph/out/production/graph/Vertex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/out/production/graph/tests.class" beforeDir="false" afterPath="$PROJECT_DIR$/graph/out/production/graph/tests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/out/production/graph/Edge.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/out/production/graph/Vertex.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/src/Cluster.java" beforeDir="false" afterPath="$PROJECT_DIR$/graph/src/Cluster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/src/ClusterInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/graph/src/ClusterInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graph/src/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/graph/src/Edge.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graph/src/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/graph/src/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/src/GraphInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/graph/src/GraphInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graph/src/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/graph/src/Vertex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/src/tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/graph/src/tests.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,30 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/graph/src/tests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="473" column="54" selection-start-line="473" selection-start-column="54" selection-end-line="473" selection-end-column="54" />
-              <folding>
-                <element signature="e#7308#7440#0" />
-                <element signature="e#7445#7738#0" />
-                <element signature="e#7743#7883#0" />
-                <element signature="e#7888#8014#0" />
-                <element signature="e#8019#8359#0" />
-                <element signature="e#8364#8489#0" />
-                <element signature="e#8494#8918#0" />
-                <element signature="e#8923#9354#0" />
-                <element signature="e#9359#9858#0" />
-                <element signature="e#9863#10398#0" />
-                <element signature="e#11403#11721#0" />
-                <element signature="e#11726#12039#0" />
-                <element signature="e#12044#12510#0" />
-                <element signature="e#12515#12998#0" />
-                <element signature="e#13003#13550#0" />
-                <element signature="e#13555#13940#0" />
-                <element signature="e#13945#14355#0" />
-                <element signature="e#14360#14882#0" />
-                <element signature="e#14887#15189#0" />
-                <element signature="e#15966#16392#0" />
-              </folding>
+            <state relative-caret-position="5559">
+              <caret line="330" selection-start-line="330" selection-end-line="330" />
             </state>
           </provider>
         </entry>
@@ -70,8 +47,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <folding>
-                <element signature="e#458#459#0" expanded="true" />
-                <element signature="e#537#538#0" expanded="true" />
+                <element signature="e#322#323#0" expanded="true" />
+                <element signature="e#349#350#0" expanded="true" />
+                <element signature="method#toString#0;class#Vertex#0" />
               </folding>
             </state>
           </provider>
@@ -80,8 +58,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/graph/src/Graph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="986">
-              <caret line="123" column="36" selection-start-line="123" selection-start-column="21" selection-end-line="123" selection-end-column="36" />
+            <state relative-caret-position="850">
+              <caret line="109" column="36" selection-start-line="109" selection-start-column="21" selection-end-line="109" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#getVertex#0;class#Graph#0" />
@@ -95,14 +73,6 @@
                 <element signature="e#3654#3655#0" expanded="true" />
                 <element signature="e#3704#3705#0" expanded="true" />
                 <element signature="e#3750#3751#0" expanded="true" />
-                <element signature="e#5789#5790#0" expanded="true" />
-                <element signature="e#5833#5834#0" expanded="true" />
-                <element signature="e#5878#5879#0" expanded="true" />
-                <element signature="e#5922#5923#0" expanded="true" />
-                <element signature="e#5967#5968#0" expanded="true" />
-                <element signature="e#6005#6006#0" expanded="true" />
-                <element signature="e#6063#6064#0" expanded="true" />
-                <element signature="e#6116#6117#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -150,8 +120,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -235,14 +205,22 @@
       <option name="presentableId" value="Default" />
       <updated>1548682459881</updated>
     </task>
+    <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/ronen0072/Mini-Project-on-Graph&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;graph/.idea/workspace.xml&#10;#&#9;graph/src/Graph.java">
+      <created>1548750619439</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1548750619439</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4942717" visible="true" weight="0.26096824" />
-      <window_info id="Structure" order="1" sideWeight="0.5057283" side_tool="true" visible="true" weight="0.26096824" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.492635" visible="true" weight="0.2647504" />
+      <window_info id="Structure" order="1" sideWeight="0.507365" side_tool="true" visible="true" weight="0.2647504" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -297,6 +275,10 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
     </layout-to-restore>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Merge branch 'master' of https://github.com/ronen0072/Mini-Project-on-Graph&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;graph/.idea/workspace.xml&#10;#&#9;graph/src/Graph.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/ronen0072/Mini-Project-on-Graph&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;graph/.idea/workspace.xml&#10;#&#9;graph/src/Graph.java" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/graph/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -305,10 +287,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/graph/src/tests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5559">
+          <caret line="330" selection-start-line="330" selection-end-line="330" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/graph/src/Graph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="123" column="36" selection-start-line="123" selection-start-column="21" selection-end-line="123" selection-end-column="36" />
+        <state relative-caret-position="850">
+          <caret line="109" column="36" selection-start-line="109" selection-start-column="21" selection-end-line="109" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getVertex#0;class#Graph#0" />
@@ -322,43 +311,6 @@
             <element signature="e#3654#3655#0" expanded="true" />
             <element signature="e#3704#3705#0" expanded="true" />
             <element signature="e#3750#3751#0" expanded="true" />
-            <element signature="e#5789#5790#0" expanded="true" />
-            <element signature="e#5833#5834#0" expanded="true" />
-            <element signature="e#5878#5879#0" expanded="true" />
-            <element signature="e#5922#5923#0" expanded="true" />
-            <element signature="e#5967#5968#0" expanded="true" />
-            <element signature="e#6005#6006#0" expanded="true" />
-            <element signature="e#6063#6064#0" expanded="true" />
-            <element signature="e#6116#6117#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graph/src/tests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="473" column="54" selection-start-line="473" selection-start-column="54" selection-end-line="473" selection-end-column="54" />
-          <folding>
-            <element signature="e#7308#7440#0" />
-            <element signature="e#7445#7738#0" />
-            <element signature="e#7743#7883#0" />
-            <element signature="e#7888#8014#0" />
-            <element signature="e#8019#8359#0" />
-            <element signature="e#8364#8489#0" />
-            <element signature="e#8494#8918#0" />
-            <element signature="e#8923#9354#0" />
-            <element signature="e#9359#9858#0" />
-            <element signature="e#9863#10398#0" />
-            <element signature="e#11403#11721#0" />
-            <element signature="e#11726#12039#0" />
-            <element signature="e#12044#12510#0" />
-            <element signature="e#12515#12998#0" />
-            <element signature="e#13003#13550#0" />
-            <element signature="e#13555#13940#0" />
-            <element signature="e#13945#14355#0" />
-            <element signature="e#14360#14882#0" />
-            <element signature="e#14887#15189#0" />
-            <element signature="e#15966#16392#0" />
           </folding>
         </state>
       </provider>
@@ -367,8 +319,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
-            <element signature="e#458#459#0" expanded="true" />
-            <element signature="e#537#538#0" expanded="true" />
+            <element signature="e#322#323#0" expanded="true" />
+            <element signature="e#349#350#0" expanded="true" />
+            <element signature="method#toString#0;class#Vertex#0" />
           </folding>
         </state>
       </provider>
