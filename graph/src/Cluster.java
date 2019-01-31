@@ -10,10 +10,12 @@ public class  Cluster implements ClusterInterface{
     public Cluster(String name){
         this.vertices = new HashSet<Vertex>();
         this.name = name;
+
     }
-    public Cluster(String name,Set<Vertex> vertices) {
+    public Cluster(String name,  Set<Vertex> vertices) {
         this.vertices =vertices;
         this.name = name;
+
     }
     public Vertex getVertex(int vertexId){
         Iterator verticesIter = vertices.iterator();

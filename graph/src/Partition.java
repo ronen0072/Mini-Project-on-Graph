@@ -1,8 +1,5 @@
-package src;
-
 import java.util.HashSet;
-import java.util.Set;
-/*
+
 public class Partition {
     protected Set<SpannedCluster> SpannedClusters;
 
@@ -16,4 +13,3 @@ public class Partition {
         this.SpannedClusters.add(SpannedClusterToAdd);
     }
 }
-*/
