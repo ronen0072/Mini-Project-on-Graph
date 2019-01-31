@@ -4,14 +4,24 @@ import java.util.Set;
 import java.util.HashSet;
 
 
-public class Graph extends Cluster implements GraphInterface{
-    protected String graphName;
-    protected Set<Vertex> vertices;
+public class Graph extends Cluster implements GraphInterface,Cloneable{
     protected Set<Edge> edges;
 
     public Graph(String graphName, Set<Vertex> vertices, Set<Edge> edges){
         super(graphName, vertices);
-        this.edges = edges;
+        this.edges = new HashSet<Edge>();
+        if(edges != null) {
+            try {
+                if (!this.addAllEdges(edges))
+                    throw new InputException("sum of the edges contains vertices which does not exist in the graph.");
+            }
+            catch (InputException e) {
+                System.out.println("part of the edges contains vertices which does not exist in the graph.");
+                //e.printStackTrace();
+            }
+
+
+        }
     }
 
     public Graph(String graphName){
@@ -19,8 +29,18 @@ public class Graph extends Cluster implements GraphInterface{
         this.edges = new HashSet<Edge>();
     }
 
+    public Graph clone(){
+        return new Graph(this.getName(),this.getVertices(),this.getEdges());
+    }
+
     public Set<Edge> getEdges() {
-        return edges;
+        Set<Edge> ret = new HashSet<Edge>();
+        Iterator iter = this.edges.iterator();
+        while (iter.hasNext()) {
+            Edge e = ((Edge) iter.next()).clone();
+            ret.add(e);
+        }
+        return ret;
     }
 
     public String toString() {
@@ -77,6 +97,18 @@ public class Graph extends Cluster implements GraphInterface{
             System.out.println("the edge:"+toAdd+" contains vertex which does not exist in the graph.");
             return null;
         }
+    }
+
+    public boolean addAllEdges(Collection<? extends Edge> edges) {
+        boolean res = true;
+        Iterator edge = edges.iterator();
+        while (edge.hasNext()) {
+            Edge toAdd = (Edge) edge.next();
+            if (this.addEdge(toAdd) == null)
+                if(this.getEdge(toAdd) == null)
+                    res &= false;
+        }
+        return res;
     }
 
     public boolean containsEdge(Vertex var1, Vertex var2) {
@@ -203,13 +235,63 @@ public class Graph extends Cluster implements GraphInterface{
         return res;
     }
 
-    /*public void dijkstra() {
+    public int getSPTForUnWeightGraph(Vertex sourceVertex) {
+        Set<Vertex> verticesWeCovered = new HashSet<Vertex>();
+        verticesWeCovered.add(sourceVertex);
+        return this.getSPTForUnWeightGraph(verticesWeCovered);
+    }
+
+    public int getSPTForUnWeightGraph(Set<Vertex> verticesWeCovered) {
+        Set<Edge> treeEdges = new HashSet<Edge>();
+        Set<Vertex> neighbors = this.getNeighbors(verticesWeCovered);
+        Iterator<Vertex> neighborsIter = neighbors.iterator();
+        while (neighborsIter.hasNext()){
+            Vertex neighbor = (Vertex)neighborsIter.next();
+            Iterator<Vertex> iter = verticesWeCovered.iterator();
+            boolean foundEdge = false;
+            while (iter.hasNext() && !foundEdge){
+                Vertex sourceVertex = (Vertex)iter.next();
+                Edge edge = this.getEdge(sourceVertex,neighbor);
+                if (edge != null){
+                    treeEdges.add(edge);
+                    foundEdge = true;
+                }
+            }
+        }
+        verticesWeCovered.addAll(neighbors);
+        if(this.numOfEdges() == verticesWeCovered.size()){
+            return 0;
+        }
+        else {
+            return this.getSPTForUnWeightGraph(verticesWeCovered)+1;
+        }
+    }
+
+    public Graph getSubGraph(Cluster cluster){
+        try{
+            if(!containsAllVertixes(cluster.getVertices()))
+                throw new InputException("part of the vertices does not exist in the graph");
+            Graph gSub = this.clone();
+            Set<Vertex> toRemove = this.getVertices();
+            toRemove.removeAll(cluster.getVertices());
+            gSub.removeAllVertixes(toRemove);
+            return gSub;
+        }
+        catch (InputException e){
+            System.out.println("part of the vertices does not exist in the graph");
+            return null;
+        }
+    }
+
+
+
+    /*public void dijkstra(Vertex sourceVertex) {
         int verticesCount = this.numOfVertices();
         double[] wt = new double[verticesCount];
         for (int i = 0; i < wt.length; i++) {
             wt[i] = Double.MAX_VALUE;
         }
-        wt[0] = 0.0;
+        wt[sourceVertex.getId()] = 0.0;
         Edge[] fr  = new Edge[verticesCount];
         Edge[] mst = new Edge[verticesCount];
         int min = -1;
@@ -219,7 +301,7 @@ public class Graph extends Cluster implements GraphInterface{
             for (int w = 1; w < verticesCount; w++) {
                 if (mst[w] == null) {
                     double P = 0.0;
-                    edge = this.getEdge(this.getVertex(v), this.getVertex(v));
+                    edge = this.getEdge(this.getVertex(v), this.getVertex(w));
                     if (edge != null) {
                         if ((P = wt[v] + edge.getWeight()) < wt[w]) {
                             wt[w] = P;
