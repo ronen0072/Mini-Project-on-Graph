@@ -9,7 +9,19 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
 
     public Graph(String graphName, Set<Vertex> vertices, Set<Edge> edges){
         super(graphName, vertices);
-        this.edges = edges;
+        this.edges = new HashSet<Edge>();
+        if(edges != null) {
+            try {
+                if (!this.addAllEdges(edges))
+                    throw new InputException("sum of the edges contains vertices which does not exist in the graph.");
+            }
+            catch (InputException e) {
+                System.out.println("part of the edges contains vertices which does not exist in the graph.");
+                //e.printStackTrace();
+            }
+
+
+        }
     }
 
     public Graph(String graphName){
@@ -85,6 +97,18 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
             System.out.println("the edge:"+toAdd+" contains vertex which does not exist in the graph.");
             return null;
         }
+    }
+
+    public boolean addAllEdges(Collection<? extends Edge> edges) {
+        boolean res = true;
+        Iterator edge = edges.iterator();
+        while (edge.hasNext()) {
+            Edge toAdd = (Edge) edge.next();
+            if (this.addEdge(toAdd) == null)
+                if(this.getEdge(toAdd) == null)
+                    res &= false;
+        }
+        return res;
     }
 
     public boolean containsEdge(Vertex var1, Vertex var2) {
@@ -211,18 +235,17 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         return res;
     }
 
-    public Graph getSPTForUnWeightGraph(Vertex sourceVertex, Integer radius) {
+    public int getSPTForUnWeightGraph(Vertex sourceVertex) {
         Set<Vertex> verticesWeCovered = new HashSet<Vertex>();
         verticesWeCovered.add(sourceVertex);
-        Set<Edge> treeEdges = this.getSPTForUnWeightGraph(verticesWeCovered, radius);
-        return new Graph("SPT Of" +this.getName(), this.getVertices(),treeEdges );
+        return this.getSPTForUnWeightGraph(verticesWeCovered);
     }
-    public Set<Edge> getSPTForUnWeightGraph(Set<Vertex> verticesWeCovered, Integer radius) {
+
+    public int getSPTForUnWeightGraph(Set<Vertex> verticesWeCovered) {
         Set<Edge> treeEdges = new HashSet<Edge>();
         Set<Vertex> neighbors = this.getNeighbors(verticesWeCovered);
         Iterator<Vertex> neighborsIter = neighbors.iterator();
         while (neighborsIter.hasNext()){
-            radius += 1;
             Vertex neighbor = (Vertex)neighborsIter.next();
             Iterator<Vertex> iter = verticesWeCovered.iterator();
             boolean foundEdge = false;
@@ -237,25 +260,31 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         }
         verticesWeCovered.addAll(neighbors);
         if(this.numOfEdges() == verticesWeCovered.size()){
-            return treeEdges;
+            return 0;
         }
         else {
-            return this.getSPTForUnWeightGraph(verticesWeCovered, radius);
+            return this.getSPTForUnWeightGraph(verticesWeCovered)+1;
         }
     }
+
     public Graph getSubGraph(Cluster cluster){
-        Graph gSub = this.clone();
-        Set<Vertex> toRemove = this.getVertices();
-        toRemove.removeAll(cluster.getVertices());
-        gSub.removeAllVertixes(toRemove);
-        return gSub;
+        try{
+            if(!containsAllVertixes(cluster.getVertices()))
+                throw new InputException("part of the vertices does not exist in the graph");
+            Graph gSub = this.clone();
+            Set<Vertex> toRemove = this.getVertices();
+            toRemove.removeAll(cluster.getVertices());
+            gSub.removeAllVertixes(toRemove);
+            return gSub;
+        }
+        catch (InputException e){
+            System.out.println("part of the vertices does not exist in the graph");
+            return null;
+        }
     }
-    public SpannedCluster getSpannedCluster(Vertex center, Cluster cluster){
-        Graph gSub = this.getSubGraph(cluster);
-        Integer radius = new Integer(0);
-        Graph sptTree = gSub.getSPTForUnWeightGraph(center, radius);
-        return new SpannedCluster(sptTree.getName(), center, sptTree.getVertices(),sptTree.getEdges(), radius.intValue());
-    }
+
+
+
     /*public void dijkstra(Vertex sourceVertex) {
         int verticesCount = this.numOfVertices();
         double[] wt = new double[verticesCount];

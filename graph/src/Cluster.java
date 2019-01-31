@@ -36,6 +36,7 @@ public class  Cluster implements ClusterInterface{
         vertices.add(toAdd);
         return true;
     }
+
     public boolean addVertices(Set<Vertex> add){
         boolean res = true;
         Iterator iter = add.iterator();
@@ -45,6 +46,7 @@ public class  Cluster implements ClusterInterface{
         }
         return res;
     }
+
     public String getName(){
         return this.name;
     }
@@ -59,6 +61,15 @@ public class  Cluster implements ClusterInterface{
         return false;
     }
 
+    public boolean containsAllVertixes(Collection<? extends Vertex> vert){
+        boolean res = true;
+        Iterator verticesIter = vert.iterator();
+        while (verticesIter.hasNext()) {
+            Vertex toRemove = (Vertex) verticesIter.next();
+            res &= this.containsVertex(toRemove);
+        }
+        return res;
+    }
     public boolean removeAllVertixes(Collection<? extends Vertex> vert){
         boolean res = true;
         Iterator verticesIter = vert.iterator();
@@ -68,7 +79,6 @@ public class  Cluster implements ClusterInterface{
         }
         return res;
     }
-
 
     public boolean removeVertex(Vertex vert){
         Iterator verticesIter = vertices.iterator();
