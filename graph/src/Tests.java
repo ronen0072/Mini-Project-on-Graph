@@ -165,11 +165,6 @@ public class Tests {
         if (!graphTestSumOfEdges()) {failCuont++;  System.out.println("graphTestSumOfEdges");}
         if (!graphTestGetNeighbors1()) {failCuont++;  System.out.println("graphTestGetNeighbors1");}
         if (!graphTestGetNeighbors2()) {failCuont++;  System.out.println("graphTestGetNeighbors2");}
-        if (!graphTestGetSPTForUnWeightGraph1()) {failCuont++;  System.out.println("graphTestGetSPTForUnWeightGraph1");}
-        if (!graphTestGetSPTForUnWeightGraph2()) {failCuont++;  System.out.println("graphTestGetSPTForUnWeightGraph2");}
-        if (!graphTestGetSubGraph1()) {failCuont++;  System.out.println("graphTestGetSubGraph1");}
-        if (!graphTestGetSubGraph2()) {failCuont++;  System.out.println("graphTestGetSubGraph2");}
-
 
         return failCuont;
     }
@@ -618,7 +613,7 @@ public class Tests {
         Graph g = new Graph("ronen", vertices, edges);
         g.addEdge(v1,v2);
         int before = g.numOfVertices();
-        g.removeAllVertices(vertices2);
+        g.removeAllVertixes(vertices2);
         return ((before ==3)&& g.numOfVertices()==0);
     }
     public boolean graphTestIncomingRemoveAllVertixes2(){
@@ -637,7 +632,7 @@ public class Tests {
         Graph g = new Graph("ronen", vertices, edges);
         g.addEdge(v1,v2);
         int before = g.numOfEdges();
-        g.removeAllVertices(vertices2);
+        g.removeAllVertixes(vertices2);
         return ((before ==1)&& g.numOfEdges() == 0);
     }
     public boolean graphTestIncomingRemoveAllVertixes3(){
@@ -654,8 +649,8 @@ public class Tests {
         vertices2.add(v2);
         vertices2.add(v3);
         Graph g = new Graph("ronen", vertices, edges);
-        g.removeAllVertices(vertices2);
-        return g.removeAllVertices(vertices);
+        g.removeAllVertixes(vertices2);
+        return g.removeAllVertixes(vertices);
     }
     public boolean graphTestIncomingRemoveAllVertixes4(){
         Vertex v1 = new Vertex(1);
@@ -670,7 +665,7 @@ public class Tests {
         vertices2.add(v2);
         vertices2.add(v3);
         Graph g = new Graph("ronen", vertices, edges);
-        return (!g.removeAllVertices(vertices2));
+        return (!g.removeAllVertixes(vertices2));
     }
     public boolean graphTestIncomingRemoveAllEdges1(){
         Vertex v1 = new Vertex(1);
@@ -760,77 +755,6 @@ public class Tests {
         //System.out.println(g.getNeighbors(g.getNeighbors(v1)));
         return (g.getNeighbors(v1).size() == 1)&&(g.getNeighbors(g.getNeighbors(v1)).size() == 2);
     }
-    public boolean graphTestGetSPTForUnWeightGraph1(){
-        Vertex v1 = new Vertex(1);
-        Vertex v2 = new Vertex(2);
-        Vertex v3 = new Vertex(3);
-        Set<Vertex> vertices = new HashSet<Vertex>();
-        Set<Edge> edges = new HashSet<Edge>();
-        vertices.add(v1);
-        vertices.add(v2);
-        vertices.add(v3);
-        edges.add(new Edge(v1,v2));
-        edges.add(new Edge(v2,v3));
-        edges.add(new Edge(v1,v3));
-        Graph g = new Graph("ronen", vertices, edges);
-        g.getSPTForUnWeightGraph(v1);
-        //System.out.println(g);
-        return (g.numOfEdges() == 2);
-    }
-    public boolean graphTestGetSPTForUnWeightGraph2(){
-        Vertex v1 = new Vertex(1);
-        Vertex v2 = new Vertex(2);
-        Vertex v3 = new Vertex(3);
-        Set<Vertex> vertices = new HashSet<Vertex>();
-        Set<Edge> edges = new HashSet<Edge>();
-        vertices.add(v1);
-        vertices.add(v2);
-        vertices.add(v3);
-        edges.add(new Edge(v1,v2));
-        Graph g = new Graph("ronen", vertices, edges);
-
-        return (g.getSPTForUnWeightGraph(v1) != (int)Integer.MAX_VALUE);
-    }
-    public boolean graphTestGetSubGraph1(){
-        Vertex v1 = new Vertex(1);
-        Vertex v2 = new Vertex(2);
-        Vertex v3 = new Vertex(3);
-        Set<Vertex> vertices = new HashSet<Vertex>();
-        Set<Edge> edges = new HashSet<Edge>();
-        vertices.add(v1);
-        vertices.add(v2);
-        vertices.add(v3);
-        edges.add(new Edge(v1,v2));
-        edges.add(new Edge(v2,v3));
-        edges.add(new Edge(v1,v3));
-        Graph g = new Graph("ronen", vertices, edges);
-        Set<Vertex> vertices2 = new HashSet<Vertex>();
-        vertices2.add(v1);
-        vertices2.add(v2);
-        Cluster s = new Cluster("ronen", vertices2);
-        Graph h = g.getSubGraph(s);
-        System.out.println(h);
-        return (h.numOfEdges() == 1)&&(h.numOfVertices() == 2);
-    }
-    public boolean graphTestGetSubGraph2(){
-        Vertex v1 = new Vertex(1);
-        Vertex v2 = new Vertex(2);
-        Vertex v3 = new Vertex(3);
-        Set<Vertex> vertices = new HashSet<Vertex>();
-        Set<Edge> edges = new HashSet<Edge>();
-        vertices.add(v1);
-        vertices.add(v2);
-        vertices.add(v3);
-        edges.add(new Edge(v1,v2));
-        edges.add(new Edge(v2,v3));
-        edges.add(new Edge(v1,v3));
-        Graph g = new Graph("ronen", vertices, edges);
-        Set<Vertex> vertices2 = new HashSet<Vertex>();
-        Cluster s = new Cluster("ronen", vertices2);
-        Graph h = g.getSubGraph(s);
-        System.out.println(h);
-        return (h.numOfEdges() == 0)&&(h.numOfVertices() == 0);
-    }
 
     public int testCluster(){
         int failCount = 0;
@@ -854,10 +778,6 @@ public class Tests {
         if (!clusterTestRemoveAllVertixes1()) {failCount++;  System.out.println("graphTestRemoveAllVertixes1");}
         if (!clusterTestRemoveAllVertixes2()) {failCount++;  System.out.println("graphTestRemoveAllVertixes2");}
         if (!clusterTestRemoveAllVertixes3()) {failCount++;  System.out.println("graphTestRemoveAllVertixes3");}
-        if (!clusterTestRemoveAllVertixes4()) {failCount++;  System.out.println("graphTestRemoveAllVertixes4");}
-        if (!clusterTestContainsAllVertixes1()) {failCount++;  System.out.println("clusterTestContainsAllVertixes1");}
-        if (!clusterTestContainsAllVertixes2()) {failCount++;  System.out.println("clusterTestContainsAllVertixes2");}
-        if (!clusterTestContainsAllVertixes3()) {failCount++;  System.out.println("clusterTestContainsAllVertixes3");}
         return failCount;
     }
     public boolean clusterTestGetName() {
@@ -1011,7 +931,7 @@ public class Tests {
         vertices2.add(v3);
         Cluster s = new Cluster("ronen", vertices);
         int before = s.numOfVertices();
-        s.removeAllVertices(vertices2);
+        s.removeAllVertixes(vertices2);
         return ((before ==3)&& s.numOfVertices()==0);
     }
     public boolean clusterTestRemoveAllVertixes2(){
@@ -1027,7 +947,7 @@ public class Tests {
         vertices2.add(v2);
         vertices2.add(v3);
         Cluster s = new Cluster("ronen", vertices);
-        return s.removeAllVertices(vertices2);
+        return s.removeAllVertixes(vertices2);
     }
     public boolean clusterTestRemoveAllVertixes3(){
         Vertex v1 = new Vertex(1);
@@ -1041,59 +961,9 @@ public class Tests {
         vertices2.add(v2);
         vertices2.add(v3);
         Cluster s = new Cluster("ronen", vertices);
-        return (!s.removeAllVertices(vertices2));
+        return (!s.removeAllVertixes(vertices2));
     }
-    public boolean clusterTestRemoveAllVertixes4(){
-        Vertex v1 = new Vertex(1);
-        Vertex v2 = new Vertex(2);
-        Vertex v3 = new Vertex(3);
-        Set<Vertex> vertices = new HashSet<Vertex>();
-        vertices.add(v1);
-        vertices.add(v2);
-        Cluster s = new Cluster("ronen", vertices);
-        return (!s.removeAllVertices(null));
-    }
-    public boolean clusterTestContainsAllVertixes1(){
-        Vertex v1 = new Vertex(1);
-        Vertex v2 = new Vertex(2);
-        Vertex v3 = new Vertex(3);
-        Set<Vertex> vertices = new HashSet<Vertex>();
-        vertices.add(v1);
-        vertices.add(v2);
-        Set<Vertex> vertices2 = new HashSet<Vertex>();
-        vertices2.add(v1);
-        vertices2.add(v2);
-        vertices2.add(v3);
-        Cluster s = new Cluster("ronen", vertices);
-        return (!s.containsAllVertices(vertices2));
-    }
-    public boolean clusterTestContainsAllVertixes2(){
-        Vertex v1 = new Vertex(1);
-        Vertex v2 = new Vertex(2);
-        Vertex v3 = new Vertex(3);
-        Set<Vertex> vertices = new HashSet<Vertex>();
-        vertices.add(v1);
-        vertices.add(v2);
-        vertices.add(v3);
-        Set<Vertex> vertices2 = new HashSet<Vertex>();
-        vertices2.add(v1);
-        vertices2.add(v2);
-        Cluster s = new Cluster("ronen", vertices);
-        return (s.containsAllVertices(vertices2));
-    }
-    public boolean clusterTestContainsAllVertixes3(){
-        Vertex v1 = new Vertex(1);
-        Vertex v2 = new Vertex(2);
-        Vertex v3 = new Vertex(3);
-        Set<Vertex> vertices = new HashSet<Vertex>();
-        vertices.add(v1);
-        vertices.add(v2);
-        vertices.add(v3);
-        Cluster s = new Cluster("ronen", vertices);
-        return (!s.containsAllVertices(null));
-    }
-    /*public
-    void algorithmsTestdijkstra(){
+    /*public void algorithmsTestdijkstra(){
         Vertex v0 = new Vertex(0);
         Vertex v1 = new Vertex(1);
         Vertex v2 = new Vertex(2);
@@ -1111,5 +981,80 @@ public class Tests {
 
     }*/
 
+    public boolean calcNeighborsTest(){
+        Cluster s = new Cluster("cluster");
+        Vertex v1 = new Vertex(1,"1");
+        Vertex v2 = new Vertex(2,"2");
+        Vertex v3 = new Vertex(3,"3");
+        Vertex v4 = new Vertex(4,"4");
+        s.addVertex(v1);
+        s.addVertex(v2);
+        Set<Vertex> vertices = new HashSet<Vertex>();
+        Set<Vertex> u = new HashSet<Vertex>();
+        Set<Edge> edges = new HashSet<Edge>();
+        vertices.add(v1);
+        vertices.add(v2);
+        vertices.add(v3);
+        vertices.add(v4);
+        u.add(v1);
+        u.add(v2);
+        u.add(v3);
+        Edge edge1 = new Edge(v1,v2);
+        Edge edge2 = new Edge(v1,v3);
+        Edge edge3 = new Edge(v1,v4);
+        Edge edge4 = new Edge(v3,v2);
+        Edge edge5 = new Edge(v4,v2);
+        Edge edge6 = new Edge(v3,v4);
+        edges.add(edge1);
+        edges.add(edge2);
+        edges.add(edge3);
+        edges.add(edge4);
+        edges.add(edge5);
+        edges.add(edge6);
+        Graph g = new Graph("graph", vertices, edges);
+        return (SpCons.calcNeighbors( s, s.getVertices(), g) == 3);
+    }
+    public boolean expendNeighborsTest(){
+        Cluster s = new Cluster("cluster");
+        Vertex v1 = new Vertex(1,"1");
+        Vertex v2 = new Vertex(2,"2");
+        Vertex v3 = new Vertex(3,"3");
+        Vertex v4 = new Vertex(4,"4");
+        s.addVertex(v1);
+        s.addVertex(v2);
+        Set<Vertex> vertices = new HashSet<Vertex>();
+        Set<Vertex> u = new HashSet<Vertex>();
+        Set<Edge> edges = new HashSet<Edge>();
+        vertices.add(v1);
+        vertices.add(v2);
+        vertices.add(v3);
+        vertices.add(v4);
+        u.add(v1);
+        u.add(v2);
+        u.add(v3);
+        Edge edge1 = new Edge(v1,v2);
+        Edge edge2 = new Edge(v1,v3);
+        Edge edge3 = new Edge(v1,v4);
+        Edge edge4 = new Edge(v3,v2);
+        Edge edge5 = new Edge(v4,v2);
+        Edge edge6 = new Edge(v3,v4);
+        edges.add(edge1);
+        edges.add(edge2);
+        edges.add(edge3);
+        edges.add(edge4);
+        edges.add(edge5);
+        edges.add(edge6);
+        Graph g = new Graph("graph", vertices, edges);
+        Set<Vertex> neighbors = SpCons.expendNeighbors( s, s.getVertices(), g);
+        if(neighbors.size()==3){
+            if (neighbors.contains(v1)&&neighbors.contains(v2)&&neighbors.contains(v3)){
+                neighbors.removeAll(u);
+                if(neighbors.size()==0){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
 

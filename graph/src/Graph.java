@@ -19,6 +19,8 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
                 System.out.println("part of the edges contains vertices which does not exist in the graph.");
                 //e.printStackTrace();
             }
+
+
         }
     }
 
@@ -236,51 +238,43 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
     public int getSPTForUnWeightGraph(Vertex sourceVertex) {
         Set<Vertex> verticesWeCovered = new HashSet<Vertex>();
         verticesWeCovered.add(sourceVertex);
-        Set<Edge> treeEdges = new HashSet<Edge>();
-        return this.getSPTForUnWeightGraph(verticesWeCovered, treeEdges);
+        return this.getSPTForUnWeightGraph(verticesWeCovered);
     }
 
-    public int getSPTForUnWeightGraph(Set<Vertex> verticesWeCovered, Set<Edge> treeEdges) {
+    public int getSPTForUnWeightGraph(Set<Vertex> verticesWeCovered) {
+        Set<Edge> treeEdges = new HashSet<Edge>();
         Set<Vertex> neighbors = this.getNeighbors(verticesWeCovered);
-        try{
-            if(neighbors.isEmpty()&& (verticesWeCovered.size() < this.numOfVertices()))
-                throw new Exception("the graph is not connected so there is no SPT for this graph:"+this);
-            Iterator<Vertex> neighborsIter = neighbors.iterator();
-            while (neighborsIter.hasNext()){
-                Vertex neighbor = (Vertex)neighborsIter.next();
-                Iterator<Vertex> iter = verticesWeCovered.iterator();
-                boolean foundEdge = false;
-                while (iter.hasNext() && !foundEdge){
-                    Vertex sourceVertex = (Vertex)iter.next();
-                    Edge edge = this.getEdge(sourceVertex,neighbor);
-                    if (edge != null){
-                        treeEdges.add(edge);
-                        foundEdge = true;
-                    }
+        Iterator<Vertex> neighborsIter = neighbors.iterator();
+        while (neighborsIter.hasNext()){
+            Vertex neighbor = (Vertex)neighborsIter.next();
+            Iterator<Vertex> iter = verticesWeCovered.iterator();
+            boolean foundEdge = false;
+            while (iter.hasNext() && !foundEdge){
+                Vertex sourceVertex = (Vertex)iter.next();
+                Edge edge = this.getEdge(sourceVertex,neighbor);
+                if (edge != null){
+                    treeEdges.add(edge);
+                    foundEdge = true;
                 }
             }
-            verticesWeCovered.addAll(neighbors);
-            if(this.numOfVertices() == verticesWeCovered.size()){
-                this.edges = treeEdges;
-                return 0;
-            }
-            else {
-                return this.getSPTForUnWeightGraph(verticesWeCovered, treeEdges)+1;
-            }
         }
-        catch (Exception e){
-            System.out.println("the graph is not connected so there is no SPT for this graph:"+this);
-            return Integer.MAX_VALUE;
+        verticesWeCovered.addAll(neighbors);
+        if(this.numOfEdges() == verticesWeCovered.size()){
+            return 0;
+        }
+        else {
+            return this.getSPTForUnWeightGraph(verticesWeCovered)+1;
         }
     }
 
     public Graph getSubGraph(Cluster cluster){
         try{
-            if(!containsAllVertices(cluster.getVertices()))
+            if(!containsAllVertixes(cluster.getVertices()))
                 throw new InputException("part of the vertices does not exist in the graph");
             Graph gSub = this.clone();
-            gSub.removeAllVerticesExceptFrom(cluster.getVertices());
-
+            Set<Vertex> toRemove = this.getVertices();
+            toRemove.removeAll(cluster.getVertices());
+            gSub.removeAllVertixes(toRemove);
             return gSub;
         }
         catch (InputException e){

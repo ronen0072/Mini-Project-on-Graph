@@ -182,7 +182,7 @@ public class testsForCluster {
         vertices2.add(v3);
         Cluster s = new Cluster("ronen", vertices);
         int before = s.numOfVertices();
-        s.removeAllVertices(vertices2);
+        s.removeAllVertixes(vertices2);
         return ((before ==3)&& s.numOfVertices()==0);
     }
     public boolean clusterTestRemoveAllVertixes2(){
@@ -198,7 +198,7 @@ public class testsForCluster {
         vertices2.add(v2);
         vertices2.add(v3);
         Cluster s = new Cluster("ronen", vertices);
-        return s.removeAllVertices(vertices);
+        return s.removeAllVertixes(vertices);
     }
     public boolean clusterTestRemoveAllVertixes3(){
         Vertex v1 = new Vertex(1);
@@ -212,7 +212,6 @@ public class testsForCluster {
         vertices2.add(v2);
         vertices2.add(v3);
         Cluster s = new Cluster("ronen", vertices);
-        return (!s.removeAllVertices(vertices2));
+        return (!s.removeAllVertixes(vertices2));
     }
-
 }
