@@ -6,7 +6,7 @@ public interface ClusterInterface {
     Vertex getVertex(int vertexId);
 
     boolean addVertex(Vertex var1);
-    public boolean addVertices(Set<Vertex> add);
+    boolean addVertices(Set<Vertex> add);
 
     boolean containsVertex(Vertex var1);
     boolean containsAllVertices(Collection<? extends Vertex> vert);

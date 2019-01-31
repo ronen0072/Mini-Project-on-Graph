@@ -1,20 +1,23 @@
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.HashSet;
-
 public class SpannedCluster extends Graph {
     protected Vertex center;
     protected double radius;
 
-    public SpannedCluster(String name, Vertex center, Set<Vertex> vertices, Set<Edge> sptEdges , int radius){
-        super(name, vertices, sptEdges);
+    public SpannedCluster (Vertex center, Cluster cluster, Graph subGraph){
+        super(cluster.getName(),cluster.getVertices(),subGraph.getEdges());
         this.center = center;
-        this.radius = radius;
+        try {
+            if(!subGraph.containsAllVertixes(cluster.getVertices()))
+                throw new InputException("The sub graph is corrupted");
+        }catch (InputException e){
+            System.out.println("The sub graph is corrupted");
+        }
+        radius = this.getSPTForUnWeightGraph(center);
     }
-
-    protected void calcRadius(){
-        this.radius = 0;
+    public Vertex getCenter(){
+        return this.center.clone();
+    }
+    public double getRadius(){
+        return this.radius;
     }
 }
