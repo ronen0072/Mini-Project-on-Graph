@@ -1,9 +1,4 @@
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.HashSet;
-
 public class SpannedCluster extends Graph {
     protected Vertex center;
     protected double radius;
@@ -19,8 +14,10 @@ public class SpannedCluster extends Graph {
         }
         radius = this.getSPTForUnWeightGraph(center);
     }
-
+    public Vertex getCenter(){
+        return this.center.clone();
+    }
     public double getRadius(){
-        return radius;
+        return this.radius;
     }
 }
