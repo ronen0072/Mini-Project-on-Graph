@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa18e5f0-1ba5-4c85-a1b8-04986b284687" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/graph/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/graph/Graph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cluster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cluster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClusterInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClusterInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vertex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/testsForCluster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/testsForCluster.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,7 +26,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Graph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
+            <state relative-caret-position="232">
               <caret line="281" selection-start-line="281" selection-end-line="281" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -83,7 +76,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Vertex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
+            <state relative-caret-position="561">
               <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
               <folding>
                 <element signature="e#458#459#0" expanded="true" />
@@ -216,21 +209,19 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Cluster.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="126" column="35" selection-start-line="126" selection-start-column="35" selection-end-line="126" selection-end-column="35" />
+            <state relative-caret-position="138">
+              <caret line="117" column="81" selection-start-line="117" selection-start-column="81" selection-end-line="117" selection-end-column="81" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#addVertex#0;class#Cluster#0" />
                 <element signature="method#addVertices#0;class#Cluster#0" />
                 <element signature="method#containsAllVertices#0;class#Cluster#0" />
                 <element signature="method#removeAllVertices#0;class#Cluster#0" />
+                <element signature="method#removeAllVerticesExceptFrom#0;class#Cluster#0" />
                 <element signature="e#3797#3805#0" expanded="true" />
                 <element signature="method#removeVertex#0;class#Cluster#0" />
+                <element signature="method#getVertices#0;class#Cluster#0" />
                 <element signature="e#3673#3681#0" expanded="true" />
-                <element signature="e#5133#5134#0" expanded="true" />
-                <element signature="e#5209#5210#0" expanded="true" />
-                <element signature="e#5242#5243#0" expanded="true" />
-                <element signature="e#5285#5286#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -357,7 +348,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548955368398" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548955511406" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -505,12 +496,25 @@
       <option name="project" value="LOCAL" />
       <updated>1548940499889</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Merge branch 'master' of https://github.com/ronen0072/Mini-Project-on-Graph&#10;                         &#10;                         # Conflicts:&#10;                         #&#9;graph/src/ClusterInterface.java&#10;                         #&#9;graph/src/Edge.java&#10;                         #&#9;graph/src/Vertex.java&#10;                         sub graph">
+      <created>1548955407600</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1548955407600</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Merge branch 'master' of https://github.com/ronen0072/Mini-Project-on-Graph&#10;                         &#10;                         # Conflicts:&#10;                         #&#9;graph/src/ClusterInterface.java&#10;                         #&#9;graph/src/Edge.java&#10;                         #&#9;graph/src/Vertex.java&#10;                         sub graph">
+      <created>1548955514742</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1548955514742</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="0" width="1364" height="728" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
@@ -521,11 +525,11 @@
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.3277311" />
       <window_info anchor="bottom" id="Terminal" order="1" />
-      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5007669" side_tool="true" weight="0.2857143" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="2" sideWeight="0.5007669" side_tool="true" visible="true" weight="0.20672269" />
       <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.49924356" weight="0.3281075" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" sideWeight="0.49923313" visible="true" weight="0.2857143" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49923313" visible="true" weight="0.20672269" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4672269" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -573,7 +577,8 @@
     <MESSAGE value="Merge branch 'master' of https://github.com/ronen0072/Mini-Project-on-Graph&#10;&#10;# Conflicts:&#10;#&#9;graph/src/ClusterInterface.java&#10;#&#9;graph/src/Edge.java&#10;#&#9;graph/src/Vertex.java" />
     <MESSAGE value="Merge branch 'master' of https://github.com/ronen0072/Mini-Project-on-Graph&#10;                         &#10;                         # Conflicts:&#10;                         #&#9;graph/src/ClusterInterface.java&#10;                         #&#9;graph/src/Edge.java&#10;                         #&#9;graph/src/Vertex.java&#10;                         גירסה לא טובה של ספאן קלסטר" />
     <MESSAGE value="Merge branch 'master' of https://github.com/ronen0072/Mini-Project-on-Graph&#10;                         &#10;                         # Conflicts:&#10;                         #&#9;graph/src/ClusterInterface.java&#10;                         #&#9;graph/src/Edge.java&#10;                         #&#9;graph/src/Vertex.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/ronen0072/Mini-Project-on-Graph&#10;                         &#10;                         # Conflicts:&#10;                         #&#9;graph/src/ClusterInterface.java&#10;                         #&#9;graph/src/Edge.java&#10;                         #&#9;graph/src/Vertex.java" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/ronen0072/Mini-Project-on-Graph&#10;                         &#10;                         # Conflicts:&#10;                         #&#9;graph/src/ClusterInterface.java&#10;                         #&#9;graph/src/Edge.java&#10;                         #&#9;graph/src/Vertex.java&#10;                         sub graph" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/ronen0072/Mini-Project-on-Graph&#10;                         &#10;                         # Conflicts:&#10;                         #&#9;graph/src/ClusterInterface.java&#10;                         #&#9;graph/src/Edge.java&#10;                         #&#9;graph/src/Vertex.java&#10;                         sub graph" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -782,7 +787,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Vertex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
+        <state relative-caret-position="561">
           <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
           <folding>
             <element signature="e#458#459#0" expanded="true" />
@@ -807,7 +812,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Graph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
+        <state relative-caret-position="232">
           <caret line="281" selection-start-line="281" selection-end-line="281" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -855,21 +860,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Cluster.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="126" column="35" selection-start-line="126" selection-start-column="35" selection-end-line="126" selection-end-column="35" />
+        <state relative-caret-position="138">
+          <caret line="117" column="81" selection-start-line="117" selection-start-column="81" selection-end-line="117" selection-end-column="81" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#addVertex#0;class#Cluster#0" />
             <element signature="method#addVertices#0;class#Cluster#0" />
             <element signature="method#containsAllVertices#0;class#Cluster#0" />
             <element signature="method#removeAllVertices#0;class#Cluster#0" />
+            <element signature="method#removeAllVerticesExceptFrom#0;class#Cluster#0" />
             <element signature="e#3797#3805#0" expanded="true" />
             <element signature="method#removeVertex#0;class#Cluster#0" />
+            <element signature="method#getVertices#0;class#Cluster#0" />
             <element signature="e#3673#3681#0" expanded="true" />
-            <element signature="e#5133#5134#0" expanded="true" />
-            <element signature="e#5209#5210#0" expanded="true" />
-            <element signature="e#5242#5243#0" expanded="true" />
-            <element signature="e#5285#5286#0" expanded="true" />
           </folding>
         </state>
       </provider>
