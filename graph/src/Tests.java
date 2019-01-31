@@ -981,5 +981,80 @@ public class Tests {
 
     }*/
 
+    public boolean calcNeighborsTest(){
+        Cluster s = new Cluster("cluster");
+        Vertex v1 = new Vertex(1,"1");
+        Vertex v2 = new Vertex(2,"2");
+        Vertex v3 = new Vertex(3,"3");
+        Vertex v4 = new Vertex(4,"4");
+        s.addVertex(v1);
+        s.addVertex(v2);
+        Set<Vertex> vertices = new HashSet<Vertex>();
+        Set<Vertex> u = new HashSet<Vertex>();
+        Set<Edge> edges = new HashSet<Edge>();
+        vertices.add(v1);
+        vertices.add(v2);
+        vertices.add(v3);
+        vertices.add(v4);
+        u.add(v1);
+        u.add(v2);
+        u.add(v3);
+        Edge edge1 = new Edge(v1,v2);
+        Edge edge2 = new Edge(v1,v3);
+        Edge edge3 = new Edge(v1,v4);
+        Edge edge4 = new Edge(v3,v2);
+        Edge edge5 = new Edge(v4,v2);
+        Edge edge6 = new Edge(v3,v4);
+        edges.add(edge1);
+        edges.add(edge2);
+        edges.add(edge3);
+        edges.add(edge4);
+        edges.add(edge5);
+        edges.add(edge6);
+        Graph g = new Graph("graph", vertices, edges);
+        return (SpCons.calcNeighbors( s, s.getVertices(), g) == 3);
+    }
+    public boolean expendNeighborsTest(){
+        Cluster s = new Cluster("cluster");
+        Vertex v1 = new Vertex(1,"1");
+        Vertex v2 = new Vertex(2,"2");
+        Vertex v3 = new Vertex(3,"3");
+        Vertex v4 = new Vertex(4,"4");
+        s.addVertex(v1);
+        s.addVertex(v2);
+        Set<Vertex> vertices = new HashSet<Vertex>();
+        Set<Vertex> u = new HashSet<Vertex>();
+        Set<Edge> edges = new HashSet<Edge>();
+        vertices.add(v1);
+        vertices.add(v2);
+        vertices.add(v3);
+        vertices.add(v4);
+        u.add(v1);
+        u.add(v2);
+        u.add(v3);
+        Edge edge1 = new Edge(v1,v2);
+        Edge edge2 = new Edge(v1,v3);
+        Edge edge3 = new Edge(v1,v4);
+        Edge edge4 = new Edge(v3,v2);
+        Edge edge5 = new Edge(v4,v2);
+        Edge edge6 = new Edge(v3,v4);
+        edges.add(edge1);
+        edges.add(edge2);
+        edges.add(edge3);
+        edges.add(edge4);
+        edges.add(edge5);
+        edges.add(edge6);
+        Graph g = new Graph("graph", vertices, edges);
+        Set<Vertex> neighbors = SpCons.expendNeighbors( s, s.getVertices(), g);
+        if(neighbors.size()==3){
+            if (neighbors.contains(v1)&&neighbors.contains(v2)&&neighbors.contains(v3)){
+                neighbors.removeAll(u);
+                if(neighbors.size()==0){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
 

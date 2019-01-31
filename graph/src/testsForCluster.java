@@ -214,5 +214,4 @@ public class testsForCluster {
         Cluster s = new Cluster("ronen", vertices);
         return (!s.removeAllVertixes(vertices2));
     }
-
 }
