@@ -6,15 +6,15 @@ import java.util.Set;
 public class SpCons {
 
      public static Graph SpCons(Graph G){ //main function returns the spanner
-         Graph H = new Graph("SC_H");
          int k = 0;
-         downPart(G,k);
+         Graph H;
+         Set<SpannedCluster> partitionG = new HashSet<SpannedCluster>() ;
+         H = downPart(G,k,partitionG);
          ProcedureSC();
          return H;
     }
-    private static void downPart( Graph G, int k){//creates the partition
+    private static Graph downPart( Graph G, int k, Set<SpannedCluster> partitionG){//creates the partition
         System.out.println("Down_Part");
-        Set<SpannedCluster> partitionG = new HashSet<SpannedCluster>() ;
         Set<Vertex> vertexSetU = G.getVertices();
         Set<CenteredCluster> centeredClusterSTag = new HashSet<CenteredCluster>();
         Graph H = new Graph("DP_H");
@@ -41,7 +41,9 @@ public class SpCons {
             Graph addToH = G.getSubGraph(iterableShell);
             addToH.getSPTForUnWeightGraph(iterableShell.getCenter());
             H.addAllEdges(addToH.getEdges());
+            H.addVertices(addToH.getVertices());
         }
+        return H;
     }
 
     private static void ProcedureSC(){
