@@ -21,11 +21,23 @@ public class  Cluster implements ClusterInterface{
         Iterator verticesIter = vertices.iterator();
         while (verticesIter.hasNext()) {
             Vertex v = (Vertex) verticesIter.next();
-            if (v.getId()== vertexId)
+            if (v.getId() == vertexId)
                 return v.clone();
         }
         return null;
     }
+    protected Vertex getVertex(Vertex ver){
+        Iterator verticesIter = vertices.iterator();
+        while (verticesIter.hasNext()) {
+            Vertex v = (Vertex) verticesIter.next();
+            if (v.equals(ver))
+                return v;
+        }
+        return null;
+    }
+
+
+
     public boolean addVertex(Vertex toAdd) {//adding vertex while checking for dupes
         if(vertices.contains(toAdd))
             return false;
@@ -57,29 +69,78 @@ public class  Cluster implements ClusterInterface{
         Iterator verticesIter = vertices.iterator();
         while (verticesIter.hasNext()) {
             Vertex v = (Vertex) verticesIter.next();
-            if (vert.getId() == v.getId())
+            if (vert.equals(v))
                 return true;
         }
         return false;
     }
 
-    public boolean containsAllVertixes(Collection<? extends Vertex> vert){
-        boolean res = true;
-        Iterator verticesIter = vert.iterator();
-        while (verticesIter.hasNext()) {
-            Vertex toRemove = (Vertex) verticesIter.next();
-            res &= this.containsVertex(toRemove);
+    public boolean containsAllVertices(Collection<? extends Vertex> vert){
+
+        try{
+            if(vert == null) {
+                throw new InputException("There are no vertices in the collection.");
+            }
+            boolean res = true;
+            Iterator verticesIter = vert.iterator();
+            while (verticesIter.hasNext()) {
+                Vertex toRemove = (Vertex) verticesIter.next();
+                res &= this.containsVertex(toRemove);
+            }
+            return res;
         }
-        return res;
+        catch (InputException e) {
+            System.out.println("There are no vertices in the collection.");
+            //e.printStackTrace();
+            return false;
+        }
+
     }
-    public boolean removeAllVertixes(Collection<? extends Vertex> vert){
-        boolean res = true;
-        Iterator verticesIter = vert.iterator();
-        while (verticesIter.hasNext()) {
-            Vertex toRemove = (Vertex) verticesIter.next();
-            res &= this.removeVertex(toRemove);
+
+    public boolean removeAllVertices(Collection<? extends Vertex> vert){
+        try {
+            if (vert == null) {
+                throw new InputException("There are no vertices in the collection.");
+            }
+            boolean res = true;
+            Iterator verticesIter = vert.iterator();
+            while (verticesIter.hasNext()) {
+                Vertex toRemove = (Vertex) verticesIter.next();
+                res &= this.removeVertex(toRemove);
+            }
+            return res;
         }
-        return res;
+        catch (InputException e) {
+            System.out.println("There are no vertices in the collection.");
+            //e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean removeAllVerticesExceptFrom(Collection<? extends Vertex> vert){
+        try {
+            if (vert == null) {
+                throw new InputException("There are no vertices in the collection.");
+            }
+            Set<Vertex> toRemove = new HashSet<Vertex>();
+            Iterator verticesIter = vertices.iterator();
+            while (verticesIter.hasNext()) {
+                Vertex vertex = (Vertex) verticesIter.next();
+                toRemove.add(vertex);
+                Iterator iter = vert.iterator();
+                while (iter.hasNext()) {
+                    Vertex v = (Vertex) iter.next();
+                    if (vertex.equals(v))
+                        toRemove.remove(this.getVertex(vertex));
+                }
+            }
+            return removeAllVertices(toRemove);
+        }
+        catch (InputException e) {
+            System.out.println("There are no vertices in the collection.");
+            //e.printStackTrace();
+            return false;
+        }
     }
 
     public boolean removeVertex(Vertex vert){

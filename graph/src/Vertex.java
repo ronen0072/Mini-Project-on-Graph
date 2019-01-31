@@ -26,11 +26,11 @@ public class Vertex {
     public String getName() {
         return name;
     }
+    public void setName(String name) {
+         this.name = name;
+    }
     public int getDegree(){
         return degree;
-    }
-    public void setName(String name) {
-        this.name = name;
     }
     public void increaseDegree(){
         degree++;

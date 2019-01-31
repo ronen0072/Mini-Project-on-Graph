@@ -9,8 +9,9 @@ public interface ClusterInterface {
     boolean addVertices(Set<Vertex> add);
 
     boolean containsVertex(Vertex var1);
+    boolean containsAllVertices(Collection<? extends Vertex> vert);
 
-    boolean removeAllVertixes(Collection<? extends Vertex> var1);
+    boolean removeAllVertices(Collection<? extends Vertex> var1);
 
     boolean removeVertex(Vertex var1);
 
