@@ -1,16 +1,20 @@
 
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.Set;
+import java.util.HashSet;
 
-public class SpannedCluster extends Graph{
-
+public class SpannedCluster extends Graph {
+    protected Vertex center;
     protected double radius;
 
-    public SpannedCluster (Cluster cluster, Set<Edge> spanningTree){
-        super(cluster.getName(),cluster.getVertices(),spanningTree);
-        calcRadius();
+    public SpannedCluster (Vertex center, Cluster cluster, Graph subGraph){
+        super(cluster.getName(),cluster.getVertices(),subGraph.getEdges());
+        this.center = center;
+        radius = this.getSPTForUnWeightGraph(center);
     }
 
-    protected void calcRadius(){
-        this.radius = 0;
+    public double getRadius(){
+        return radius;
     }
 }
