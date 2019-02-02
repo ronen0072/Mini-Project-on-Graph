@@ -15,7 +15,7 @@ public class SpCons {
     }
     private static Graph downPart( Graph G, int k, Set<SpannedCluster> partitionG){//creates the partition
         System.out.println("Down_Part");
-        Set<Vertex> vertexSetU = G.getVertices();
+        Set<SuperVertex> vertexSetU = G.getVertices();
         Set<CenteredCluster> centeredClusterSTag = new HashSet<CenteredCluster>();
         Graph H = new Graph("DP_H");
         int n = vertexSetU.size();
@@ -23,7 +23,7 @@ public class SpCons {
         while(!vertexSetU.isEmpty()){
             Cluster s = new Cluster("S"+i);
             CenteredCluster shell;
-            Vertex v = vertexSetU.iterator().next();
+            SuperVertex v = vertexSetU.iterator().next();
             s.addVertex(v);
             while (calcNeighbors(s, vertexSetU,G) >= ((n^(1/k))*(s.numOfVertices()))){
                 s.addVertices(expendNeighbors(s, vertexSetU,G));
@@ -49,15 +49,15 @@ public class SpCons {
     private static void ProcedureSC(){
         System.out.println("Procedure_SC");
     }
-    public static Set<Vertex> expendNeighbors(Cluster s, Set<Vertex> vertexSetU, Graph G){//ToDo: change to private
-        Set<Vertex> neighbors = new HashSet<Vertex>();
+    public static Set<SuperVertex> expendNeighbors(Cluster s, Set<SuperVertex> vertexSetU, Graph G){//ToDo: change to private
+        Set<SuperVertex> neighbors = new HashSet<SuperVertex>();
         neighbors = G.getNeighbors(s.getVertices());
         neighbors.addAll(s.getVertices());
         neighbors.retainAll(vertexSetU);
         return neighbors;
     }
-    public static int calcNeighbors(Cluster s, Set<Vertex> vertexSetU, Graph G){//ToDo: change to private
-        Set<Vertex> neighbors = new HashSet<Vertex>();
+    public static int calcNeighbors(Cluster s, Set<SuperVertex> vertexSetU, Graph G){//ToDo: change to private
+        Set<SuperVertex> neighbors = new HashSet<SuperVertex>();
         neighbors = G.getNeighbors(s.getVertices());
         neighbors.addAll(s.getVertices());
         neighbors.retainAll(vertexSetU);

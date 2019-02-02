@@ -1,9 +1,9 @@
 
 public class SpannedCluster extends Graph {
-    protected Vertex center;
+    protected SuperVertex center;
     protected double radius;
 
-    public SpannedCluster (Vertex center, Cluster cluster, Graph subGraph){
+    public SpannedCluster (SuperVertex center, Cluster cluster, Graph subGraph){
         super(cluster.getName());
         try {
             if((!subGraph.containsAllVertices(cluster.getVertices()))||(!cluster.containsVertex(center))||(subGraph.numOfVertices() != cluster.numOfVertices()))
@@ -19,7 +19,7 @@ public class SpannedCluster extends Graph {
         }
     }
 
-    public Vertex getCenter(){
+    public SuperVertex getCenter(){
         return this.center;
     }
 
@@ -27,15 +27,14 @@ public class SpannedCluster extends Graph {
         return this.radius;
     }
 
-
-    private boolean addVertex(SuperVertex toAdd){
+    public boolean addVertex(SuperVertex toAdd){
         boolean res = super.addVertex(toAdd);
         toAdd.setSpannedCluster(this);
         return res;
     }
-    public boolean removeVertex(SuperVertex vert){
-        boolean res = super.removeVertex(vert);
-        vert.initSpannedCluster();
+    public boolean removeVertex(SuperVertex toRemove){
+        boolean res = super.removeVertex(toRemove);
+        ((SuperVertex)toRemove).initSpannedCluster();
         return false;
     }
 

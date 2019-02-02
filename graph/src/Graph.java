@@ -7,7 +7,7 @@ import java.util.HashSet;
 public class Graph extends Cluster implements GraphInterface,Cloneable{
     protected Set<Edge> edges;
 
-    public Graph(String graphName, Set<Vertex> vertices, Set<Edge> edges){
+    public Graph(String graphName, Set<SuperVertex> vertices, Set<Edge> edges){
         super(graphName, vertices);
         this.edges = new HashSet<Edge>();
         if(edges != null) {
@@ -49,7 +49,7 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         return edges.size();
     }
 
-    public Edge getEdge(Vertex sourceVertex, Vertex targetVertex) {
+    public Edge getEdge(SuperVertex sourceVertex, SuperVertex targetVertex) {
         Iterator edgesIrer = edges.iterator();
         while (edgesIrer.hasNext()) {
             Edge e = (Edge) edgesIrer.next();
@@ -63,7 +63,7 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         return (this.getEdge(edge.getSourceVertex(), edge.getTargetVertex()));
     }
 
-    public Edge addEdge(Vertex sourceVertex, Vertex targetVertex) {
+    public Edge addEdge(SuperVertex sourceVertex, SuperVertex targetVertex) {
         if (this.containsVertex(sourceVertex)&& this.containsVertex(targetVertex)) {
             Edge toAdd = this.getEdge(sourceVertex, targetVertex);
             if (toAdd == null) {
@@ -109,7 +109,7 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         return res;
     }
 
-    public boolean containsEdge(Vertex var1, Vertex var2) {
+    public boolean containsEdge(SuperVertex var1, SuperVertex var2) {
         return (this.getEdge(var1,var2) != null);
     }
 
@@ -117,7 +117,7 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         return (this.getEdge(edge) != null);
     }
 
-    public Set<Edge> incomingEdgesOf(Vertex var) {
+    public Set<Edge> incomingEdgesOf(SuperVertex var) {
         Set<Edge> incomingEdges = new HashSet<Edge>();
         Iterator edgesIrer = edges.iterator();
         while (edgesIrer.hasNext()) {
@@ -140,17 +140,8 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         return res;
     }
 
-    public boolean removeAllVertixes(Collection<? extends Vertex> vars) {
-        boolean res = true;
-        Iterator var = vars.iterator();
-        while (var.hasNext()) {
-            Vertex toRemove = (Vertex) var.next();
-            res &= this.removeVertex(toRemove);
-        }
-        return res;
-    }
 
-    public Edge removeEdge(Vertex var1, Vertex var2) {
+    public Edge removeEdge(SuperVertex var1, SuperVertex var2) {
         Edge toRemove = this.getEdge(var1,var2);
         if(toRemove != null) {
             var1.decreaseDegree();
@@ -173,17 +164,17 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         return false;
     }
 
-    public boolean removeVertex(Vertex var) {
+    public boolean removeVertex(SuperVertex var) {
         Set<Edge> edgesToRemove = this.incomingEdgesOf(var);
         this.removeAllEdges(edgesToRemove);
         return super.removeVertex(var);
     }
 
-    public Vertex getEdgeSource(Edge var) {
+    public SuperVertex getEdgeSource(Edge var) {
         return var.getSourceVertex();
     }
 
-    public Vertex getEdgeTarget(Edge var) {
+    public SuperVertex getEdgeTarget(Edge var) {
         return var.getTargetVertex();
     }
 
@@ -195,7 +186,7 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         (this.getEdge(var)).setWeight(weight);
     }
 
-    public void setEdgeWeight(Vertex sourceVertex, Vertex targetVertex, double weight) {
+    public void setEdgeWeight(SuperVertex sourceVertex, SuperVertex targetVertex, double weight) {
         (this.getEdge(sourceVertex,targetVertex)).setWeight(weight);
     }
 
@@ -209,9 +200,9 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         return sum;
     }
 
-    public  Set<Vertex> getNeighbors(Vertex v){
-        Vertex var = getVertex(v);
-        Set<Vertex> res = new HashSet<Vertex>();
+    public  Set<SuperVertex> getNeighbors(SuperVertex v){
+        SuperVertex var = getVertex(v);
+        Set<SuperVertex> res = new HashSet<SuperVertex>();
         Set<Edge> incomingEdges =  this.incomingEdgesOf(var);
         Iterator edge = incomingEdges.iterator();
         while (edge.hasNext()) {
@@ -223,36 +214,36 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         return res;
     }
 
-    public  Set<Vertex> getNeighbors(Set<Vertex> rv){
-        Set<Vertex> res = new HashSet<Vertex>();
+    public  Set<SuperVertex> getNeighbors(Set<SuperVertex> rv){
+        Set<SuperVertex> res = new HashSet<SuperVertex>();
         Iterator vertex = rv.iterator();
         while (vertex.hasNext()) {
-            Vertex v = (Vertex) vertex.next();
+            SuperVertex v = (SuperVertex) vertex.next();
             res.addAll(this.getNeighbors(v));
         }
         res.removeAll(rv);
         return res;
     }
 
-    public int getSPTForUnWeightGraph(Vertex sourceVertex) {
-        Set<Vertex> verticesWeCovered = new HashSet<Vertex>();
+    public int getSPTForUnWeightGraph(SuperVertex sourceVertex) {
+        Set<SuperVertex> verticesWeCovered = new HashSet<SuperVertex>();
         verticesWeCovered.add(sourceVertex);
         Set<Edge> treeEdges = new HashSet<Edge>();
         return this.getSPTForUnWeightGraph(verticesWeCovered, treeEdges);
     }
 
-    public int getSPTForUnWeightGraph(Set<Vertex> verticesWeCovered, Set<Edge> treeEdges) {
-        Set<Vertex> neighbors = this.getNeighbors(verticesWeCovered);
+    public int getSPTForUnWeightGraph(Set<SuperVertex> verticesWeCovered, Set<Edge> treeEdges) {
+        Set<SuperVertex> neighbors = this.getNeighbors(verticesWeCovered);
         try{
             if(neighbors.isEmpty()&& (verticesWeCovered.size() < this.numOfVertices()))
                 throw new Exception("the graph is not connected so there is no SPT for this graph:"+this);
-            Iterator<Vertex> neighborsIter = neighbors.iterator();
+            Iterator<SuperVertex> neighborsIter = neighbors.iterator();
             while (neighborsIter.hasNext()){
-                Vertex neighbor = (Vertex)neighborsIter.next();
-                Iterator<Vertex> iter = verticesWeCovered.iterator();
+                SuperVertex neighbor = (SuperVertex)neighborsIter.next();
+                Iterator<SuperVertex> iter = verticesWeCovered.iterator();
                 boolean foundEdge = false;
                 while (iter.hasNext() && !foundEdge){
-                    Vertex sourceVertex = (Vertex)iter.next();
+                    SuperVertex sourceVertex = (SuperVertex)iter.next();
                     Edge edge = this.getEdge(sourceVertex,neighbor);
                     if (edge != null){
                         treeEdges.add(edge);
@@ -279,44 +270,56 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         try{
             if(!containsAllVertices(cluster.getVertices()))
                 throw new InputException("part of the vertices does not exist in the graph");
-            Graph gSub = this.clone();
-            gSub.removeAllVerticesExceptFrom(cluster.getVertices());
+            else {
+                Graph gSub = this.clone();
+                gSub.removeAllVerticesExceptFrom(cluster.getVertices());
 
-            return gSub;
+                return gSub;
+            }
         }
         catch (InputException e){
             System.out.println("part of the vertices does not exist in the graph");
             return null;
         }
     }
-    public Set<Vertex> getLNeighbors(Set<Vertex> vertices,int l){
-        Set<Vertex> lNeighbors = new HashSet<Vertex>();
-        lNeighbors.addAll(vertices);
-        for (int i = 0; (i < l); i++) {
-            Set<Vertex> newNeighbors = this.getNeighbors(lNeighbors);
-            if (newNeighbors.size() != 0)
-                lNeighbors.addAll(newNeighbors);
-            else{
+    public Set<SuperVertex> getLNeighbors(Set<SuperVertex> vertices,int l){
+        Set<SuperVertex> lNeighbors = new HashSet<SuperVertex>();
+        try {
+            if (!containsAllVertices(vertices))
+                throw new InputException("part of the vertices does not exist in the graph");
+            else {
+                lNeighbors.addAll(vertices);
+                for (int i = 0; (i < l); i++) {
+                    Set<SuperVertex> newNeighbors = this.getNeighbors(lNeighbors);
+                    if (newNeighbors.size() != 0)
+                        lNeighbors.addAll(newNeighbors);
+                    else {
+                        lNeighbors.removeAll(vertices);
+                        return lNeighbors;
+                    }
+                }
                 lNeighbors.removeAll(vertices);
                 return lNeighbors;
             }
         }
-        lNeighbors.removeAll(vertices);
-        return lNeighbors;
+        catch (InputException e){
+            System.out.println("part of the vertices does not exist in the graph");
+            return lNeighbors;
+        }
     }
     public Set<SpannedCluster> getLSpannedClusterNeighbors(Cluster cluster, int l){
-        Set<Vertex> lNeighbors = getLNeighbors(cluster.getVertices(), l);
-        Set<SpannedCluster> SpannedClusterNeighbors = new HashSet<SpannedCluster>();
-        Iterator<Vertex> iter = lNeighbors.iterator();
+        Set<SuperVertex> lNeighbors = getLNeighbors(cluster.getVertices(), l);
+        Set<SpannedCluster> SpannedClusterLNeighbors = new HashSet<SpannedCluster>();
+        Iterator<SuperVertex> iter = lNeighbors.iterator();
         while (iter.hasNext()) {
             SuperVertex Neighbor = (SuperVertex) iter.next();
-            SpannedClusterNeighbors.add(Neighbor.getSpannedCluster());
+            SpannedClusterLNeighbors.add(Neighbor.getSpannedCluster());
         }
-        return SpannedClusterNeighbors;
+        return SpannedClusterLNeighbors;
     }
 
 
-    /*public void dijkstra(Vertex sourceVertex) {
+    /*public void dijkstra(SuperVertex sourceVertex) {
         int verticesCount = this.numOfVertices();
         double[] wt = new double[verticesCount];
         for (int i = 0; i < wt.length; i++) {

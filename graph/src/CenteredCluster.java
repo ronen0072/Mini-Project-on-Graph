@@ -1,13 +1,13 @@
 import java.util.Set;
 
 public class CenteredCluster extends Cluster {
-    private Vertex center;
+    private SuperVertex center;
 
-    public CenteredCluster (String name,  Set<Vertex> vertices, Vertex center){
+    public CenteredCluster (String name,  Set<SuperVertex> vertices, SuperVertex center){
         super(name, vertices);
         this. center = center;
     }
-    public Vertex getCenter(){
+    public SuperVertex getCenter(){
         return this.center.clone();
     }
 }

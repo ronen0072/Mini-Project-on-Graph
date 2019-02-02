@@ -9,6 +9,10 @@ public class SuperVertex extends Vertex {
         super(id, name);
     }
 
+    public SuperVertex clone(){
+        return new SuperVertex(this.getId(), this.getName(),this.getDegree());
+    }
+
     public SuperVertex(int id, String name, int degree){
         super(id, name, degree);
     }
