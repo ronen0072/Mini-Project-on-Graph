@@ -35,7 +35,7 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         Set<Edge> ret = new HashSet<Edge>();
         Iterator iter = this.edges.iterator();
         while (iter.hasNext()) {
-            Edge e = ((Edge) iter.next()).clone();
+            Edge e = ((Edge) iter.next());
             ret.add(e);
         }
         return ret;
@@ -103,7 +103,7 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         while (edge.hasNext()) {
             Edge toAdd = (Edge) edge.next();
             if (this.addEdge(toAdd) == null)
-                if(this.getEdge(toAdd) == null)
+                if(this.containsEdge(toAdd))
                     res &= false;
         }
         return res;
@@ -210,15 +210,16 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
     }
 
     public  Set<Vertex> getNeighbors(Vertex v){
+        Vertex var = getVertex(v);
         Set<Vertex> res = new HashSet<Vertex>();
-        Set<Edge> incomingEdges =  this.incomingEdgesOf(v);
+        Set<Edge> incomingEdges =  this.incomingEdgesOf(var);
         Iterator edge = incomingEdges.iterator();
         while (edge.hasNext()) {
             Edge toAdd = (Edge) edge.next();
             res.add(toAdd.getSourceVertex());
             res.add(toAdd.getTargetVertex());
         }
-        res.remove(v);
+        res.remove(var);
         return res;
     }
 
@@ -288,7 +289,31 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
             return null;
         }
     }
-
+    public Set<Vertex> getLNeighbors(Set<Vertex> vertices,int l){
+        Set<Vertex> lNeighbors = new HashSet<Vertex>();
+        lNeighbors.addAll(vertices);
+        for (int i = 0; (i < l); i++) {
+            Set<Vertex> newNeighbors = this.getNeighbors(lNeighbors);
+            if (newNeighbors.size() != 0)
+                lNeighbors.addAll(newNeighbors);
+            else{
+                lNeighbors.removeAll(vertices);
+                return lNeighbors;
+            }
+        }
+        lNeighbors.removeAll(vertices);
+        return lNeighbors;
+    }
+    public Set<SpannedCluster> getLSpannedClusterNeighbors(Cluster cluster, int l){
+        Set<Vertex> lNeighbors = getLNeighbors(cluster.getVertices(), l);
+        Set<SpannedCluster> SpannedClusterNeighbors = new HashSet<SpannedCluster>();
+        Iterator<Vertex> iter = lNeighbors.iterator();
+        while (iter.hasNext()) {
+            SuperVertex Neighbor = (SuperVertex) iter.next();
+            SpannedClusterNeighbors.add(Neighbor.getSpannedCluster());
+        }
+        return SpannedClusterNeighbors;
+    }
 
 
     /*public void dijkstra(Vertex sourceVertex) {

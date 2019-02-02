@@ -12,20 +12,24 @@ public class  Cluster implements ClusterInterface{
         this.name = name;
 
     }
+
     public Cluster(String name,  Set<Vertex> vertices) {
-        this.vertices =vertices;
+        this.vertices = new HashSet<Vertex>();
+        this.addVertices(vertices);
         this.name = name;
 
     }
+
     public Vertex getVertex(int vertexId){
         Iterator verticesIter = vertices.iterator();
         while (verticesIter.hasNext()) {
             Vertex v = (Vertex) verticesIter.next();
             if (v.getId() == vertexId)
-                return v.clone();
+                return v;
         }
         return null;
     }
+
     protected Vertex getVertex(Vertex ver){
         Iterator verticesIter = vertices.iterator();
         while (verticesIter.hasNext()) {
@@ -36,26 +40,38 @@ public class  Cluster implements ClusterInterface{
         return null;
     }
 
+    protected Set<Vertex> getVertices(){
+        Set<Vertex> ret = new HashSet<Vertex>();
+        Iterator iter = this.vertices.iterator();
+        while (iter.hasNext()) {
+            Vertex v = ((Vertex) iter.next());
+            ret.add(v);
+        }
+        return ret;
+    }
 
+    public Set<Vertex> getVerticesClone(){
+        Set<Vertex> ret = new HashSet<Vertex>();
+        Iterator iter = this.vertices.iterator();
+        while (iter.hasNext()) {
+            Vertex v = ((Vertex) iter.next()).clone();
+            ret.add(v);
+        }
+        return ret;
+    }
 
     public boolean addVertex(Vertex toAdd) {//adding vertex while checking for dupes
-        if(vertices.contains(toAdd))
-            return false;
-        Iterator verticesIter = vertices.iterator();
-        while (verticesIter.hasNext()) {
-            Vertex v = (Vertex) verticesIter.next();
-            if (v.getId() == toAdd.getId())
-                return false;
-        }
+        if(vertices.contains(toAdd)) return false;
+        if(this.containsVertex(toAdd)) return false;
         vertices.add(toAdd);
         return true;
     }
 
-    public boolean addVertices(Set<Vertex> add){
+    public boolean addVertices(Set<Vertex> toAdd){
         boolean res = true;
-        Iterator iter = add.iterator();
+        Iterator iter = toAdd.iterator();
         while (iter.hasNext()) {
-            Vertex v = ((Vertex) iter.next()).clone();
+            Vertex v = ((Vertex) iter.next());
             res &= this.addVertex(v);
         }
         return res;
@@ -123,7 +139,7 @@ public class  Cluster implements ClusterInterface{
                 throw new InputException("There are no vertices in the collection.");
             }
             Set<Vertex> toRemove = new HashSet<Vertex>();
-            Iterator verticesIter = vertices.iterator();
+            Iterator verticesIter = getVertices().iterator();
             while (verticesIter.hasNext()) {
                 Vertex vertex = (Vertex) verticesIter.next();
                 toRemove.add(vertex);
@@ -147,22 +163,13 @@ public class  Cluster implements ClusterInterface{
         Iterator verticesIter = vertices.iterator();
         while (verticesIter.hasNext()) {
             Vertex v = (Vertex) verticesIter.next();
-            if(v.getId() == vert.getId()){
+            if(v.equals(vert)) {
                 vertices.remove(v);
                 return true;
             }
         }
+        System.out.println("the vertex:"+vert+" does not exist in this Object:"+this);
         return false;
-    }
-
-    public Set<Vertex> getVertices(){
-        Set<Vertex> ret = new HashSet<Vertex>();
-        Iterator iter = this.vertices.iterator();
-        while (iter.hasNext()) {
-            Vertex v = ((Vertex) iter.next()).clone();
-            ret.add(v);
-        }
-        return ret;
     }
 
     public String toString(){
