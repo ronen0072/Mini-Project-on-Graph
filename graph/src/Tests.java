@@ -1,21 +1,39 @@
+import com.sun.org.apache.xalan.internal.xsltc.compiler.util.VoidType;
+
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 public class Tests {
 
-    /*private static void testFormat(String testNane, Consumer<Integer> test) {
-        test.accept(1);
-    }*/
+    private static void testFormat(String testNane, Function<Integer,Integer> test) {
+        System.out.println("vertexs Test:");
+
+        System.out.println("num of fail:"+test.apply(1));
+    }
     public static void main(String[] args) {
+        String numOffails = "The number of failures: ";
         Tests t = new Tests();
         System.out.println("tests:");
-        System.out.println("vertexs Test:" + t.verticesTest());
-        System.out.println("edges Test:" + t.edgesTest());
-        System.out.println("graph Test:" + t.graphTest());
-        System.out.println("cluster Test:" + t.testCluster());
-        System.out.println("super Vertices Test:" + t.superVerticesTest());
-        System.out.println("Spanned Cluster Test:"+ t.spannedClusterTest());
+        System.out.println("Vertexs Test:");
+        System.out.println(numOffails+t.verticesTest());
+        System.out.println("______________________________________________________________________________________________");
+        System.out.println("Edges Test:");
+        System.out.println(numOffails+t.edgesTest());
+        System.out.println("______________________________________________________________________________________________");
+        System.out.println("Graph Test:");
+        System.out.println(numOffails+t.graphTest());
+        System.out.println("______________________________________________________________________________________________");
+        System.out.println("Cluster Test:");
+        System.out.println(numOffails+t.testCluster());
+        System.out.println("______________________________________________________________________________________________");
+        System.out.println("Super Vertices Test:");
+        System.out.println(numOffails+t.superVerticesTest());
+        System.out.println("______________________________________________________________________________________________");
+        System.out.println("Spanned Cluster Test:");
+        System.out.println(numOffails+t.spannedClusterTest());
+        System.out.println("______________________________________________________________________________________________");
         //t.algorithmsTestdijkstra();
 
     }
