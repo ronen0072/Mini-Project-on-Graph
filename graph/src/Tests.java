@@ -5,12 +5,26 @@ public class Tests {
     public static void main(String[] args) {
         Tests t = new Tests();
         System.out.println("tests:");
-        System.out.println("vertexs Test:" + t.verticesTest());
-        System.out.println("edges Test:" + t.edgesTest());
-        System.out.println("graph Test:" + t.graphTest());
-        System.out.println("cluster Test:" + t.testCluster());
+        //System.out.println("vertexs Test:" + t.verticesTest());
+        //System.out.println("edges Test:" + t.edgesTest());
+        //System.out.println("graph Test:" + t.graphTest());
+        //System.out.println("cluster Test:" + t.testCluster());
         //t.algorithmsTestdijkstra();
+        System.out.println("spCons tests:" );
+        if (t.calcNeighborsTest()){
+           if(t.expendNeighborsTest())
+           System.out.println("success!!");
+           else {
+               System.out.println("second test failed.");
+           }
+        }else{
+            System.out.println("firts test failed.");
+        }
 
+        System.out.println("The spConsTests:" );
+        if (t.spConsTest()== true){
+            System.out.println("success!!");
+        }
     }
     public int verticesTest(){
         int failCuont =0;
@@ -1142,7 +1156,7 @@ public class Tests {
         edges.add(edge5);
         edges.add(edge6);
         Graph g = new Graph("graph", vertices, edges);
-        return (SpCons.calcNeighbors( s, s.getVertices(), g) == 3);
+        return (SpCons.calcNeighbors( s, u, g) == 3);
     }
     public boolean expendNeighborsTest(){
         Cluster s = new Cluster("cluster");
@@ -1175,7 +1189,7 @@ public class Tests {
         edges.add(edge5);
         edges.add(edge6);
         Graph g = new Graph("graph", vertices, edges);
-        Set<Vertex> neighbors = SpCons.expendNeighbors( s, s.getVertices(), g);
+        Set<Vertex> neighbors = SpCons.expendNeighbors( s, u, g);
         if(neighbors.size()==3){
             if (neighbors.contains(v1)&&neighbors.contains(v2)&&neighbors.contains(v3)){
                 neighbors.removeAll(u);
@@ -1185,6 +1199,69 @@ public class Tests {
             }
         }
         return false;
+    }
+    public boolean spConsTest(){
+        boolean ans = true;
+        Graph g = new Graph("graph");
+        Graph h = SpCons.SpCons(g);
+
+        Set<Vertex> vertices = new HashSet<Vertex>();
+        Set<Edge> edges = new HashSet<Edge>();
+        Vertex v1 = new Vertex(1,"1");
+        Vertex v2 = new Vertex(2,"2");
+        Vertex v3 = new Vertex(3,"3");
+        Vertex v4 = new Vertex(4,"4");
+        Vertex v5 = new Vertex(5,"5");
+        Vertex v6 = new Vertex(6,"6");
+        Vertex v7 = new Vertex(7,"7");
+        Vertex v8 = new Vertex(8,"8");
+        Vertex v9 = new Vertex(9,"9");
+        Vertex v10 = new Vertex(10,"10");
+        Vertex v11 = new Vertex(11,"11");
+        Vertex v12 = new Vertex(12,"12");
+        vertices.add(v1);
+        vertices.add(v2);
+        vertices.add(v3);
+        vertices.add(v4);
+        vertices.add(v5);
+        vertices.add(v6);
+        vertices.add(v7);
+        vertices.add(v8);
+        vertices.add(v9);
+        vertices.add(v10);
+        vertices.add(v11);
+        vertices.add(v12);
+        Edge edge1 = new Edge(v1,v2);
+        Edge edge2 = new Edge(v1,v3);
+        Edge edge3 = new Edge(v1,v4);
+        Edge edge4 = new Edge(v3,v2);
+        Edge edge5 = new Edge(v4,v2);
+        Edge edge6 = new Edge(v3,v4);
+        Edge edge7 = new Edge(v5,v2);
+        Edge edge8 = new Edge(v5,v6);
+        Edge edge9 = new Edge(v5,v9);
+        Edge edge10 = new Edge(v9,v10);
+        Edge edge11= new Edge(v9,v11);
+        Edge edge12= new Edge(v9,v12);
+        Edge edge13= new Edge(v6,v7);
+        Edge edge14 = new Edge(v7,v8);
+        edges.add(edge1);
+        edges.add(edge2);
+        edges.add(edge3);
+        edges.add(edge4);
+        edges.add(edge5);
+        edges.add(edge6);
+        edges.add(edge7);
+        edges.add(edge8);
+        edges.add(edge9);
+        edges.add(edge10);
+        edges.add(edge11);
+        edges.add(edge12);
+        edges.add(edge13);
+        edges.add(edge14);
+        Graph g1 = new Graph("graph", vertices, edges);
+        Graph h1 = SpCons.SpCons(g1);
+        return ans;
     }
 }
 

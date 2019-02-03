@@ -6,7 +6,7 @@ import java.util.Set;
 public class SpCons {
 
      public static Graph SpCons(Graph G){ //main function returns the spanner
-         int k = 0;
+         int k = 6;
          Graph H;
          Set<SpannedCluster> partitionG = new HashSet<SpannedCluster>() ;
          H = downPart(G,k,partitionG);
@@ -26,13 +26,13 @@ public class SpCons {
             Vertex v = vertexSetU.iterator().next();
             s.addVertex(v);
             while (calcNeighbors(s, vertexSetU,G) >= ((n^(1/k))*(s.numOfVertices()))){
-                s.addVertices(expendNeighbors(s, vertexSetU,G));
+                s.addVerticesDeep(expendNeighbors(s, vertexSetU,G));
             }
             SpannedCluster cluster = new SpannedCluster(v, s, G.getSubGraph(s));
             partitionG.add(cluster);
             shell = new CenteredCluster("Shell"+i,expendNeighbors(s, vertexSetU,G),v);
             centeredClusterSTag.add(shell);
-            vertexSetU.removeAll(s.getVertices());
+            vertexSetU.removeAll(s.getVerticesDeep());
             i++;
         }
         Iterator sTag = centeredClusterSTag.iterator();
@@ -51,15 +51,15 @@ public class SpCons {
     }
     public static Set<Vertex> expendNeighbors(Cluster s, Set<Vertex> vertexSetU, Graph G){//ToDo: change to private
         Set<Vertex> neighbors = new HashSet<Vertex>();
-        neighbors = G.getNeighbors(s.getVertices());
-        neighbors.addAll(s.getVertices());
+        neighbors = G.getNeighbors(s.getVerticesDeep());
+        neighbors.addAll(s.getVerticesDeep());
         neighbors.retainAll(vertexSetU);
         return neighbors;
     }
     public static int calcNeighbors(Cluster s, Set<Vertex> vertexSetU, Graph G){//ToDo: change to private
         Set<Vertex> neighbors = new HashSet<Vertex>();
-        neighbors = G.getNeighbors(s.getVertices());
-        neighbors.addAll(s.getVertices());
+        neighbors = G.getNeighbors(s.getVerticesDeep());
+        neighbors.addAll(s.getVerticesDeep());
         neighbors.retainAll(vertexSetU);
         return neighbors.size();
     }

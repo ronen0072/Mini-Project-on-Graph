@@ -60,6 +60,15 @@ public class  Cluster implements ClusterInterface{
         }
         return res;
     }
+    public boolean addVerticesDeep(Set<Vertex> add){
+        boolean res = true;
+        Iterator iter = add.iterator();
+        while (iter.hasNext()) {
+            Vertex v = ((Vertex) iter.next());
+            res &= this.addVertex(v);
+        }
+        return res;
+    }
 
     public String getName(){
         return this.name;
@@ -160,6 +169,15 @@ public class  Cluster implements ClusterInterface{
         Iterator iter = this.vertices.iterator();
         while (iter.hasNext()) {
             Vertex v = ((Vertex) iter.next()).clone();
+            ret.add(v);
+        }
+        return ret;
+    }
+    public Set<Vertex> getVerticesDeep(){
+        Set<Vertex> ret = new HashSet<Vertex>();
+        Iterator iter = this.vertices.iterator();
+        while (iter.hasNext()) {
+            Vertex v = ((Vertex) iter.next());
             ret.add(v);
         }
         return ret;
