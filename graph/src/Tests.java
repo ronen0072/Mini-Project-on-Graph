@@ -1,17 +1,7 @@
-import com.sun.org.apache.xalan.internal.xsltc.compiler.util.VoidType;
-
 import java.util.HashSet;
 import java.util.Set;
-import java.util.function.Consumer;
-import java.util.function.Function;
 
 public class Tests {
-
-    private static void testFormat(String testNane, Function<Integer,Integer> test) {
-        System.out.println("vertexs Test:");
-
-        System.out.println("num of fail:"+test.apply(1));
-    }
     public static void main(String[] args) {
         String numOffFails = "The number of failures: ";
         Tests t = new Tests();
@@ -34,8 +24,38 @@ public class Tests {
         System.out.println("Spanned Cluster Test:");
         System.out.println(numOffFails+t.spannedClusterTest());
         System.out.println("______________________________________________________________________________________________");
+        System.out.println("SpCons Test:");
+        System.out.println(numOffFails+t.algorithmTest());
+        System.out.println("______________________________________________________________________________________________");
+
         //t.algorithmsTestdijkstra();
 
+
+    }
+    public int algorithmTest(){
+        int failCount = 0;
+        Graph h;
+        System.out.println("spCons tests:" );
+        if (calcNeighborsTest()){
+            System.out.println("calcNeighbors success!!");
+            if(expendNeighborsTest()){
+                System.out.println("expendNeighbors success!!");
+                if(spConsTest()){
+                    System.out.println("SpCons success!!");
+                }else{
+                    System.out.println("SpCons Failed :(");
+                    failCount ++;
+                    }
+            }
+            else {
+                System.out.println("expendNeighbors test failed.");
+                failCount++;
+            }
+        }else{
+            System.out.println("calcNeighbors test failed.");
+            failCount++;
+        }
+        return failCount;
     }
     public int verticesTest(){
         int failCuont =0;
@@ -1427,7 +1447,7 @@ public class Tests {
         edges.add(edge5);
         edges.add(edge6);
         Graph g = new Graph("graph", vertices, edges);
-        return (SpCons.calcNeighbors( s, s.getVertices(), g) == 3);
+        return (SpCons.calcNeighbors( s, u, g) == 3);
     }
     public boolean expendNeighborsTest(){
         Cluster s = new Cluster("cluster");
@@ -1460,7 +1480,9 @@ public class Tests {
         edges.add(edge5);
         edges.add(edge6);
         Graph g = new Graph("graph", vertices, edges);
-        Set<SuperVertex> neighbors = SpCons.expendNeighbors( s, s.getVertices(), g);
+
+        Set<SuperVertex> neighbors = SpCons.expendNeighbors( s, u, g);
+
         if(neighbors.size()==3){
             if (neighbors.contains(v1)&&neighbors.contains(v2)&&neighbors.contains(v3)){
                 neighbors.removeAll(u);
@@ -1470,6 +1492,72 @@ public class Tests {
             }
         }
         return false;
+    }
+
+    public boolean spConsTest() {
+        boolean ans = true;
+        Graph g = new Graph("graph");
+        Graph h = SpCons.SpCons(g);
+        Set<SuperVertex> vertices = new HashSet<SuperVertex>();
+        Set<Edge> edges = new HashSet<Edge>();
+        SuperVertex v1 = new SuperVertex(1, "1");
+        SuperVertex v2 = new SuperVertex(2, "2");
+        SuperVertex v3 = new SuperVertex(3, "3");
+        SuperVertex v4 = new SuperVertex(4, "4");
+        SuperVertex v5 = new SuperVertex(5, "5");
+        SuperVertex v6 = new SuperVertex(6, "6");
+        SuperVertex v7 = new SuperVertex(7, "7");
+        SuperVertex v8 = new SuperVertex(8, "8");
+        SuperVertex v9 = new SuperVertex(9, "9");
+        SuperVertex v10 = new SuperVertex(10, "10");
+        SuperVertex v11 = new SuperVertex(11, "11");
+        SuperVertex v12 = new SuperVertex(12, "12");
+        vertices.add(v7);
+        vertices.add(v8);
+        vertices.add(v9);
+        vertices.add(v10);
+        vertices.add(v11);
+        vertices.add(v12);
+        vertices.add(v1);
+        vertices.add(v2);
+        vertices.add(v3);
+        vertices.add(v4);
+        vertices.add(v5);
+        vertices.add(v6);
+        Edge edge5 = new Edge(v4, v2);
+        Edge edge6 = new Edge(v3, v4);
+        Edge edge7 = new Edge(v5, v2);
+        Edge edge8 = new Edge(v5, v6);
+        Edge edge9 = new Edge(v5, v9);
+        Edge edge10 = new Edge(v9, v10);
+        Edge edge11 = new Edge(v9, v11);
+        Edge edge12 = new Edge(v9, v12);
+        Edge edge13 = new Edge(v6, v7);
+        Edge edge14 = new Edge(v7, v8);
+        Edge edge1 = new Edge(v1, v2);
+        Edge edge2 = new Edge(v1, v3);
+        Edge edge3 = new Edge(v1, v4);
+        Edge edge4 = new Edge(v3, v2);
+        edges.add(edge1);
+        edges.add(edge2);
+        edges.add(edge3);
+        edges.add(edge4);
+        edges.add(edge5);
+        edges.add(edge6);
+        edges.add(edge7);
+        edges.add(edge8);
+        edges.add(edge9);
+        edges.add(edge10);
+        edges.add(edge11);
+        edges.add(edge12);
+        edges.add(edge13);
+        edges.add(edge14);
+        Graph g1 = new Graph("graph", vertices, edges);
+        Graph h1 = SpCons.SpCons(g1);
+        if(!(h1.numOfEdges() == h1.vertices.size()-1)){
+            ans =false;
+        }
+        return ans;
     }
     public int spannedClusterTest(){
         int failCount = 0;
@@ -1591,6 +1679,7 @@ public class Tests {
                 ((s13.numOfEdges() == s13.numOfVertices()-1))&&
                 ((s15.numOfEdges() == s15.numOfVertices()-1))&&
                 ((s17.numOfEdges() == s17.numOfVertices()-1));
+
     }
 }
 
