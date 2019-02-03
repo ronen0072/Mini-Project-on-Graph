@@ -204,7 +204,7 @@ public class Tests {
         if (!graphTestGetLSpannedClusterNeighbors()) {failCuont++;  System.out.println("graphTestGetLSpannedClusterNeighbors");}
         if (!graphTestIsConnected1()) {failCuont++;  System.out.println("graphTestIsConnected1");}
         if (!graphTestIsConnected2()) {failCuont++;  System.out.println("graphTestIsConnected2");}
-        //if (!graphTestRandomConstructor1()) {failCuont++;  System.out.println("graphTestRandomConstructor1");}
+        if (!graphTestRandomConstructor1()) {failCuont++;  System.out.println("graphTestRandomConstructor1");}
         return failCuont;
     }
     private Graph example(){
@@ -1063,9 +1063,12 @@ public class Tests {
         return !g.isConnected();
     }
     public boolean graphTestRandomConstructor1(){
-        Graph g = new Graph("Random Graph", 30 , 0.4 , 0.2);
+        Graph g = new Graph("Random Graph", 30 , 0.3 , 0.2);
+        System.out.println(g.isConnected());
         System.out.println(g);
-        return true;
+        g.getSPTForUnWeightGraph(g.getVertex(1));
+        System.out.println(g);
+        return g.isConnected();
     }
     public int testCluster(){
         int failCount = 0;
