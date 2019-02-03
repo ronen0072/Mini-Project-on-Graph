@@ -30,35 +30,36 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
 
     public Graph(String name, int numOfVertices, double ProbabilityInSubGraph, double ProbabilityBetweenSubGraph){
         super(name);
-        edges = new HashSet<Edge>();
-        int verticesCuonter = 0;
         Random rand = new Random();
-
         SuperVertex[] vertices = new SuperVertex[numOfVertices+1];
         for(int i = 1; i<=numOfVertices; i++){
             vertices[i] = new SuperVertex(i);
             this.addVertex(vertices[i]);
         }
-        while (verticesCuonter != numOfVertices){
-            int numOfVerticesInSubGraph = rand.nextInt(numOfVertices - verticesCuonter) + 1;
-            for(int i = (verticesCuonter + 1); (i <= verticesCuonter+numOfVerticesInSubGraph); i++){
-                for(int j = (verticesCuonter + i); (j <= verticesCuonter+numOfVerticesInSubGraph); j++){
-                   if (rand.nextDouble() <= ProbabilityInSubGraph){
-                       if(i != j)
-                         this.addEdge(vertices[i],vertices[j]);
-                   }
+        boolean isConnected = false;
+        edges = new HashSet<Edge>();
+        int verticesCuonter = 0;
+        while (verticesCuonter != numOfVertices) {
+            int numOfVerticesInSubGraph = 10;//((rand.nextInt(numOfVertices - verticesCuonter) + 1));
+            for (int i = (verticesCuonter + 1); (i <= verticesCuonter + numOfVerticesInSubGraph); i++) {
+                for (int j = (verticesCuonter + i); (j <= verticesCuonter + numOfVerticesInSubGraph); j++) {
+                    if (rand.nextDouble() <= ProbabilityInSubGraph)
+                        if (i != j)
+                            this.addEdge(vertices[i], vertices[j]);
                 }
-                for(int j = 1; (j <= verticesCuonter); j++){
-                    if (rand.nextDouble() <= ProbabilityBetweenSubGraph){
-                        if(i != j)
-                            this.addEdge(vertices[i],vertices[j]);
+                for (int j = 1; (j <= verticesCuonter); j++) {
+                    if (rand.nextDouble() <= ProbabilityBetweenSubGraph) {
+                        if (i != j)
+                            this.addEdge(vertices[i], vertices[j]);
                     }
                 }
 
             }
             verticesCuonter += numOfVerticesInSubGraph;
         }
-
+        if(!this.isConnected()){
+            fixTheGraph();
+        }
 
 
     }
@@ -329,16 +330,12 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
                 throw new InputException("part of the vertices does not exist in the graph");
             else {
                 lNeighbors.addAll(vertices);
-                for (int i = 0; (i < l); i++) {
-                    Set<SuperVertex> newNeighbors = this.getNeighbors(lNeighbors);
-                    if (newNeighbors.size() != 0)
-                        lNeighbors.addAll(newNeighbors);
-                    else {
-                        lNeighbors.removeAll(vertices);
-                        return lNeighbors;
-                    }
+                Set<SuperVertex> newNeighbors = this.getNeighbors(lNeighbors);
+                for (int i = 0; ((i < l) && !newNeighbors.isEmpty()); i++) {
+                    lNeighbors.addAll(newNeighbors);
+                    newNeighbors = this.getNeighbors(lNeighbors);
                 }
-                lNeighbors.removeAll(vertices);
+                //lNeighbors.removeAll(vertices);
                 return lNeighbors;
             }
         }
@@ -350,7 +347,7 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
     public Set<SpannedCluster> getLSpannedClusterNeighbors(SpannedCluster centerCluster, int l){
         Set<SuperVertex> lNeighbors = getLNeighbors(centerCluster.getVertices(), l);
         Set<SpannedCluster> spannedClusterLNeighbors = new HashSet<SpannedCluster>();
-        spannedClusterLNeighbors.add(centerCluster);
+        //spannedClusterLNeighbors.add(centerCluster);
         Iterator<SuperVertex> iter = lNeighbors.iterator();
         while (iter.hasNext()) {
             SuperVertex Neighbor = (SuperVertex) iter.next();
@@ -364,12 +361,64 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
             Set<SuperVertex> c = new HashSet<SuperVertex>();
             c.add(v);
             Set<SuperVertex> NeighborsOfV = getLNeighbors(c, numOfVertices());
-            if(NeighborsOfV.size() + 1 == this.numOfVertices())
+            if(NeighborsOfV.size() == this.numOfVertices())
                 return true;
         }
         return false;
     }
 
+    public SuperVertex getRandomVertexFromTheGraph(){
+        Random rand = new Random();
+        Iterator<SuperVertex> v = vertices.iterator();
+        SuperVertex iVertex = null;
+        int randIndex = rand.nextInt(vertices.size());
+        for(int i = 0; (v.hasNext() &&(i<=randIndex)); i++)
+            iVertex = v.next();
+        return iVertex;
+    }
+
+    private void fixTheGraph(){
+        SuperVertex v = this.getRandomVertexFromTheGraph();
+        Set<SuperVertex> vComponent = this.getLNeighbors(this.getNeighbors(v),this.numOfVertices());
+        Set<SuperVertex> othersComponent = this.getVertices();
+        othersComponent.removeAll(vComponent);
+        if(!othersComponent.isEmpty()) {
+            SuperVertex u = othersComponent.iterator().next();
+            this.addEdge(v,u);
+            fixTheGraph();
+        }
+    }
+    public Set<Edge> shortestPath(SpannedCluster sourceCluster, SpannedCluster targetCluster){
+        Set<Edge> path = new HashSet<Edge>();
+        Graph gSPT = this.clone();
+        gSPT.getSPTForUnWeightGraph(sourceCluster.getCenter());
+        return path;
+    }
+    public Set<Edge> shortestPathInTree(SpannedCluster sourceCluster, SuperVertex current, SuperVertex previous, SpannedCluster targetCluster){
+        Set<Edge> path = new HashSet<Edge>();
+        Set<Edge>  incomingEdgesOfCurrent = this.incomingEdgesOf(current);
+        Iterator<Edge> iter = incomingEdgesOfCurrent.iterator();
+        while (iter.hasNext()){
+            Edge currentEdge = (Edge)iter.next();
+            if(!(currentEdge.contains(previous))){
+                //Stop event
+                if(targetCluster.containsVertex(currentEdge.getSourceVertex())||
+                        targetCluster.containsVertex(currentEdge.getTargetVertex())) {
+                    path.add(currentEdge);
+                }
+                else {
+                    if (currentEdge.getSourceVertex().equals(current))
+                        path.addAll(shortestPathInTree(sourceCluster, currentEdge.getTargetVertex(), current, targetCluster));
+                    else
+                        path.addAll(shortestPathInTree(sourceCluster, currentEdge.getSourceVertex(), current, targetCluster));
+                    if(!path.isEmpty()){
+                        path.add(currentEdge);
+                    }
+                }
+            }
+        }
+        return path;
+    }
     /*public void dijkstra(SuperVertex sourceVertex) {
         int verticesCount = this.numOfVertices();
         double[] wt = new double[verticesCount];

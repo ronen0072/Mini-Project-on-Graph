@@ -1026,14 +1026,14 @@ public class Tests {
         Set<SuperVertex> setV = new HashSet<SuperVertex>();
         setV.add(g.getVertex(1));
         //System.out.println("TestGetLNeighbors1"+g.getLNeighbors(setV,1));
-        return (g.getLNeighbors(setV,1).size() == 4);
+        return (g.getLNeighbors(setV,1).size() == 5);
     }
     private boolean graphTestGetLNeighbors2() {
         Graph g = example();
         Set<SuperVertex> setV = new HashSet<SuperVertex>();
         setV.add(g.getVertex(1));
         //System.out.println("TestGetLNeighbors1"+g.getLNeighbors(setV,1));
-        return (g.getLNeighbors(setV,2).size() == 8);
+        return (g.getLNeighbors(setV,2).size() == 9);
     }
     private boolean graphTestGetLSpannedClusterNeighbors(){
         Graph g = example();
@@ -1083,10 +1083,10 @@ public class Tests {
         return !g.isConnected();
     }
     public boolean graphTestRandomConstructor1(){
-        Graph g = new Graph("Random Graph", 30 , 0.3 , 0.2);
+        Graph g = new Graph("Random Graph", 100 , 0.1 , 0.005);
         System.out.println(g.isConnected());
         System.out.println(g);
-        g.getSPTForUnWeightGraph(g.getVertex(1));
+        System.out.println(g.getSPTForUnWeightGraph(g.getVertex(1)));
         System.out.println(g);
         return g.isConnected();
     }
