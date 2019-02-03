@@ -40,7 +40,10 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         }
         return ret;
     }
+    /*public Graph CreateRandomGraph(){
+        Graph randomGraph = new Graph()
 
+    }*/
     public String toString() {
         return "{"+this.getName()+":"+this.getVertices()+","+this.getEdges()+"}";
     }

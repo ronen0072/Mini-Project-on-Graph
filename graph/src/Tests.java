@@ -13,26 +13,26 @@ public class Tests {
         System.out.println("num of fail:"+test.apply(1));
     }
     public static void main(String[] args) {
-        String numOffails = "The number of failures: ";
+        String numOffFails = "The number of failures: ";
         Tests t = new Tests();
         System.out.println("tests:");
         System.out.println("Vertexs Test:");
-        System.out.println(numOffails+t.verticesTest());
+        System.out.println(numOffFails+t.verticesTest());
         System.out.println("______________________________________________________________________________________________");
         System.out.println("Edges Test:");
-        System.out.println(numOffails+t.edgesTest());
+        System.out.println(numOffFails+t.edgesTest());
         System.out.println("______________________________________________________________________________________________");
         System.out.println("Graph Test:");
-        System.out.println(numOffails+t.graphTest());
+        System.out.println(numOffFails+t.graphTest());
         System.out.println("______________________________________________________________________________________________");
         System.out.println("Cluster Test:");
-        System.out.println(numOffails+t.testCluster());
+        System.out.println(numOffFails+t.testCluster());
         System.out.println("______________________________________________________________________________________________");
         System.out.println("Super Vertices Test:");
-        System.out.println(numOffails+t.superVerticesTest());
+        System.out.println(numOffFails+t.superVerticesTest());
         System.out.println("______________________________________________________________________________________________");
         System.out.println("Spanned Cluster Test:");
-        System.out.println(numOffails+t.spannedClusterTest());
+        System.out.println(numOffFails+t.spannedClusterTest());
         System.out.println("______________________________________________________________________________________________");
         //t.algorithmsTestdijkstra();
 
