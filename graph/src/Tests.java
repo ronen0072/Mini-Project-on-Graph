@@ -202,7 +202,9 @@ public class Tests {
         if (!graphTestGetLNeighbors1()) {failCuont++;  System.out.println("graphTestGetLNeighbors1");}
         if (!graphTestGetLNeighbors2()) {failCuont++;  System.out.println("graphTestGetLNeighbors2");}
         if (!graphTestGetLSpannedClusterNeighbors()) {failCuont++;  System.out.println("graphTestGetLSpannedClusterNeighbors");}
-
+        if (!graphTestIsConnected1()) {failCuont++;  System.out.println("graphTestIsConnected1");}
+        if (!graphTestIsConnected2()) {failCuont++;  System.out.println("graphTestIsConnected2");}
+        //if (!graphTestRandomConstructor1()) {failCuont++;  System.out.println("graphTestRandomConstructor1");}
         return failCuont;
     }
     private Graph example(){
@@ -1049,7 +1051,21 @@ public class Tests {
         SpannedCluster s15 = new SpannedCluster(g.getVertex(15),c15,g.getSubGraph(c15));
         SpannedCluster s17 = new SpannedCluster(g.getVertex(17),c17,g.getSubGraph(c17));
         //System.out.println("graphTestGetLSpannedClusterNeighbors:"+g.getLSpannedClusterNeighbors(s1,1));
-        return (g.getLSpannedClusterNeighbors(s1,1).size() == 4);
+        return (g.getLSpannedClusterNeighbors(s1,1).size() == 5);
+    }
+    public boolean graphTestIsConnected1(){
+        Graph g = example();
+        return g.isConnected();
+    }
+    public boolean graphTestIsConnected2(){
+        Graph g = example();
+        g.removeEdge(g.getVertex(5),g.getVertex(13));
+        return !g.isConnected();
+    }
+    public boolean graphTestRandomConstructor1(){
+        Graph g = new Graph("Random Graph", 30 , 0.4 , 0.2);
+        System.out.println(g);
+        return true;
     }
     public int testCluster(){
         int failCount = 0;

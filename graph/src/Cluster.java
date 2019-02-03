@@ -173,7 +173,7 @@ public class  Cluster implements ClusterInterface{
     }
 
     public String toString(){
-        return "{" + this.getName() + ":" + this.getVertices() + "}";
+        return "{" + this.getName() + ": Vertices:" + this.getVertices() + "}";
     }
 
     public int numOfVertices(){
