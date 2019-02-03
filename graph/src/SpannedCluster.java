@@ -1,3 +1,4 @@
+import java.util.Set;
 
 public class SpannedCluster extends Graph {
     protected SuperVertex center;
@@ -19,6 +20,10 @@ public class SpannedCluster extends Graph {
         }
     }
 
+    public SpannedCluster (SpannedCluster centerCluster, Set<SpannedCluster> clusters, Graph subGraph){
+        super(centerCluster.getName());
+
+    }
     public SuperVertex getCenter(){
         return this.center;
     }

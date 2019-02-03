@@ -8,6 +8,6 @@ public class CenteredCluster extends Cluster {
         this. center = center;
     }
     public SuperVertex getCenter(){
-        return this.center.clone();
+        return this.center;
     }
 }

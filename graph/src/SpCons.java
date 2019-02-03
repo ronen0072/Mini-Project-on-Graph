@@ -3,10 +3,11 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
+
 public class SpCons {
 
      public static Graph SpCons(Graph G){ //main function returns the spanner
-         int k = 0;
+         int k = 1;
          Graph H;
          Set<SpannedCluster> partitionG = new HashSet<SpannedCluster>() ;
          H = downPart(G,k,partitionG);
@@ -25,8 +26,11 @@ public class SpCons {
             CenteredCluster shell;
             SuperVertex v = vertexSetU.iterator().next();
             s.addVertex(v);
-            while (calcNeighbors(s, vertexSetU,G) >= ((n^(1/k))*(s.numOfVertices()))){
+            double factor = Math.pow(n,(1/k))*(s.numOfVertices());
+            while (calcNeighbors(s, vertexSetU,G) >= factor){
                 s.addVertices(expendNeighbors(s, vertexSetU,G));
+                if(vertexSetU.size()==s.numOfVertices())
+                    break;
             }
             SpannedCluster cluster = new SpannedCluster(v, s, G.getSubGraph(s));
             partitionG.add(cluster);
@@ -40,14 +44,15 @@ public class SpCons {
             CenteredCluster iterableShell = (CenteredCluster)sTag.next();
             Graph addToH = G.getSubGraph(iterableShell);
             addToH.getSPTForUnWeightGraph(iterableShell.getCenter());
-            H.addAllEdges(addToH.getEdges());
             H.addVertices(addToH.getVertices());
+            H.addAllEdges(addToH.getEdges());
         }
         return H;
     }
 
     private static void ProcedureSC(){
-        System.out.println("Procedure_SC");
+
+         System.out.println("Procedure_SC");
     }
     public static Set<SuperVertex> expendNeighbors(Cluster s, Set<SuperVertex> vertexSetU, Graph G){//ToDo: change to private
         Set<SuperVertex> neighbors = new HashSet<SuperVertex>();
