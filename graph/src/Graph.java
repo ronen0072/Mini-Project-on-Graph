@@ -405,6 +405,7 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
                 if(targetCluster.containsVertex(currentEdge.getSourceVertex())||
                         targetCluster.containsVertex(currentEdge.getTargetVertex())) {
                     path.add(currentEdge);
+                    return path;
                 }
                 else {
                     if (currentEdge.getSourceVertex().equals(current))
@@ -413,6 +414,7 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
                         path.addAll(shortestPathInTree(sourceCluster, currentEdge.getSourceVertex(), current, targetCluster));
                     if(!path.isEmpty()){
                         path.add(currentEdge);
+                        return path;
                     }
                 }
             }
