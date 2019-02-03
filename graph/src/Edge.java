@@ -1,14 +1,14 @@
 public class Edge {
     private double DEFAULT_EDGE_WEIGHT = 1.0;
-    protected Vertex sourceVertex, targetVertex;
+    protected SuperVertex sourceVertex, targetVertex;
     protected double weight;
 
-    public  Edge(Vertex sourceVertex, Vertex targetVertex, double weight){
+    public  Edge(SuperVertex sourceVertex, SuperVertex targetVertex, double weight){
         this.sourceVertex=sourceVertex;
         this.targetVertex=targetVertex;
         this.weight = weight;
     }
-    public  Edge(Vertex sourceVertex, Vertex targetVertex){
+    public  Edge(SuperVertex sourceVertex, SuperVertex targetVertex){
         this.sourceVertex=sourceVertex;
         this.targetVertex=targetVertex;
         this.weight = DEFAULT_EDGE_WEIGHT;
@@ -18,11 +18,11 @@ public class Edge {
         return new Edge(this.getSourceVertex(), this.getTargetVertex(), this.getWeight());
     }
 
-    public Vertex getSourceVertex() {
+    public SuperVertex getSourceVertex() {
         return sourceVertex;
     }
 
-    public Vertex getTargetVertex() {
+    public SuperVertex getTargetVertex() {
         return targetVertex;
     }
 
@@ -34,7 +34,7 @@ public class Edge {
         this.weight = weight;
     }
 
-    public boolean contains(Vertex var) {
+    public boolean contains(SuperVertex var) {
         return (((this.getSourceVertex()).equals(var)) || ((this.getTargetVertex()).equals(var)));
     }
     public String toString() {
@@ -49,7 +49,7 @@ public class Edge {
                 (((this.getSourceVertex()).equals(otherEdge.getTargetVertex())) &&
                 ((this.getTargetVertex()).equals(otherEdge.getSourceVertex()))));
     }
-    public boolean equals(Vertex _sourceVertex, Vertex _targetVertex){
+    public boolean equals(SuperVertex _sourceVertex, SuperVertex _targetVertex){
         return ((((this.getSourceVertex()).equals(_sourceVertex)) &&
                 ((this.getTargetVertex()).equals(_targetVertex)))||
                 (((this.getSourceVertex()).equals(_targetVertex)) &&

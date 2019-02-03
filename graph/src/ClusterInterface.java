@@ -3,19 +3,21 @@ import java.util.Set;
 
 public interface ClusterInterface {
 
-    Vertex getVertex(int vertexId);
+    SuperVertex getVertex(int vertexId);
 
-    boolean addVertex(Vertex var1);
-    boolean addVertices(Set<Vertex> add);
+    Set<SuperVertex> getVerticesClone();
 
-    boolean containsVertex(Vertex var1);
-    boolean containsAllVertices(Collection<? extends Vertex> vert);
+    boolean addVertex(SuperVertex var1);
 
-    boolean removeAllVertices(Collection<? extends Vertex> var1);
+    boolean addVertices(Set<SuperVertex> add);
 
-    boolean removeVertex(Vertex var1);
+    boolean containsVertex(SuperVertex var1);
 
-    Set<Vertex> getVertices();
+    boolean containsAllVertices(Collection<? extends SuperVertex> vars);
+
+    boolean removeAllVertices(Collection<? extends SuperVertex> vars);
+
+    boolean removeVertex(SuperVertex vert);
 
     String toString();
 

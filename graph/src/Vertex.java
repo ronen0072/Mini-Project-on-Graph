@@ -10,11 +10,13 @@ public class Vertex {
         this.id = id;
         this.name = null;
     }
-    private Vertex(int id, String name, int degree){
+
+    public Vertex(int id, String name, int degree) {
         this.id = id;
         this.name = name;
         this.degree = degree;
     }
+
     public Vertex clone(){
         return new Vertex(this.getId(), this.getName(),this.getDegree());
     }
