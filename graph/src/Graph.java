@@ -2,6 +2,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.Random;
 
 
 public class Graph extends Cluster implements GraphInterface,Cloneable{
@@ -27,6 +28,38 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         this.edges = new HashSet<Edge>();
     }
 
+    public Graph(String name, int numOfVertices, double ProbabilityInSubGraph, double ProbabilityBetweenSubGraph){
+        super(name);
+        int verticesCuonter = 0;
+        Random rand = new Random();
+
+        SuperVertex[] vertices = new SuperVertex[numOfVertices+1];
+        for(int i = 1; i<=numOfVertices; i++){
+            vertices[i] = new SuperVertex(i);
+            this.addVertex(vertices[i]);
+        }
+        while (verticesCuonter != numOfVertices){
+            int numOfVerticesInSubGraph = rand.nextInt(numOfVertices - verticesCuonter) + 1;
+            for(int i = verticesCuonter+1; (i <= verticesCuonter+numOfVerticesInSubGraph); i++){
+                for(int j = verticesCuonter+1; (j <= verticesCuonter+numOfVerticesInSubGraph); j++){
+                   if (rand.nextDouble() <= ProbabilityInSubGraph){
+                       if(i != j)
+                         this.addEdge(vertices[i],vertices[j]);
+                   }
+                }
+                for(int j = 1; (j <= verticesCuonter); j++){
+                    if (rand.nextDouble() <= ProbabilityBetweenSubGraph){
+                        if(i != j)
+                            this.addEdge(vertices[i],vertices[j]);
+                    }
+                }
+            }
+        }
+
+
+
+    }
+
     public Graph clone(){
         return new Graph(this.getName(),this.getVertices(),this.getEdges());
     }
@@ -40,12 +73,9 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         }
         return ret;
     }
-    /*public Graph CreateRandomGraph(){
-        Graph randomGraph = new Graph()
 
-    }*/
     public String toString() {
-        return "{"+this.getName()+":"+this.getVertices()+","+this.getEdges()+"}";
+        return "{"+this.getName()+": Vertices:"+this.getVertices()+", Edges:"+this.getEdges()+"}";
     }
 
     public int numOfEdges() {
@@ -67,18 +97,21 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
     }
 
     public Edge addEdge(SuperVertex sourceVertex, SuperVertex targetVertex) {
-        if (this.containsVertex(sourceVertex)&& this.containsVertex(targetVertex)) {
-            Edge toAdd = this.getEdge(sourceVertex, targetVertex);
-            if (toAdd == null) {
-                toAdd = new Edge(sourceVertex, targetVertex);
-                this.edges.add(toAdd);
-                sourceVertex.increaseDegree();
-                targetVertex.increaseDegree();
-                return toAdd;
-            }
-            else System.out.println("the edge:" + toAdd + " is already in the graph.");
+        if (sourceVertex.equals(targetVertex))
+            System.out.println("the edge source Vertex and target Vertex are equals.");
+        else {
+            if (this.containsVertex(sourceVertex) && this.containsVertex(targetVertex)) {
+                Edge toAdd = this.getEdge(sourceVertex, targetVertex);
+                if (toAdd == null) {
+                    toAdd = new Edge(sourceVertex, targetVertex);
+                    this.edges.add(toAdd);
+                    sourceVertex.increaseDegree();
+                    targetVertex.increaseDegree();
+                    return toAdd;
+                } else System.out.println("the edge:" + toAdd + " is already in the graph.");
+            } else
+                System.out.println("the edge:(" + sourceVertex + "," + targetVertex + ") contains vertex which does not exist in the graph.");
         }
-        else System.out.println("the edge:("+sourceVertex+","+targetVertex+") contains vertex which does not exist in the graph.");
         return null;
     }
 
@@ -151,7 +184,8 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
             var2.decreaseDegree();
             edges.remove(toRemove);
         }
-        System.out.println("the edge:"+toRemove+" is not existing in the graph.");
+        else
+            System.out.println("the edge:"+toRemove+" is not existing in the graph.");
         return toRemove;
     }
 
@@ -310,17 +344,28 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
             return lNeighbors;
         }
     }
-    public Set<SpannedCluster> getLSpannedClusterNeighbors(Cluster cluster, int l){
-        Set<SuperVertex> lNeighbors = getLNeighbors(cluster.getVertices(), l);
-        Set<SpannedCluster> SpannedClusterLNeighbors = new HashSet<SpannedCluster>();
+    public Set<SpannedCluster> getLSpannedClusterNeighbors(SpannedCluster centerCluster, int l){
+        Set<SuperVertex> lNeighbors = getLNeighbors(centerCluster.getVertices(), l);
+        Set<SpannedCluster> spannedClusterLNeighbors = new HashSet<SpannedCluster>();
+        spannedClusterLNeighbors.add(centerCluster);
         Iterator<SuperVertex> iter = lNeighbors.iterator();
         while (iter.hasNext()) {
             SuperVertex Neighbor = (SuperVertex) iter.next();
-            SpannedClusterLNeighbors.add(Neighbor.getSpannedCluster());
+            spannedClusterLNeighbors.add(Neighbor.getSpannedCluster());
         }
-        return SpannedClusterLNeighbors;
+        return spannedClusterLNeighbors;
     }
-
+    public boolean isConnected(){
+        if(numOfVertices()-1 < numOfEdges()) {
+            SuperVertex v = (SuperVertex) ((vertices.iterator()).next());
+            Set<SuperVertex> c = new HashSet<SuperVertex>();
+            c.add(v);
+            Set<SuperVertex> NeighborsOfV = getLNeighbors(c, numOfVertices());
+            if(NeighborsOfV.size() + 1 == this.numOfVertices())
+                return true;
+        }
+        return false;
+    }
 
     /*public void dijkstra(SuperVertex sourceVertex) {
         int verticesCount = this.numOfVertices();

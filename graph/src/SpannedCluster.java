@@ -19,6 +19,9 @@ public class SpannedCluster extends Graph {
             System.out.println("The sub graph is corrupted");
         }
     }
+    public String toString() {
+        return "{"+this.getName()+": center:"+this.center+" Vertices:"+this.getVertices()+", Edges:"+this.getEdges()+"}";
+    }
 
     public SpannedCluster (SpannedCluster centerCluster, Set<SpannedCluster> clusters, Graph subGraph){
         super(centerCluster.getName());
