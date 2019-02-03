@@ -8,10 +8,17 @@ public class SpCons {
 
      public static Graph SpCons(Graph G){ //main function returns the spanner
          int k = 1;
-         Graph H;
+         int sigma = 1;
+         int delta = 1;
+         Graph H, HTag;
          Set<SpannedCluster> partitionG = new HashSet<SpannedCluster>() ;
+         Set<SpannedCluster> partitionCTag = new HashSet<SpannedCluster>() ;
          H = downPart(G,k,partitionG);
-         ProcedureSC();
+         for (int j =0; j<= Math.log(k); j++){
+
+         }
+         HTag = ProcedureSC(G,partitionG,sigma,delta,partitionCTag);
+
          return H;
     }
     private static Graph downPart( Graph G, int k, Set<SpannedCluster> partitionG){//creates the partition
@@ -50,9 +57,49 @@ public class SpCons {
         return H;
     }
 
-    private static void ProcedureSC(){
-
+    private static Graph ProcedureSC(Graph G,Set<SpannedCluster> partitionG, int sigma, int delta, Set<SpannedCluster> partitionCTag){
          System.out.println("Procedure_SC");
+         Graph HTag = new Graph("HTag");
+         Set<SpannedCluster> u = new HashSet<SpannedCluster>();
+         Iterator partitionIter = partitionG.iterator();
+         while (partitionIter.hasNext()){
+             SpannedCluster toAdd = (SpannedCluster) partitionIter.next();
+             u.add(toAdd);
+         }
+         Boolean condition =true;
+         while (condition){
+             Iterator spundClus = u.iterator();
+             while (spundClus.hasNext()){
+                 SpannedCluster center = (SpannedCluster) spundClus.next();
+                 Set<SpannedCluster> neighbors = G.getLSpannedClusterNeighbors(center,1);
+                 if(neighbors.size() >= sigma) {//Check if the neighbors group is big enough
+                     Cluster allVertices = new Cluster("allVertices");
+                     allVertices.addVertices(center.getVertices());
+                     boolean allContained = true;
+
+                     Iterator neighborsIter = neighbors.iterator();
+                     while (neighborsIter.hasNext()) {//check if neighbors are contained in U
+                         SpannedCluster contained = (SpannedCluster) neighborsIter.next();
+                         if(u.contains(contained)){
+                             allVertices.addVertices(contained.getVertices());
+                         }else{
+                             neighbors.remove(contained);
+                             allContained = false;
+                         }
+                     }
+                     if(allContained||(neighbors.size() >= sigma)){
+                         SpannedCluster addToCTag = new SpannedCluster(center, neighbors,G);
+                         partitionCTag.add(addToCTag);
+                         u.removeAll(neighbors);
+                         HTag.addVertices(allVertices.getVertices());
+                         HTag.addAllEdges(addToCTag.getEdges());
+                         break;
+                     }
+                 }
+             }
+             condition = false;
+         }
+         return HTag;
     }
     public static Set<SuperVertex> expendNeighbors(Cluster s, Set<SuperVertex> vertexSetU, Graph G){//ToDo: change to private
         Set<SuperVertex> neighbors = new HashSet<SuperVertex>();

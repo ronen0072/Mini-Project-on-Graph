@@ -1,3 +1,5 @@
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 public class SpannedCluster extends Graph {
@@ -25,8 +27,30 @@ public class SpannedCluster extends Graph {
 
     public SpannedCluster (SpannedCluster centerCluster, Set<SpannedCluster> clusters, Graph subGraph){
         super(centerCluster.getName());
-
+        Set<SuperVertex> mergedVertices = new HashSet<SuperVertex>();
+        Iterator<SpannedCluster> clusterIterator =  clusters.iterator();
+        while (clusterIterator.hasNext()){//adding all vertices to check the subGraph
+            mergedVertices.addAll(clusterIterator.next().getVertices());
+        }
+        try {//ToDo: remove try becouse the sub gruph is actually G
+            if((!subGraph.containsAllVertices(mergedVertices))||(subGraph.numOfVertices() != mergedVertices.size()))
+                throw new InputException("The sub graph is corrupted");
+            else{
+                this.center = centerCluster.getCenter();
+                this.addVertices(mergedVertices);
+                this.addAllEdges(centerCluster.getEdges());
+                Iterator<SpannedCluster> clusIterator = clusters.iterator();
+                while (clusIterator.hasNext()){
+                    Cluster toMerge = clusIterator.next();
+                   // this.addAllEdges(subGraph.shortestPath(centerCluster,toMerge));
+                    this.addAllEdges(((SpannedCluster) toMerge).getEdges());
+                }
+            }
+        }catch (InputException e){
+            System.out.println("The sub graph is corrupted");
+        }
     }
+
     public SuperVertex getCenter(){
         return this.center;
     }

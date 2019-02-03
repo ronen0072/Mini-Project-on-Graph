@@ -1083,10 +1083,10 @@ public class Tests {
         return !g.isConnected();
     }
     public boolean graphTestRandomConstructor1(){
-        Graph g = new Graph("Random Graph", 100 , 0.1 , 0.005);
+        Graph g = new Graph("Random Graph", 30 , 0.3 , 0.2);
         System.out.println(g.isConnected());
         System.out.println(g);
-        System.out.println(g.getSPTForUnWeightGraph(g.getVertex(1)));
+        g.getSPTForUnWeightGraph(g.getVertex(1));
         System.out.println(g);
         return g.isConnected();
     }
