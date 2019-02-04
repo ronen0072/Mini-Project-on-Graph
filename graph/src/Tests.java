@@ -1215,7 +1215,7 @@ public class Tests {
         SpannedCluster s17 = new SpannedCluster(g.getVertex(17),c17,g.getSubGraph(c17));
 
         //System.out.println(g.getShortestPath(s1,s7));
-        return g.getShortestPath(s1,s7).size()==3;
+        return g.getShortestPath(s1,s7).numOfEdges()==3;
     }
     private boolean graphTestGetShortestPath3(){
         Graph g = example();
@@ -1254,7 +1254,7 @@ public class Tests {
         SpannedCluster s17 = new SpannedCluster(g.getVertex(17),c17,g.getSubGraph(c17));
 
         //System.out.println(g.getShortestPath(s1,s7));
-        return g.getShortestPath(s1,s15).size()==1;
+        return g.getShortestPath(s1,s15).numOfEdges()==1;
     }
 
     private boolean graphTestGetShortestPath4(){
@@ -1294,7 +1294,7 @@ public class Tests {
         SpannedCluster s17 = new SpannedCluster(g.getVertex(17),c17,g.getSubGraph(c17));
 
         //System.out.println(g.getShortestPath(s1,s7));
-        return g.getShortestPath(s7,s15).size()==6;
+        return g.getShortestPath(s7,s15).numOfEdges()==6;
     }
 
     private int testCluster(){

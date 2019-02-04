@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="aa18e5f0-1ba5-4c85-a1b8-04986b284687" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SpCons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SpCons.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -18,7 +20,7 @@
         <entry file="file://$PROJECT_DIR$/src/Graph.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="398">
-              <caret line="446" lean-forward="true" selection-start-line="446" selection-end-line="446" />
+              <caret line="435" column="29" selection-start-line="435" selection-start-column="29" selection-end-line="435" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#Graph#0;class#Graph#0" />
@@ -46,17 +48,16 @@
                 <element signature="method#isConnected#0;class#Graph#0" />
                 <element signature="method#getShortestPath#0;class#Graph#0" />
                 <element signature="method#getShortestPathInTree#0;class#Graph#0" />
-                <element signature="method#getShortestPath#1;class#Graph#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Tests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="198" column="58" selection-start-line="198" selection-start-column="58" selection-end-line="198" selection-end-column="58" />
+            <state relative-caret-position="254">
+              <caret line="1255" column="39" lean-forward="true" selection-start-line="1255" selection-start-column="39" selection-end-line="1255" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#13308#14192#0" />
@@ -230,13 +231,16 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SpCons.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+            <state relative-caret-position="568">
+              <caret line="105" column="55" lean-forward="true" selection-start-line="105" selection-start-column="55" selection-end-line="105" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#362#378#0" expanded="true" />
+                <element signature="e#435#451#0" expanded="true" />
+                <element signature="e#512#528#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -334,6 +338,10 @@
       <find>SpCons</find>
       <find>HTag</find>
       <find>g.addEdge(v[45],v[47]);</find>
+      <find>getSh</find>
+      <find>partitionCTag</find>
+      <find>condition</find>
+      <find>is</find>
     </findStrings>
     <replaceStrings>
       <replace>E</replace>
@@ -377,10 +385,10 @@
         <option value="$PROJECT_DIR$/src/InputException.java" />
         <option value="$PROJECT_DIR$/src/Pair.java" />
         <option value="$PROJECT_DIR$/src/SpannedCluster.java" />
-        <option value="$PROJECT_DIR$/src/SpCons.java" />
-        <option value="$PROJECT_DIR$/src/Graph.java" />
         <option value="$PROJECT_DIR$/src/Cluster.java" />
+        <option value="$PROJECT_DIR$/src/Graph.java" />
         <option value="$PROJECT_DIR$/src/Tests.java" />
+        <option value="$PROJECT_DIR$/src/SpCons.java" />
       </list>
     </option>
   </component>
@@ -419,7 +427,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549304934616" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549317873838" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -618,7 +626,14 @@
       <option name="project" value="LOCAL" />
       <updated>1549301651169</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="new example to graph (example2)">
+      <created>1549305001623</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1549305001623</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -635,11 +650,11 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.3289689" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32922733" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50075644" side_tool="true" weight="0.3289689" />
-      <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.49924356" visible="true" weight="0.2788354" />
+      <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.49924356" weight="0.2788354" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49923313" weight="0.387458" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.45912653" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49923313" weight="0.21276596" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.4300112" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
@@ -658,16 +673,16 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.26096824" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.22310513" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.3289689" />
-      <window_info anchor="bottom" id="Terminal" order="1" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32922733" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50075644" side_tool="true" weight="0.3289689" />
-      <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.49924356" weight="0.3289689" />
+      <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.49924356" weight="0.2788354" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="6" visible="true" weight="0.3289689" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.39934534" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49923313" weight="0.21276596" />
+      <window_info active="true" anchor="bottom" id="Debug" order="7" visible="true" weight="0.4300112" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
@@ -720,7 +735,26 @@
     <MESSAGE value="Merge branch 'master' of https://github.com/ronen0072/Mini-Project-on-Graph&#10;                         &#10;                         # Conflicts:&#10;                         #&#9;graph/src/ClusterInterface.java&#10;                         #&#9;graph/src/Edge.java&#10;                         #&#9;graph/src/Vertex.java&#10;                          shortestPath" />
     <MESSAGE value="Merge branch 'master' of https://github.com/ronen0072/Mini-Project-on-Graph&#10;                         &#10;                         # Conflicts:&#10;                         #&#9;graph/src/ClusterInterface.java&#10;                         #&#9;graph/src/Edge.java&#10;                         #&#9;graph/src/Vertex.java&#10;                          shortestPath&#10;                          Fix bugs" />
     <MESSAGE value="Merge branch 'master' of https://github.com/ronen0072/Mini-Project-on-Graph&#10;                         &#10;                         # Conflicts:&#10;                         #&#9;graph/src/ClusterInterface.java&#10;                         #&#9;graph/src/Edge.java&#10;                         #&#9;graph/src/Vertex.java&#10;                          getShortestPath Works!!!!&#10;                          Fix bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/ronen0072/Mini-Project-on-Graph&#10;                         &#10;                         # Conflicts:&#10;                         #&#9;graph/src/ClusterInterface.java&#10;                         #&#9;graph/src/Edge.java&#10;                         #&#9;graph/src/Vertex.java&#10;                          getShortestPath Works!!!!&#10;                          Fix bugs" />
+    <MESSAGE value="new example to graph (example2)" />
+    <option name="LAST_COMMIT_MESSAGE" value="new example to graph (example2)" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Tests.java</url>
+          <line>1894</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Tests.java</url>
+          <line>1952</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -824,6 +858,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/algorithms.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/SpannedCluster.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -834,17 +878,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/algorithms.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Graph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="398">
-          <caret line="446" lean-forward="true" selection-start-line="446" selection-end-line="446" />
+          <caret line="435" column="29" selection-start-line="435" selection-start-column="29" selection-end-line="435" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Graph#0;class#Graph#0" />
@@ -872,28 +909,14 @@
             <element signature="method#isConnected#0;class#Graph#0" />
             <element signature="method#getShortestPath#0;class#Graph#0" />
             <element signature="method#getShortestPathInTree#0;class#Graph#0" />
-            <element signature="method#getShortestPath#1;class#Graph#0" />
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SpCons.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Tests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="198" column="58" selection-start-line="198" selection-start-column="58" selection-end-line="198" selection-end-column="58" />
+        <state relative-caret-position="254">
+          <caret line="1255" column="39" lean-forward="true" selection-start-line="1255" selection-start-column="39" selection-end-line="1255" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#13308#14192#0" />
@@ -1057,6 +1080,19 @@
             <element signature="e#75298#75314#0" expanded="true" />
             <element signature="e#75800#75816#0" expanded="true" />
             <element signature="e#76496#76512#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SpCons.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="568">
+          <caret line="105" column="55" lean-forward="true" selection-start-line="105" selection-start-column="55" selection-end-line="105" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#362#378#0" expanded="true" />
+            <element signature="e#435#451#0" expanded="true" />
+            <element signature="e#512#528#0" expanded="true" />
           </folding>
         </state>
       </provider>

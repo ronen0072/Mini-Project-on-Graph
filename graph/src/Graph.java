@@ -425,7 +425,7 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         return path;
     }
 
-    public Set<Edge> getShortestPath(SpannedCluster sourceCluster, SpannedCluster targetCluster){
+    public Graph getShortestPath(SpannedCluster sourceCluster, SpannedCluster targetCluster){
         Set<Edge>  originalPath = getShortestPath(sourceCluster.getCenter(), targetCluster.getCenter());
         Set<Edge>  newPath = new HashSet<Edge>(originalPath);
         Iterator<Edge> iter = originalPath.iterator();
@@ -438,7 +438,15 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
                     targetCluster.containsVertex(currentEdge.getTargetVertex()))
                 newPath.remove(currentEdge);
         }
-        return newPath;
+        iter = newPath.iterator();
+        Graph pathGraph = new Graph("path from: "+sourceCluster+", to: "+targetCluster);
+        while (iter.hasNext()) {
+            Edge currentEdge = (Edge)iter.next();
+            pathGraph.addVertex(currentEdge.getSourceVertex());
+            pathGraph.addVertex(currentEdge.getTargetVertex());
+        }
+        pathGraph.addAllEdges(newPath);
+        return pathGraph;
     }
 
     public  int getDistance(SuperVertex source, SuperVertex target){
