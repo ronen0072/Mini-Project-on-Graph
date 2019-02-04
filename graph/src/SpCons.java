@@ -5,21 +5,27 @@ import java.util.Set;
 
 
 public class SpCons {
-     private static int k = 1;
-     public static Graph SpCons(Graph g){ //main function returns the spanner
+    private static final int k = 1;
 
+     public static Graph SpCons(Graph G){ //main function returns the spanner
+         //int k = 1;
          int sigma = 1;
          int delta = 1;
-         Graph h, hTag;
+         Graph H, hTag;
+         Set<SpannedCluster> partitionU = new HashSet<SpannedCluster>();
          Set<SpannedCluster> partitionG = new HashSet<SpannedCluster>() ;
          Set<SpannedCluster> partitionCTag = new HashSet<SpannedCluster>() ;
-         h = downPart(g,partitionG);
+         H = downPart(G,partitionG);
          for (int j =0; j<= Math.log(k); j++){
-
          }
-         hTag = ProcedureSC(g,partitionG,sigma,delta,partitionCTag);
+         Iterator partitionIter = partitionG.iterator();
+         while (partitionIter.hasNext()){
+             SpannedCluster toAdd = (SpannedCluster) partitionIter.next();
+             partitionU.add(toAdd);
+         }
+         hTag = ProcedureSC(G,partitionU,sigma,delta,partitionCTag);
 
-         return h;
+         return H;
     }
     public static Graph downPart( Graph g, Set<SpannedCluster> partitionG){//creates the partition
         System.out.println("Down_Part");
@@ -57,7 +63,7 @@ public class SpCons {
         return h;
     }
 
-    public static Graph ProcedureSC(Graph g,Set<SpannedCluster> partitionG, int sigma, int delta, Set<SpannedCluster> partitionCTag){
+    private static Graph ProcedureSC(Graph G,Set<SpannedCluster> partitionG, int sigma, int delta, Set<SpannedCluster> partitionCTag){
          System.out.println("Procedure_SC");
          Graph hTag = new Graph("hTag");
          Set<SpannedCluster> u = new HashSet<SpannedCluster>();
@@ -71,7 +77,7 @@ public class SpCons {
              Iterator spundClus = u.iterator();
              while (spundClus.hasNext()){
                  SpannedCluster center = (SpannedCluster) spundClus.next();
-                 Set<SpannedCluster> neighbors = g.getLSpannedClusterNeighbors(center,1);
+                 Set<SpannedCluster> neighbors = G.getLSpannedClusterNeighbors(center,1);
                  if(neighbors.size() >= sigma) {//Check if the neighbors group is big enough
                      Cluster allVertices = new Cluster("allVertices");
                      allVertices.addVertices(center.getVertices());
@@ -88,7 +94,7 @@ public class SpCons {
                          }
                      }
                      if(allContained||(neighbors.size() >= sigma)){
-                         SpannedCluster addToCTag = new SpannedCluster(center, neighbors,g);
+                         SpannedCluster addToCTag = new SpannedCluster(center, neighbors, G);
                          partitionCTag.add(addToCTag);
                          u.removeAll(neighbors);
                          hTag.addVertices(allVertices.getVertices());
