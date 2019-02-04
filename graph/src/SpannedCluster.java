@@ -41,8 +41,8 @@ public class SpannedCluster extends Graph {
                 this.addAllEdges(centerCluster.getEdges());
                 Iterator<SpannedCluster> clusIterator = clusters.iterator();
                 while (clusIterator.hasNext()){
-                    Cluster toMerge = clusIterator.next();
-                   // this.addAllEdges(subGraph.shortestPath(centerCluster,toMerge));
+                    SpannedCluster toMerge = clusIterator.next();
+                   this.addAllEdges(subGraph.getShortestPath(centerCluster,toMerge));
                     this.addAllEdges(((SpannedCluster) toMerge).getEdges());
                 }
             }

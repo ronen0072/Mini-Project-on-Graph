@@ -60,8 +60,6 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         if(!this.isConnected()){
             fixTheGraph();
         }
-
-
     }
 
     public Graph clone(){
