@@ -201,6 +201,7 @@ public class Tests {
         if (!graphTestGetLSpannedClusterNeighbors()) {failCuont++;  System.out.println("graphTestGetLSpannedClusterNeighbors");}
         if (!graphTestIsConnected1()) {failCuont++;  System.out.println("graphTestIsConnected1");}
         if (!graphTestIsConnected2()) {failCuont++;  System.out.println("graphTestIsConnected2");}
+        if (!graphTestIsConnected3()) {failCuont++;  System.out.println("graphTestIsConnected3");}
         if (!graphTestRandomConstructor1()) {failCuont++;  System.out.println("graphTestRandomConstructor1");}
         if (!graphTestGetShortestPath0()) {failCuont++;  System.out.println("graphTestGetShortestPath0");}
         if (!graphTestGetShortestPath1()) {failCuont++;  System.out.println("graphTestGetShortestPath1");}
@@ -245,6 +246,94 @@ public class Tests {
         g.addEdge(v[15],v[14]);
 
         g.addEdge(v[3],v[14]);
+        return g;
+
+    }
+    private Graph example2(){
+        Graph g = new Graph("example");
+        SuperVertex[] v = new SuperVertex[61];
+        for (int i=1; i<=60; i++){
+            v[i] = new SuperVertex(i);
+            g.addVertex(v[i]);
+        }
+        for (int i=1; i<=4; i++)
+            g.addEdge(v[5],v[i]);
+        g.addEdge(v[1],v[2]);
+        g.addEdge(v[4],v[7]);
+        g.addEdge(v[3],v[7]);
+        g.addEdge(v[7],v[13]);
+
+        g.addEdge(v[13],v[15]);
+        g.addEdge(v[13],v[14]);
+        for (int i=14; i<=19; i++)
+            if((i != 16)&&(i != 18))
+                g.addEdge(v[16],v[i]);
+        g.addEdge(v[14],v[18]);
+
+        g.addEdge(v[10],v[9]);
+        g.addEdge(v[10],v[11]);
+        g.addEdge(v[9],v[8]);
+        g.addEdge(v[11],v[12]);
+
+        g.addEdge(v[12],v[34]);
+        g.addEdge(v[17],v[34]);
+        g.addEdge(v[34],v[35]);
+        g.addEdge(v[35],v[38]);
+
+        for (int i=20; i<=24; i++)
+            if(i != 22)
+                g.addEdge(v[22],v[i]);
+        g.addEdge(v[20],v[21]);
+        g.addEdge(v[20],v[23]);
+        g.addEdge(v[24],v[25]);
+
+        for (int i=25; i<=28; i++)
+            if(i != 26)
+                g.addEdge(v[26],v[i]);
+        g.addEdge(v[28],v[27]);
+        g.addEdge(v[28],v[25]);
+
+
+        g.addEdge(v[29],v[24]);
+        g.addEdge(v[24],v[31]);
+        g.addEdge(v[29],v[31]);
+        g.addEdge(v[29],v[33]);
+        g.addEdge(v[32],v[33]);
+        g.addEdge(v[31],v[32]);
+        g.addEdge(v[33],v[30]);
+
+
+
+        g.addEdge(v[30],v[36]);
+        g.addEdge(v[36],v[37]);
+        g.addEdge(v[37],v[38]);
+        g.addEdge(v[38],v[39]);
+        g.addEdge(v[39],v[40]);
+        g.addEdge(v[40],v[41]);
+        g.addEdge(v[41],v[46]);
+
+        for (int i=46; i<=53; i++)
+            if((i != 47)&&(i != 49)&&(i != 52))
+                g.addEdge(v[49],v[i]);
+
+        g.addEdge(v[46],v[47]);
+        g.addEdge(v[47],v[48]);
+        g.addEdge(v[51],v[52]);
+        g.addEdge(v[52],v[53]);
+
+        for (int i=43; i<=45; i++)
+            g.addEdge(v[42],v[i]);
+        g.addEdge(v[45],v[47]);
+
+
+        g.addEdge(v[54],v[55]);
+        g.addEdge(v[54],v[56]);
+        g.addEdge(v[55],v[57]);
+        g.addEdge(v[55],v[58]);
+        g.addEdge(v[56],v[58]);
+        g.addEdge(v[56],v[59]);
+        g.addEdge(v[59],v[60]);
+        g.addEdge(v[60],v[51]);
         return g;
 
     }
@@ -1062,6 +1151,10 @@ public class Tests {
     private boolean graphTestIsConnected2(){
         Graph g = example();
         g.removeEdge(g.getVertex(5),g.getVertex(13));
+        return !g.isConnected();
+    }
+    private boolean graphTestIsConnected3(){
+        Graph g = example2();
         return !g.isConnected();
     }
     private boolean graphTestRandomConstructor1(){
