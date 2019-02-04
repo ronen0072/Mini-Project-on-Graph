@@ -102,7 +102,7 @@ public class SpCons {
          SpannedCluster[] spClusterToArr = partitionU.toArray(new SpannedCluster[partitionU.size()]);
          for (int i=0; i<partitionU.size();i++){
              for (int j=i; j<partitionU.size();j++){
-                 Set<Edge> shortPath = G.shortestPath(spClusterToArr[i],spClusterToArr[j]);
+                 Set<Edge> shortPath = G.getShortestPath(spClusterToArr[i],spClusterToArr[j]);
                  if(shortPath.size()<= 2*delta){
                     HTag.addAllEdges(shortPath);
                  }
@@ -118,10 +118,11 @@ public class SpCons {
         return neighbors;
     }
     public static int calcNeighbors(Cluster s, Set<SuperVertex> vertexSetU, Graph G){//ToDo: change to private
-        Set<SuperVertex> neighbors = new HashSet<SuperVertex>();
-        neighbors = G.getNeighbors(s.getVertices());
-        neighbors.addAll(s.getVertices());
-        neighbors.retainAll(vertexSetU);
+        Set<SuperVertex> neighbors = expendNeighbors(s, vertexSetU, G);
+        //Set<SuperVertex> neighbors = new HashSet<SuperVertex>();
+        //neighbors = G.getNeighbors(s.getVertices());
+        //neighbors.addAll(s.getVertices());
+        //neighbors.retainAll(vertexSetU);
         return neighbors.size();
     }
 }
