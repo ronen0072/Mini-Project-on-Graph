@@ -30,7 +30,6 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
 
     public Graph(String name, int numOfVertices, double ProbabilityInSubGraph, double ProbabilityBetweenSubGraph){
         super(name);
-        edges = new HashSet<Edge>();
         int verticesCuonter = 0;
         Random rand = new Random();
 
@@ -41,8 +40,8 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         }
         while (verticesCuonter != numOfVertices){
             int numOfVerticesInSubGraph = rand.nextInt(numOfVertices - verticesCuonter) + 1;
-            for(int i = (verticesCuonter + 1); (i <= verticesCuonter+numOfVerticesInSubGraph); i++){
-                for(int j = (verticesCuonter + i); (j <= verticesCuonter+numOfVerticesInSubGraph); j++){
+            for(int i = verticesCuonter+1; (i <= verticesCuonter+numOfVerticesInSubGraph); i++){
+                for(int j = verticesCuonter+1; (j <= verticesCuonter+numOfVerticesInSubGraph); j++){
                    if (rand.nextDouble() <= ProbabilityInSubGraph){
                        if(i != j)
                          this.addEdge(vertices[i],vertices[j]);
@@ -54,9 +53,7 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
                             this.addEdge(vertices[i],vertices[j]);
                     }
                 }
-
             }
-            verticesCuonter += numOfVerticesInSubGraph;
         }
 
 
@@ -359,7 +356,7 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         return spannedClusterLNeighbors;
     }
     public boolean isConnected(){
-        if(numOfVertices()-1 <= numOfEdges()) {
+        if(numOfVertices()-1 < numOfEdges()) {
             SuperVertex v = (SuperVertex) ((vertices.iterator()).next());
             Set<SuperVertex> c = new HashSet<SuperVertex>();
             c.add(v);
