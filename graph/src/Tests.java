@@ -202,8 +202,11 @@ public class Tests {
         if (!graphTestIsConnected1()) {failCuont++;  System.out.println("graphTestIsConnected1");}
         if (!graphTestIsConnected2()) {failCuont++;  System.out.println("graphTestIsConnected2");}
         if (!graphTestRandomConstructor1()) {failCuont++;  System.out.println("graphTestRandomConstructor1");}
+        if (!graphTestGetShortestPath0()) {failCuont++;  System.out.println("graphTestGetShortestPath0");}
         if (!graphTestGetShortestPath1()) {failCuont++;  System.out.println("graphTestGetShortestPath1");}
         if (!graphTestGetShortestPath2()) {failCuont++;  System.out.println("graphTestGetShortestPath2");}
+        if (!graphTestGetShortestPath3()) {failCuont++;  System.out.println("graphTestGetShortestPath3");}
+        if (!graphTestGetShortestPath4()) {failCuont++;  System.out.println("graphTestGetShortestPath4");}
         return failCuont;
     }
     private Graph example(){
@@ -1069,7 +1072,20 @@ public class Tests {
         //System.out.println(g);
         return g.isConnected();
     }
-    private boolean graphTestGetShortestPath1(){
+
+    private boolean graphTestGetShortestPath0() {
+    Graph g = example();
+
+        return g.getDistance(g.getVertex(1),g.getVertex(7)) == 5;
+    }
+
+    private boolean graphTestGetShortestPath1() {
+        Graph g = example();
+        //System.out.println(g.getShortestPath(g.getVertex(18),g.getVertex(7)).size());
+        return g.getDistance(g.getVertex(18),g.getVertex(7)) == 9;
+    }
+
+    private boolean graphTestGetShortestPath2(){
         Graph g = example();
         //System.out.println(g);
         Cluster c1 = new Cluster("1,2,3,4,5");
@@ -1108,7 +1124,7 @@ public class Tests {
         //System.out.println(g.getShortestPath(s1,s7));
         return g.getShortestPath(s1,s7).size()==3;
     }
-    private boolean graphTestGetShortestPath2(){
+    private boolean graphTestGetShortestPath3(){
         Graph g = example();
         //System.out.println(g);
         Cluster c1 = new Cluster("1,2,3,4,5");
@@ -1146,6 +1162,46 @@ public class Tests {
 
         //System.out.println(g.getShortestPath(s1,s7));
         return g.getShortestPath(s1,s15).size()==1;
+    }
+
+    private boolean graphTestGetShortestPath4(){
+        Graph g = example();
+        //System.out.println(g);
+        Cluster c1 = new Cluster("1,2,3,4,5");
+        Cluster c7 = new Cluster("6,7,8,9");
+        Cluster c12 = new Cluster("10,11,12");
+        Cluster c13 = new Cluster("13");
+        Cluster c15 = new Cluster("14,15");
+        Cluster c17 = new Cluster("16,17,18");
+        for (int i=1; i<=18; i++){
+            if((1<=i)&&(i<=5)){
+                c1.addVertex(g.getVertex(i));
+            }
+            if((6<=i)&&(i<=9)){
+                c7.addVertex(g.getVertex(i));
+            }
+            if((10<=i)&&(i<=12)){
+                c12.addVertex(g.getVertex(i));
+            }
+            if(13 == i){
+                c13.addVertex(g.getVertex(i));
+            }
+            if((14<=i)&&(i<=15)){
+                c15.addVertex(g.getVertex(i));
+            }
+            if((16<=i)&&(i<=18)){
+                c17.addVertex(g.getVertex(i));
+            }
+        }
+        SpannedCluster s1 = new SpannedCluster(g.getVertex(1),c1,g.getSubGraph(c1));
+        SpannedCluster s7 = new SpannedCluster(g.getVertex(7),c7,g.getSubGraph(c7));
+        SpannedCluster s12 = new SpannedCluster(g.getVertex(12),c12,g.getSubGraph(c12));
+        SpannedCluster s13 = new SpannedCluster(g.getVertex(13),c13,g.getSubGraph(c13));
+        SpannedCluster s15 = new SpannedCluster(g.getVertex(15),c15,g.getSubGraph(c15));
+        SpannedCluster s17 = new SpannedCluster(g.getVertex(17),c17,g.getSubGraph(c17));
+
+        //System.out.println(g.getShortestPath(s1,s7));
+        return g.getShortestPath(s7,s15).size()==6;
     }
 
     private int testCluster(){
@@ -1623,6 +1679,7 @@ public class Tests {
         }
         if (!downPartTest1()) {failCount++; System.out.println("downPartTest1");}
         if (!downPartTest2()) {failCount++; System.out.println("downPartTest2");}
+        if (!downPartTest3()) {failCount++; System.out.println("downPartTest3");}
         return failCount;
     }
     public boolean calcNeighborsTest(){
@@ -1731,6 +1788,15 @@ public class Tests {
         res &= collection.containsAllVertices(g.getVertices());
         return res;
     }
+    private boolean downPartTest3(){
+        Graph g = new Graph("downPartTest",50,0.1,0.05);
+        System.out.println(g.isConnected());
+        Set<SpannedCluster> partitionG = new HashSet<SpannedCluster>();
+        SpCons.downPart(g, partitionG);
+
+        return SpCons.downPart(g, partitionG).isConnected();
+    }
+
     public boolean spConsTest() {
         boolean ans = true;
         Graph g = new Graph("graph");

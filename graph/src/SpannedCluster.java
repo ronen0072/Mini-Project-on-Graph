@@ -22,7 +22,7 @@ public class SpannedCluster extends Graph {
         }
     }
     public String toString() {
-        return "{"+this.getName()+": center:"+this.center+" Vertices:"+this.getVertices()+", Edges:"+this.getEdges()+"}";
+        return "{"+this.getName()+": center: "+this.center+", Vertices: "+this.getVertices()+", Edges: "+this.getEdges()+"}";
     }
 
     public SpannedCluster (SpannedCluster centerCluster, Set<SpannedCluster> clusters, Graph subGraph){
