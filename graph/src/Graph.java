@@ -388,19 +388,19 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
             fixTheGraph();
         }
     }
-    public Set<Edge> shortestPath(SpannedCluster sourceCluster, SpannedCluster targetCluster){
+    public Set<Edge> getShortestPath(SpannedCluster sourceCluster, SpannedCluster targetCluster){
         Set<Edge> path = new HashSet<Edge>();
         Graph gSPT = this.clone();
         gSPT.getSPTForUnWeightGraph(sourceCluster.getCenter());
-        return path;
+        return gSPT.getShortestPathInTree(sourceCluster, sourceCluster.getCenter(), null, targetCluster);
     }
-    public Set<Edge> shortestPathInTree(SpannedCluster sourceCluster, SuperVertex current, SuperVertex previous, SpannedCluster targetCluster){
+    private Set<Edge> getShortestPathInTree(SpannedCluster sourceCluster, SuperVertex current, SuperVertex previous, SpannedCluster targetCluster){
         Set<Edge> path = new HashSet<Edge>();
         Set<Edge>  incomingEdgesOfCurrent = this.incomingEdgesOf(current);
         Iterator<Edge> iter = incomingEdgesOfCurrent.iterator();
         while (iter.hasNext()){
             Edge currentEdge = (Edge)iter.next();
-            if(!(currentEdge.contains(previous))){
+            if((previous == null)||!(currentEdge.contains(previous))){
                 //Stop event
                 if(targetCluster.containsVertex(currentEdge.getSourceVertex())||
                         targetCluster.containsVertex(currentEdge.getTargetVertex())) {
@@ -409,10 +409,12 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
                 }
                 else {
                     if (currentEdge.getSourceVertex().equals(current))
-                        path.addAll(shortestPathInTree(sourceCluster, currentEdge.getTargetVertex(), current, targetCluster));
+                        path.addAll(getShortestPathInTree(sourceCluster, currentEdge.getTargetVertex(), current, targetCluster));
                     else
-                        path.addAll(shortestPathInTree(sourceCluster, currentEdge.getSourceVertex(), current, targetCluster));
-                    if(!path.isEmpty()){
+                        path.addAll(getShortestPathInTree(sourceCluster, currentEdge.getSourceVertex(), current, targetCluster));
+                    if(!path.isEmpty() &&
+                            ((!sourceCluster.containsVertex(currentEdge.getSourceVertex()))||
+                                    (!sourceCluster.containsVertex(currentEdge.getTargetVertex())))){
                         path.add(currentEdge);
                         return path;
                     }
