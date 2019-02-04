@@ -96,13 +96,13 @@ public class  Cluster implements ClusterInterface{
             if(vert == null) {
                 throw new InputException("There are no vertices in the collection.");
             }
-            boolean res = true;
             Iterator verticesIter = vert.iterator();
             while (verticesIter.hasNext()) {
                 SuperVertex toCheck = (SuperVertex) verticesIter.next();
-                res &= this.containsVertex(toCheck);
+                if (!this.containsVertex(toCheck))
+                    return false;
             }
-            return res;
+            return true;
         }
         catch (InputException e) {
             System.out.println("There are no vertices in the collection.");
@@ -111,7 +111,26 @@ public class  Cluster implements ClusterInterface{
         }
 
     }
-
+    public Set<SuperVertex> cutting(Cluster OtherCluster){
+        Set<SuperVertex> res = new HashSet<SuperVertex>();
+        try{
+            if(OtherCluster == null) {
+                throw new InputException("There are no vertices in the collection.");
+            }
+            Iterator verticesIter = OtherCluster.getVertices().iterator();
+            while (verticesIter.hasNext()) {
+                SuperVertex v = (SuperVertex) verticesIter.next();
+                if(this.containsVertex(v))
+                    res.add(v);
+            }
+            return res;
+        }
+        catch (InputException e) {
+            System.out.println("There are no vertices in the collection.");
+            //e.printStackTrace();
+            return res;
+        }
+    }
     public boolean removeAllVertices(Collection<? extends SuperVertex> vars){
         try {
             if (vars == null) {

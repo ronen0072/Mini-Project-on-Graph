@@ -36,11 +36,10 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
             vertices[i] = new SuperVertex(i);
             this.addVertex(vertices[i]);
         }
-        boolean isConnected = false;
         edges = new HashSet<Edge>();
         int verticesCuonter = 0;
         while (verticesCuonter != numOfVertices) {
-            int numOfVerticesInSubGraph = 10;//((rand.nextInt(numOfVertices - verticesCuonter) + 1));
+            int numOfVerticesInSubGraph = ((rand.nextInt(numOfVertices - verticesCuonter) + 1));
             for (int i = (verticesCuonter + 1); (i <= verticesCuonter + numOfVerticesInSubGraph); i++) {
                 for (int j = (verticesCuonter + i); (j <= verticesCuonter + numOfVerticesInSubGraph); j++) {
                     if (rand.nextDouble() <= ProbabilityInSubGraph)
@@ -177,7 +176,6 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         }
         return res;
     }
-
 
     public Edge removeEdge(SuperVertex var1, SuperVertex var2) {
         Edge toRemove = this.getEdge(var1,var2);
@@ -321,6 +319,7 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
             return null;
         }
     }
+
     public Set<SuperVertex> getLNeighbors(Set<SuperVertex> vertices,int l){
         Set<SuperVertex> lNeighbors = new HashSet<SuperVertex>();
         try {
@@ -342,6 +341,7 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
             return lNeighbors;
         }
     }
+
     public Set<SpannedCluster> getLSpannedClusterNeighbors(SpannedCluster centerCluster, int l){
         Set<SuperVertex> lNeighbors = getLNeighbors(centerCluster.getVertices(), l);
         Set<SpannedCluster> spannedClusterLNeighbors = new HashSet<SpannedCluster>();
@@ -353,6 +353,7 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         }
         return spannedClusterLNeighbors;
     }
+
     public boolean isConnected(){
         if(numOfVertices()-1 <= numOfEdges()) {
             SuperVertex v = (SuperVertex) ((vertices.iterator()).next());
@@ -386,12 +387,14 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
             fixTheGraph();
         }
     }
+
     public Set<Edge> getShortestPath(SpannedCluster sourceCluster, SpannedCluster targetCluster){
         Set<Edge> path = new HashSet<Edge>();
         Graph gSPT = this.clone();
         gSPT.getSPTForUnWeightGraph(sourceCluster.getCenter());
         return gSPT.getShortestPathInTree(sourceCluster, sourceCluster.getCenter(), null, targetCluster);
     }
+
     private Set<Edge> getShortestPathInTree(SpannedCluster sourceCluster, SuperVertex current, SuperVertex previous, SpannedCluster targetCluster){
         Set<Edge> path = new HashSet<Edge>();
         Set<Edge>  incomingEdgesOfCurrent = this.incomingEdgesOf(current);
@@ -421,6 +424,7 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         }
         return path;
     }
+
     /*public void dijkstra(SuperVertex sourceVertex) {
         int verticesCount = this.numOfVertices();
         double[] wt = new double[verticesCount];
