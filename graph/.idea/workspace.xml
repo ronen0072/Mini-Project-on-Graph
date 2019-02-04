@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa18e5f0-1ba5-4c85-a1b8-04986b284687" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/graph/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/graph/Graph.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/graph/tests.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/graph/tests.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/src/Graph.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="160">
-              <caret line="389" column="30" lean-forward="true" selection-start-line="389" selection-start-column="30" selection-end-line="389" selection-end-column="30" />
+              <caret line="389" column="30" selection-start-line="389" selection-start-column="30" selection-end-line="389" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#Graph#0;class#Graph#0" />
@@ -65,7 +67,7 @@
         <entry file="file://$PROJECT_DIR$/src/SpCons.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
-              <caret line="16" column="34" lean-forward="true" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+              <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -341,8 +343,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.tests" />
         <item itemvalue="Application.Tests" />
+        <item itemvalue="Application.tests" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Tests" />
         <item itemvalue="Application.tests" />
@@ -451,7 +453,14 @@
       <option name="project" value="LOCAL" />
       <updated>1549299659180</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Merge branch 'master' of https://github.com/ronen0072/Mini-Project-on-Graph&#10;                         &#10;                         # Conflicts:&#10;                         #&#9;graph/src/ClusterInterface.java&#10;                         #&#9;graph/src/Edge.java&#10;                         #&#9;graph/src/Vertex.java&#10;                          getShortestPath Works!!!!&#10;                          Fix bugs">
+      <created>1549300417340</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1549300417340</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -463,12 +472,12 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.22310513" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.22310513" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.3289689" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32922733" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50075644" side_tool="true" weight="0.3289689" />
-      <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.49924356" visible="true" weight="0.2788354" />
+      <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.49924356" weight="0.2788354" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.3289689" />
       <window_info active="true" anchor="bottom" id="Run" order="6" sideWeight="0.49923313" visible="true" weight="0.387458" />
@@ -692,7 +701,7 @@
     <entry file="file://$PROJECT_DIR$/src/SpCons.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
-          <caret line="16" column="34" lean-forward="true" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -702,7 +711,7 @@
     <entry file="file://$PROJECT_DIR$/src/Graph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
-          <caret line="389" column="30" lean-forward="true" selection-start-line="389" selection-start-column="30" selection-end-line="389" selection-end-column="30" />
+          <caret line="389" column="30" selection-start-line="389" selection-start-column="30" selection-end-line="389" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Graph#0;class#Graph#0" />

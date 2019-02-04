@@ -1,3 +1,4 @@
 *.class
-.idea/
+*/idea/*
 *.xml
+/graph/out/*
