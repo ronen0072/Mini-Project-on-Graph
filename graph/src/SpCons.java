@@ -15,7 +15,7 @@ public class SpCons {
          Set<SpannedCluster> partitionU = new HashSet<SpannedCluster>();
          Set<SpannedCluster> partitionG = new HashSet<SpannedCluster>() ;
          Set<SpannedCluster> partitionCTag = new HashSet<SpannedCluster>() ;
-         H = downPart(G,k,partitionG);
+         H = downPart(G,partitionG);
          for (int j =0; j<= Math.log(k); j++){
          }
          Iterator partitionIter = partitionG.iterator();
@@ -27,7 +27,7 @@ public class SpCons {
 
          return H;
     }
-    private static Graph downPart( Graph G, int k, Set<SpannedCluster> partitionG){//creates the partition
+    public static Graph downPart( Graph G, Set<SpannedCluster> partitionG){//creates the partition
         System.out.println("Down_Part");
         Set<SuperVertex> vertexSetU = G.getVertices();
         Set<CenteredCluster> centeredClusterSTag = new HashSet<CenteredCluster>();
@@ -63,7 +63,7 @@ public class SpCons {
         return H;
     }
 
-    private static Graph ProcedureSC(Graph G,Set<SpannedCluster> partitionU, int sigma, int delta, Set<SpannedCluster> partitionCTag){
+    public static Graph ProcedureSC(Graph G,Set<SpannedCluster> partitionU, int sigma, int delta, Set<SpannedCluster> partitionCTag){
          System.out.println("Procedure_SC");
          Graph HTag = new Graph("HTag");
          Boolean condition =true;
