@@ -103,7 +103,7 @@ public class SpCons {
          for (int i=0; i<partitionU.size();i++){
              for (int j=i; j<partitionU.size();j++){
                  Graph shortPath = G.getShortestPath(spClusterToArr[i],spClusterToArr[j]);
-                 if(shortPath.numOfEdges()<= 2*delta){
+                 if((shortPath.numOfEdges()<= 2*delta)&&(i!=j)){
                      HTag.addVertices(shortPath.getVertices());
                      HTag.addAllEdges(shortPath.getEdges());
                  }

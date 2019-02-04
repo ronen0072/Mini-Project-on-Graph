@@ -439,7 +439,7 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
                 newPath.remove(currentEdge);
         }
         iter = newPath.iterator();
-        Graph pathGraph = new Graph("path from: "+sourceCluster+", to: "+targetCluster);
+        Graph pathGraph = new Graph("path from: "+sourceCluster.getName()+", to: "+targetCluster.getName());
         while (iter.hasNext()) {
             Edge currentEdge = (Edge)iter.next();
             pathGraph.addVertex(currentEdge.getSourceVertex());
