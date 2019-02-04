@@ -10,7 +10,6 @@ public class  Cluster implements ClusterInterface{
     public Cluster(String name){
         this.vertices = new HashSet<SuperVertex>();
         this.name = name;
-
     }
 
     public Cluster(String name,  Set<SuperVertex> vertices) {

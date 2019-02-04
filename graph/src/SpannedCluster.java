@@ -32,23 +32,15 @@ public class SpannedCluster extends Graph {
         while (clusterIterator.hasNext()){//adding all vertices to check the subGraph
             mergedVertices.addAll(clusterIterator.next().getVertices());
         }
-        try {//ToDo: remove try becouse the sub gruph is actually G
-            if((!subGraph.containsAllVertices(mergedVertices))||(subGraph.numOfVertices() != mergedVertices.size()))
-                throw new InputException("The sub graph is corrupted");
-            else{
                 this.center = centerCluster.getCenter();
                 this.addVertices(mergedVertices);
                 this.addAllEdges(centerCluster.getEdges());
                 Iterator<SpannedCluster> clusIterator = clusters.iterator();
                 while (clusIterator.hasNext()){
                     SpannedCluster toMerge = clusIterator.next();
-                   this.addAllEdges(subGraph.getShortestPath(centerCluster,toMerge));
+                    this.addAllEdges(subGraph.getShortestPath(centerCluster,toMerge));
                     this.addAllEdges(((SpannedCluster) toMerge).getEdges());
                 }
-            }
-        }catch (InputException e){
-            System.out.println("The sub graph is corrupted");
-        }
     }
 
     public SuperVertex getCenter(){
