@@ -5,19 +5,25 @@ import java.util.Set;
 
 
 public class SpCons {
+    private static final int k = 1;
 
      public static Graph SpCons(Graph G){ //main function returns the spanner
-         int k = 1;
+         //int k = 1;
          int sigma = 1;
          int delta = 1;
          Graph H, HTag;
+         Set<SpannedCluster> partitionU = new HashSet<SpannedCluster>();
          Set<SpannedCluster> partitionG = new HashSet<SpannedCluster>() ;
          Set<SpannedCluster> partitionCTag = new HashSet<SpannedCluster>() ;
          H = downPart(G,k,partitionG);
          for (int j =0; j<= Math.log(k); j++){
-
          }
-         HTag = ProcedureSC(G,partitionG,sigma,delta,partitionCTag);
+         Iterator partitionIter = partitionG.iterator();
+         while (partitionIter.hasNext()){
+             SpannedCluster toAdd = (SpannedCluster) partitionIter.next();
+             partitionU.add(toAdd);
+         }
+         HTag = ProcedureSC(G,partitionU,sigma,delta,partitionCTag);
 
          return H;
     }
@@ -57,18 +63,12 @@ public class SpCons {
         return H;
     }
 
-    private static Graph ProcedureSC(Graph G,Set<SpannedCluster> partitionG, int sigma, int delta, Set<SpannedCluster> partitionCTag){
+    private static Graph ProcedureSC(Graph G,Set<SpannedCluster> partitionU, int sigma, int delta, Set<SpannedCluster> partitionCTag){
          System.out.println("Procedure_SC");
          Graph HTag = new Graph("HTag");
-         Set<SpannedCluster> u = new HashSet<SpannedCluster>();
-         Iterator partitionIter = partitionG.iterator();
-         while (partitionIter.hasNext()){
-             SpannedCluster toAdd = (SpannedCluster) partitionIter.next();
-             u.add(toAdd);
-         }
          Boolean condition =true;
          while (condition){
-             Iterator spundClus = u.iterator();
+             Iterator spundClus = partitionU.iterator();
              while (spundClus.hasNext()){
                  SpannedCluster center = (SpannedCluster) spundClus.next();
                  Set<SpannedCluster> neighbors = G.getLSpannedClusterNeighbors(center,1);
@@ -80,7 +80,7 @@ public class SpCons {
                      Iterator neighborsIter = neighbors.iterator();
                      while (neighborsIter.hasNext()) {//check if neighbors are contained in U
                          SpannedCluster contained = (SpannedCluster) neighborsIter.next();
-                         if(u.contains(contained)){
+                         if(partitionU.contains(contained)){
                              allVertices.addVertices(contained.getVertices());
                          }else{
                              neighbors.remove(contained);
@@ -90,7 +90,7 @@ public class SpCons {
                      if(allContained||(neighbors.size() >= sigma)){
                          SpannedCluster addToCTag = new SpannedCluster(center, neighbors,G);
                          partitionCTag.add(addToCTag);
-                         u.removeAll(neighbors);
+                         partitionU.removeAll(neighbors);
                          HTag.addVertices(allVertices.getVertices());
                          HTag.addAllEdges(addToCTag.getEdges());
                          break;
@@ -98,6 +98,15 @@ public class SpCons {
                  }
              }
              condition = false;
+         }
+         SpannedCluster[] spClusterToArr = partitionU.toArray(new SpannedCluster[partitionU.size()]);
+         for (int i=0; i<partitionU.size();i++){
+             for (int j=i; j<partitionU.size();j++){
+                 Set<Edge> shortPath = G.shortestPath(spClusterToArr[i],spClusterToArr[j]);
+                 if(shortPath.size()<= 2*delta){
+                    HTag.addAllEdges(shortPath);
+                 }
+             }
          }
          return HTag;
     }
