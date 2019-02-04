@@ -40,14 +40,14 @@ public class SpCons {
             SuperVertex v = vertexSetU.iterator().next();
             s.addVertex(v);
             double factor = Math.pow(n,(1/k))*(s.numOfVertices());
-            while (calcNeighbors(s, vertexSetU,g) >= factor){
-                s.addVertices(expendNeighbors(s, vertexSetU,g));
+            while (calcNeighbors(s, vertexSetU, g) >= factor){
+                s.addVertices(expendNeighbors(s, vertexSetU, g));
                 if(vertexSetU.size()==s.numOfVertices())
                     break;
             }
             SpannedCluster cluster = new SpannedCluster(v, s, g.getSubGraph(s));
             partitionG.add(cluster);
-            shell = new CenteredCluster("Shell"+i,expendNeighbors(s, vertexSetU,g),v);
+            shell = new CenteredCluster("Shell"+i,expendNeighbors(s, vertexSetU, g), v);
             centeredClusterSTag.add(shell);
             vertexSetU.removeAll(s.getVertices());
             i++;

@@ -1232,6 +1232,7 @@ public class Tests {
         if (!clusterTestContainsAllVertixes3()) {failCount++;  System.out.println("clusterTestContainsAllVertixes3");}
         return failCount;
     }
+
     public boolean clusterTestGetName() {
         Cluster s = new Cluster("MrCluster");
         return (s.getName().equals("MrCluster"));
