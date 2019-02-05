@@ -366,6 +366,10 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         return false;
     }
 
+    public boolean isTree(){
+        return (isConnected()&&(this.numOfVertices()-1==this.numOfEdges()));
+    }
+
     public SuperVertex getRandomVertexFromTheGraph(){
         Random rand = new Random();
         Iterator<SuperVertex> v = vertices.iterator();
@@ -388,34 +392,30 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         }
     }
 
-    public Set<Edge> getShortestPath(SpannedCluster sourceCluster, SpannedCluster targetCluster){
+    public Set<Edge> getShortestPath(SuperVertex source, SuperVertex target){
         Set<Edge> path = new HashSet<Edge>();
         Graph gSPT = this.clone();
-        gSPT.getSPTForUnWeightGraph(sourceCluster.getCenter());
-        return gSPT.getShortestPathInTree(sourceCluster, sourceCluster.getCenter(), null, targetCluster);
+        gSPT.getSPTForUnWeightGraph(source);
+        return gSPT.getShortestPathInTree(source, null, target);
     }
 
-    private Set<Edge> getShortestPathInTree(SpannedCluster sourceCluster, SuperVertex current, SuperVertex previous, SpannedCluster targetCluster){
+    private Set<Edge> getShortestPathInTree(SuperVertex current, SuperVertex previous, SuperVertex target){
         Set<Edge> path = new HashSet<Edge>();
         Set<Edge>  incomingEdgesOfCurrent = this.incomingEdgesOf(current);
         Iterator<Edge> iter = incomingEdgesOfCurrent.iterator();
-        while (iter.hasNext()){
-            Edge currentEdge = (Edge)iter.next();
-            if((previous == null)||!(currentEdge.contains(previous))){
+        while (iter.hasNext()) {
+            Edge currentEdge = (Edge) iter.next();
+            if (previous == null || !currentEdge.contains((previous))){
                 //Stop event
-                if(targetCluster.containsVertex(currentEdge.getSourceVertex())||
-                        targetCluster.containsVertex(currentEdge.getTargetVertex())) {
+                if (currentEdge.contains(target)) {
                     path.add(currentEdge);
                     return path;
-                }
-                else {
+                } else {
                     if (currentEdge.getSourceVertex().equals(current))
-                        path.addAll(getShortestPathInTree(sourceCluster, currentEdge.getTargetVertex(), current, targetCluster));
+                        path.addAll(getShortestPathInTree(currentEdge.getTargetVertex(), current, target));
                     else
-                        path.addAll(getShortestPathInTree(sourceCluster, currentEdge.getSourceVertex(), current, targetCluster));
-                    if(!path.isEmpty() &&
-                            ((!sourceCluster.containsVertex(currentEdge.getSourceVertex()))||
-                                    (!sourceCluster.containsVertex(currentEdge.getTargetVertex())))){
+                        path.addAll(getShortestPathInTree(currentEdge.getSourceVertex(), current, target));
+                    if (!path.isEmpty()) {
                         path.add(currentEdge);
                         return path;
                     }
@@ -423,6 +423,26 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
             }
         }
         return path;
+    }
+
+    public Set<Edge> getShortestPath(SpannedCluster sourceCluster, SpannedCluster targetCluster){
+        Set<Edge>  originalPath = getShortestPath(sourceCluster.getCenter(), targetCluster.getCenter());
+        Set<Edge>  newPath = new HashSet<Edge>(originalPath);
+        Iterator<Edge> iter = originalPath.iterator();
+        while (iter.hasNext()) {
+            Edge currentEdge = (Edge)iter.next();
+            if(sourceCluster.containsVertex(currentEdge.getSourceVertex()) &&
+                    sourceCluster.containsVertex(currentEdge.getTargetVertex()))
+                newPath.remove(currentEdge);
+            if(targetCluster.containsVertex(currentEdge.getSourceVertex()) &&
+                    targetCluster.containsVertex(currentEdge.getTargetVertex()))
+                newPath.remove(currentEdge);
+        }
+        return newPath;
+    }
+
+    public  int getDistance(SuperVertex source, SuperVertex target){
+        return this.getShortestPath(source, target).size();
     }
 
     /*public void dijkstra(SuperVertex sourceVertex) {

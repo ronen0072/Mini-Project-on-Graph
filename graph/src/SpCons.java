@@ -101,10 +101,11 @@ public class SpCons {
          }
          SpannedCluster[] spClusterToArr = partitionU.toArray(new SpannedCluster[partitionU.size()]);
          for (int i=0; i<partitionU.size();i++){
-             for (int j=i; j<partitionU.size();j++){
-                 Set<Edge> shortPath = G.getShortestPath(spClusterToArr[i],spClusterToArr[j]);
-                 if(shortPath.size()<= 2*delta){
-                    HTag.addAllEdges(shortPath);
+             for (int j=i+1; j<partitionU.size();j++){
+                 Graph shortPath = G.getShortestPath(spClusterToArr[i],spClusterToArr[j]);
+                 if(shortPath.numOfEdges()<= 2*delta){
+                    HTag.addVertices(shortPath.getVertices());
+                    HTag.addAllEdges(shortPath.getEdges());
                  }
              }
          }
