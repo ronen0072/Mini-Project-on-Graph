@@ -91,7 +91,6 @@ public class  Cluster implements ClusterInterface{
     }
 
     public boolean containsAllVertices(Collection<? extends SuperVertex> vert){
-
         try{
             if(vert == null) {
                 throw new InputException("There are no vertices in the collection.");
