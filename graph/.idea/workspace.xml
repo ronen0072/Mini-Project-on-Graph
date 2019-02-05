@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa18e5f0-1ba5-4c85-a1b8-04986b284687" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SpCons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SpCons.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -70,7 +69,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Tests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
+            <state relative-caret-position="272">
               <caret line="16" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -248,8 +247,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SpCons.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="104" column="17" selection-start-line="104" selection-start-column="17" selection-end-line="104" selection-end-column="17" />
+            <state relative-caret-position="1">
+              <caret line="97" column="18" lean-forward="true" selection-start-line="97" selection-start-column="18" selection-end-line="97" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#362#378#0" expanded="true" />
@@ -338,8 +337,8 @@
       <find>g.addEdge(v[45],v[47]);</find>
       <find>getSh</find>
       <find>partitionCTag</find>
-      <find>is</find>
       <find>condition</find>
+      <find>is</find>
     </findStrings>
     <replaceStrings>
       <replace>E</replace>
@@ -431,7 +430,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549356067234" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549357917011" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -658,12 +657,18 @@
       <option name="project" value="LOCAL" />
       <updated>1549355827160</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="changes getShortestPath to return graph">
+      <created>1549357021281</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1549357021281</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="0" width="1364" height="728" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
@@ -675,10 +680,10 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.3281075" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32922733" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50075644" side_tool="true" weight="0.3289689" />
-      <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.49924356" weight="0.2788354" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="3" sideWeight="0.49924356" visible="true" weight="0.31428573" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" sideWeight="0.49923313" visible="true" weight="0.05042017" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49923313" weight="0.05042017" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.41512606" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -732,6 +737,14 @@
               </option>
               <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
                 <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
               </option>
             </State>
           </value>
@@ -894,9 +907,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/SpannedCluster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="method#SpannedCluster#0;class#SpannedCluster#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Graph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1055">
+          <caret line="157" column="46" selection-start-line="157" selection-start-column="46" selection-end-line="157" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Graph#1;class#Graph#0" />
+            <element signature="method#Graph#2;class#Graph#0" />
+            <element signature="method#getEdges#0;class#Graph#0" />
+            <element signature="method#toString#0;class#Graph#0" />
+            <element signature="method#getEdge#0;class#Graph#0" />
+            <element signature="method#removeAllEdges#0;class#Graph#0" />
+            <element signature="method#removeEdge#0;class#Graph#0" />
+            <element signature="method#removeEdge#1;class#Graph#0" />
+            <element signature="method#removeVertex#0;class#Graph#0" />
+            <element signature="method#setEdgeWeight#1;class#Graph#0" />
+            <element signature="method#sumOfEdges#0;class#Graph#0" />
+            <element signature="method#getNeighbors#0;class#Graph#0" />
+            <element signature="method#getNeighbors#1;class#Graph#0" />
+            <element signature="method#getSPTForUnWeightGraph#1;class#Graph#0" />
+            <element signature="method#getSubGraph#0;class#Graph#0" />
+            <element signature="method#getLSpannedClusterNeighbors#0;class#Graph#0" />
+            <element signature="method#isConnected#0;class#Graph#0" />
+            <element signature="method#getShortestPath#0;class#Graph#0" />
+            <element signature="method#getShortestPathInTree#0;class#Graph#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cluster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-142">
+          <caret line="138" column="4" selection-start-line="138" selection-start-column="4" selection-end-line="138" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#removeAllVertices#0;class#Cluster#0" />
+            <element signature="method#removeAllVerticesExceptFrom#0;class#Cluster#0" />
+            <element signature="e#6845#6846#0" expanded="true" />
+            <element signature="e#6931#6932#0" expanded="true" />
+            <element signature="e#6964#6965#0" expanded="true" />
+            <element signature="e#7007#7008#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Tests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
+        <state relative-caret-position="272">
           <caret line="16" selection-start-line="16" selection-end-line="16" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1065,65 +1133,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SpannedCluster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-          <folding>
-            <element signature="method#SpannedCluster#0;class#SpannedCluster#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Graph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1055">
-          <caret line="157" column="46" selection-start-line="157" selection-start-column="46" selection-end-line="157" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Graph#1;class#Graph#0" />
-            <element signature="method#Graph#2;class#Graph#0" />
-            <element signature="method#getEdges#0;class#Graph#0" />
-            <element signature="method#toString#0;class#Graph#0" />
-            <element signature="method#getEdge#0;class#Graph#0" />
-            <element signature="method#removeAllEdges#0;class#Graph#0" />
-            <element signature="method#removeEdge#0;class#Graph#0" />
-            <element signature="method#removeEdge#1;class#Graph#0" />
-            <element signature="method#removeVertex#0;class#Graph#0" />
-            <element signature="method#setEdgeWeight#1;class#Graph#0" />
-            <element signature="method#sumOfEdges#0;class#Graph#0" />
-            <element signature="method#getNeighbors#0;class#Graph#0" />
-            <element signature="method#getNeighbors#1;class#Graph#0" />
-            <element signature="method#getSPTForUnWeightGraph#1;class#Graph#0" />
-            <element signature="method#getSubGraph#0;class#Graph#0" />
-            <element signature="method#getLSpannedClusterNeighbors#0;class#Graph#0" />
-            <element signature="method#isConnected#0;class#Graph#0" />
-            <element signature="method#getShortestPath#0;class#Graph#0" />
-            <element signature="method#getShortestPathInTree#0;class#Graph#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cluster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-142">
-          <caret line="138" column="4" selection-start-line="138" selection-start-column="4" selection-end-line="138" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#removeAllVertices#0;class#Cluster#0" />
-            <element signature="method#removeAllVerticesExceptFrom#0;class#Cluster#0" />
-            <element signature="e#6845#6846#0" expanded="true" />
-            <element signature="e#6931#6932#0" expanded="true" />
-            <element signature="e#6964#6965#0" expanded="true" />
-            <element signature="e#7007#7008#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SpCons.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="104" column="17" selection-start-line="104" selection-start-column="17" selection-end-line="104" selection-end-column="17" />
+        <state relative-caret-position="1">
+          <caret line="97" column="18" lean-forward="true" selection-start-line="97" selection-start-column="18" selection-end-line="97" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#362#378#0" expanded="true" />
