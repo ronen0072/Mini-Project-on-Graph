@@ -61,9 +61,15 @@ public class  Cluster implements ClusterInterface{
 
     public boolean addVertex(SuperVertex toAdd) {//adding vertex while checking for dupes
         if(vertices.contains(toAdd)) return false;
-        if(this.containsVertex(toAdd)) return false;
-        vertices.add(toAdd);
-        return true;
+        boolean res = true;
+        Iterator verticesIter = vertices.iterator();
+        while (verticesIter.hasNext()) {
+            SuperVertex v = (SuperVertex) verticesIter.next();
+            res &= (!toAdd.equals(v));
+        }
+        if(res)
+            vertices.add(toAdd);
+        return res;
     }
 
     public boolean addVertices(Set<SuperVertex> toAdd){
@@ -81,13 +87,7 @@ public class  Cluster implements ClusterInterface{
     }
 
     public boolean containsVertex(SuperVertex vert){
-        Iterator verticesIter = vertices.iterator();
-        while (verticesIter.hasNext()) {
-            SuperVertex v = (SuperVertex) verticesIter.next();
-            if (vert.equals(v))
-                return true;
-        }
-        return false;
+        return this.vertices.contains(vert);
     }
 
     public boolean containsAllVertices(Collection<? extends SuperVertex> vert){
@@ -96,13 +96,7 @@ public class  Cluster implements ClusterInterface{
             if(vert == null) {
                 throw new InputException("There are no vertices in the collection.");
             }
-            Iterator verticesIter = vert.iterator();
-            while (verticesIter.hasNext()) {
-                SuperVertex toCheck = (SuperVertex) verticesIter.next();
-                if (!this.containsVertex(toCheck))
-                    return false;
-            }
-            return true;
+            return this.vertices.containsAll(vert);
         }
         catch (InputException e) {
             System.out.println("There are no vertices in the collection.");
@@ -120,12 +114,6 @@ public class  Cluster implements ClusterInterface{
             }
             Set<SuperVertex> toRemove = this.getVertices();
             toRemove.removeAll(OtherCluster.getVertices());
-            /*Iterator verticesIter = OtherCluster.getVertices().iterator();
-            while (verticesIter.hasNext()) {
-                SuperVertex v = (SuperVertex) verticesIter.next();
-                if(this.containsVertex(v))
-                    res.add(v);
-            }*/
             res = this.getVertices();
             res.removeAll(toRemove);
             return res;
@@ -136,7 +124,7 @@ public class  Cluster implements ClusterInterface{
             return res;
         }
     }
-    
+
     public boolean removeAllVertices(Collection<? extends SuperVertex> vars){
         try {
             if (vars == null) {
@@ -165,18 +153,6 @@ public class  Cluster implements ClusterInterface{
             else {
                 Set<SuperVertex> toRemove = this.getVertices();
                 toRemove.removeAll(vert);
-                /*Set<SuperVertex> toRemove = new HashSet<SuperVertex>();
-                Iterator verticesIter = getVertices().iterator();
-                while (verticesIter.hasNext()) {
-                    SuperVertex vertex = (SuperVertex) verticesIter.next();
-                    toRemove.add(vertex);
-                    Iterator iter = vert.iterator();
-                    while (iter.hasNext()) {
-                        SuperVertex v = (SuperVertex) iter.next();
-                        if (vertex.equals(v))
-                            toRemove.remove(this.getVertex(vertex));
-                    }
-                }*/
                 return this.removeAllVertices(toRemove);
             }
         }

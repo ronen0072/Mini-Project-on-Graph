@@ -10,17 +10,17 @@ public class Tests {
         System.out.println("Vertexs Test:");
         System.out.println(numOffFails+t.verticesTest());
         System.out.println("______________________________________________________________________________________________");
+        System.out.println("Super Vertices Test:");
+        System.out.println(numOffFails+t.superVerticesTest());
+        System.out.println("______________________________________________________________________________________________");
         System.out.println("Edges Test:");
         System.out.println(numOffFails+t.edgesTest());
-        System.out.println("______________________________________________________________________________________________");
-        System.out.println("Graph Test:");
-        System.out.println(numOffFails+t.graphTest());
         System.out.println("______________________________________________________________________________________________");
         System.out.println("Cluster Test:");
         System.out.println(numOffFails+t.testCluster());
         System.out.println("______________________________________________________________________________________________");
-        System.out.println("Super Vertices Test:");
-        System.out.println(numOffFails+t.superVerticesTest());
+        System.out.println("Graph Test:");
+        System.out.println(numOffFails+t.graphTest());
         System.out.println("______________________________________________________________________________________________");
         System.out.println("Spanned Cluster Test:");
         System.out.println(numOffFails+t.spannedClusterTest());
@@ -1320,7 +1320,7 @@ public class Tests {
         Set<SuperVertex> vertices = new HashSet<SuperVertex>();
         vertices.add(v1);
         Cluster s = new Cluster("ronen", vertices);
-        return s.containsVertex(v1Clone);
+        return !s.containsVertex(v1Clone);
     }
     public boolean clusterTestContainsVertex3(){
         SuperVertex v1 = new SuperVertex(1);
