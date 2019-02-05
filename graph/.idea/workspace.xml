@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa18e5f0-1ba5-4c85-a1b8-04986b284687" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/graph/Cluster.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/graph/Cluster.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/graph/SpCons.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/graph/SpCons.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/graph/tests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cluster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cluster.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SpCons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SpCons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,8 +35,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Graph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1055">
-              <caret line="157" column="46" selection-start-line="157" selection-start-column="46" selection-end-line="157" selection-end-column="46" />
+            <state relative-caret-position="100">
+              <caret line="111" selection-start-line="111" selection-end-line="111" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#Graph#1;class#Graph#0" />
@@ -38,6 +44,8 @@
                 <element signature="method#getEdges#0;class#Graph#0" />
                 <element signature="method#toString#0;class#Graph#0" />
                 <element signature="method#getEdge#0;class#Graph#0" />
+                <element signature="method#incomingEdgesOf#0;class#Graph#0" />
+                <element signature="e#5782#5788#0" expanded="true" />
                 <element signature="method#removeAllEdges#0;class#Graph#0" />
                 <element signature="method#removeEdge#0;class#Graph#0" />
                 <element signature="method#removeEdge#1;class#Graph#0" />
@@ -46,22 +54,18 @@
                 <element signature="method#sumOfEdges#0;class#Graph#0" />
                 <element signature="method#getNeighbors#0;class#Graph#0" />
                 <element signature="method#getNeighbors#1;class#Graph#0" />
+                <element signature="method#getSPTForUnWeightGraph#0;class#Graph#0" />
                 <element signature="method#getSPTForUnWeightGraph#1;class#Graph#0" />
                 <element signature="method#getSubGraph#0;class#Graph#0" />
+                <element signature="method#getLNeighbors#0;class#Graph#0" />
                 <element signature="method#getLSpannedClusterNeighbors#0;class#Graph#0" />
                 <element signature="method#isConnected#0;class#Graph#0" />
+                <element signature="method#getRandomVertexFromTheGraph#0;class#Graph#0" />
+                <element signature="method#fixTheGraph#0;class#Graph#0" />
                 <element signature="method#getShortestPath#0;class#Graph#0" />
                 <element signature="method#getShortestPathInTree#0;class#Graph#0" />
+                <element signature="method#getShortestPath#1;class#Graph#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/lang/StringBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="135" selection-start-line="135" selection-end-line="135" />
             </state>
           </provider>
         </entry>
@@ -69,12 +73,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Tests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="89">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#13308#14192#0" />
-                <element signature="e#14193#15263#0" />
                 <element signature="e#14459#14472#0" expanded="true" />
                 <element signature="e#14514#14520#0" expanded="true" />
                 <element signature="e#14743#14756#0" expanded="true" />
@@ -247,8 +249,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SpCons.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1">
-              <caret line="97" column="18" lean-forward="true" selection-start-line="97" selection-start-column="18" selection-end-line="97" selection-end-column="18" />
+            <state relative-caret-position="425">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#362#378#0" expanded="true" />
@@ -267,16 +269,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Cluster.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-142">
-              <caret line="138" column="4" selection-start-line="138" selection-start-column="4" selection-end-line="138" selection-end-column="4" />
+            <state relative-caret-position="100">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#Cluster#0;class#Cluster#0" />
+                <element signature="method#getVertex#0;class#Cluster#0" />
+                <element signature="method#getVertex#1;class#Cluster#0" />
+                <element signature="e#1230#1243#0" expanded="true" />
+                <element signature="method#getVerticesClone#0;class#Cluster#0" />
+                <element signature="e#2576#2577#0" expanded="true" />
+                <element signature="e#2608#2609#0" expanded="true" />
+                <element signature="e#2619#2620#0" expanded="true" />
+                <element signature="e#2647#2648#0" expanded="true" />
+                <element signature="method#cutting#0;class#Cluster#0" />
                 <element signature="method#removeAllVertices#0;class#Cluster#0" />
                 <element signature="method#removeAllVerticesExceptFrom#0;class#Cluster#0" />
-                <element signature="e#6845#6846#0" expanded="true" />
-                <element signature="e#6931#6932#0" expanded="true" />
-                <element signature="e#6964#6965#0" expanded="true" />
-                <element signature="e#7007#7008#0" expanded="true" />
+                <element signature="e#5904#5905#0" expanded="true" />
+                <element signature="e#5990#5991#0" expanded="true" />
+                <element signature="e#6023#6024#0" expanded="true" />
+                <element signature="e#6066#6067#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -285,7 +297,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SpannedCluster.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
+            <state relative-caret-position="253">
               <caret line="40" selection-start-line="40" selection-end-line="40" />
               <folding>
                 <element signature="method#SpannedCluster#0;class#SpannedCluster#0" />
@@ -333,12 +345,13 @@
       <find>H</find>
       <find>calcNeighborsTest</find>
       <find>SpCons</find>
-      <find>HTag</find>
       <find>g.addEdge(v[45],v[47]);</find>
       <find>getSh</find>
       <find>partitionCTag</find>
       <find>condition</find>
       <find>is</find>
+      <find>HTag</find>
+      <find>clusterTestContainsVertex2</find>
     </findStrings>
     <replaceStrings>
       <replace>E</replace>
@@ -381,11 +394,11 @@
         <option value="$PROJECT_DIR$/src/inputException.java" />
         <option value="$PROJECT_DIR$/src/InputException.java" />
         <option value="$PROJECT_DIR$/src/Pair.java" />
-        <option value="$PROJECT_DIR$/src/Tests.java" />
         <option value="$PROJECT_DIR$/src/SpannedCluster.java" />
+        <option value="$PROJECT_DIR$/src/SpCons.java" />
         <option value="$PROJECT_DIR$/src/Graph.java" />
         <option value="$PROJECT_DIR$/src/Cluster.java" />
-        <option value="$PROJECT_DIR$/src/SpCons.java" />
+        <option value="$PROJECT_DIR$/src/Tests.java" />
       </list>
     </option>
   </component>
@@ -430,7 +443,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549357917011" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549356067234" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -657,14 +670,7 @@
       <option name="project" value="LOCAL" />
       <updated>1549355827160</updated>
     </task>
-    <task id="LOCAL-00019" summary="changes getShortestPath to return graph">
-      <created>1549357021281</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1549357021281</updated>
-    </task>
-    <option name="localTasksCounter" value="20" />
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -679,12 +685,12 @@
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.3281075" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32922733" />
-      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50075644" side_tool="true" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="3" sideWeight="0.49924356" visible="true" weight="0.31428573" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50153375" side_tool="true" weight="0.57983196" />
+      <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.49924356" weight="0.2788354" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49923313" weight="0.05042017" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.41512606" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49846625" weight="0.05042017" />
+      <window_info active="true" anchor="bottom" id="Debug" order="7" visible="true" weight="0.41512606" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
@@ -738,14 +744,6 @@
               <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
                 <collection />
               </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
             </State>
           </value>
         </entry>
@@ -781,16 +779,10 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Graph.java</url>
-          <line>111</line>
+          <url>file://$PROJECT_DIR$/src/SpCons.java</url>
+          <line>93</line>
           <properties />
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Graph.java</url>
-          <line>126</line>
-          <properties />
-          <option name="timeStamp" value="6" />
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -907,9 +899,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cluster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Cluster#0;class#Cluster#0" />
+            <element signature="method#getVertex#0;class#Cluster#0" />
+            <element signature="method#getVertex#1;class#Cluster#0" />
+            <element signature="e#1230#1243#0" expanded="true" />
+            <element signature="method#getVerticesClone#0;class#Cluster#0" />
+            <element signature="e#2576#2577#0" expanded="true" />
+            <element signature="e#2608#2609#0" expanded="true" />
+            <element signature="e#2619#2620#0" expanded="true" />
+            <element signature="e#2647#2648#0" expanded="true" />
+            <element signature="method#cutting#0;class#Cluster#0" />
+            <element signature="method#removeAllVertices#0;class#Cluster#0" />
+            <element signature="method#removeAllVerticesExceptFrom#0;class#Cluster#0" />
+            <element signature="e#5904#5905#0" expanded="true" />
+            <element signature="e#5990#5991#0" expanded="true" />
+            <element signature="e#6023#6024#0" expanded="true" />
+            <element signature="e#6066#6067#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/SpannedCluster.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
+        <state relative-caret-position="253">
           <caret line="40" selection-start-line="40" selection-end-line="40" />
           <folding>
             <element signature="method#SpannedCluster#0;class#SpannedCluster#0" />
@@ -919,8 +937,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Graph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1055">
-          <caret line="157" column="46" selection-start-line="157" selection-start-column="46" selection-end-line="157" selection-end-column="46" />
+        <state relative-caret-position="100">
+          <caret line="111" selection-start-line="111" selection-end-line="111" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Graph#1;class#Graph#0" />
@@ -928,6 +946,8 @@
             <element signature="method#getEdges#0;class#Graph#0" />
             <element signature="method#toString#0;class#Graph#0" />
             <element signature="method#getEdge#0;class#Graph#0" />
+            <element signature="method#incomingEdgesOf#0;class#Graph#0" />
+            <element signature="e#5782#5788#0" expanded="true" />
             <element signature="method#removeAllEdges#0;class#Graph#0" />
             <element signature="method#removeEdge#0;class#Graph#0" />
             <element signature="method#removeEdge#1;class#Graph#0" />
@@ -936,40 +956,27 @@
             <element signature="method#sumOfEdges#0;class#Graph#0" />
             <element signature="method#getNeighbors#0;class#Graph#0" />
             <element signature="method#getNeighbors#1;class#Graph#0" />
+            <element signature="method#getSPTForUnWeightGraph#0;class#Graph#0" />
             <element signature="method#getSPTForUnWeightGraph#1;class#Graph#0" />
             <element signature="method#getSubGraph#0;class#Graph#0" />
+            <element signature="method#getLNeighbors#0;class#Graph#0" />
             <element signature="method#getLSpannedClusterNeighbors#0;class#Graph#0" />
             <element signature="method#isConnected#0;class#Graph#0" />
+            <element signature="method#getRandomVertexFromTheGraph#0;class#Graph#0" />
+            <element signature="method#fixTheGraph#0;class#Graph#0" />
             <element signature="method#getShortestPath#0;class#Graph#0" />
             <element signature="method#getShortestPathInTree#0;class#Graph#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cluster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-142">
-          <caret line="138" column="4" selection-start-line="138" selection-start-column="4" selection-end-line="138" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#removeAllVertices#0;class#Cluster#0" />
-            <element signature="method#removeAllVerticesExceptFrom#0;class#Cluster#0" />
-            <element signature="e#6845#6846#0" expanded="true" />
-            <element signature="e#6931#6932#0" expanded="true" />
-            <element signature="e#6964#6965#0" expanded="true" />
-            <element signature="e#7007#7008#0" expanded="true" />
+            <element signature="method#getShortestPath#1;class#Graph#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Tests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="89">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#13308#14192#0" />
-            <element signature="e#14193#15263#0" />
             <element signature="e#14459#14472#0" expanded="true" />
             <element signature="e#14514#14520#0" expanded="true" />
             <element signature="e#14743#14756#0" expanded="true" />
@@ -1135,8 +1142,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SpCons.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1">
-          <caret line="97" column="18" lean-forward="true" selection-start-line="97" selection-start-column="18" selection-end-line="97" selection-end-column="18" />
+        <state relative-caret-position="425">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#362#378#0" expanded="true" />
