@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa18e5f0-1ba5-4c85-a1b8-04986b284687" name="Default Changelist" comment="" />
+    <list default="true" id="aa18e5f0-1ba5-4c85-a1b8-04986b284687" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,10 +22,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Cluster.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
+            <state relative-caret-position="68">
               <caret line="43" column="46" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -45,7 +47,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Tests.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="178">
@@ -159,18 +161,18 @@
                 <element signature="e#43061#43074#0" expanded="true" />
                 <element signature="e#43357#43370#0" expanded="true" />
                 <element signature="e#43664#43677#0" expanded="true" />
-                <element signature="e#54436#54449#0" expanded="true" />
-                <element signature="e#54723#54736#0" expanded="true" />
-                <element signature="e#55122#55135#0" expanded="true" />
-                <element signature="e#55177#55183#0" expanded="true" />
-                <element signature="e#55454#55467#0" expanded="true" />
-                <element signature="e#55509#55515#0" expanded="true" />
-                <element signature="e#55783#55796#0" expanded="true" />
-                <element signature="e#56091#56104#0" expanded="true" />
-                <element signature="e#56394#56407#0" expanded="true" />
-                <element signature="e#56730#56743#0" expanded="true" />
-                <element signature="e#57038#57051#0" expanded="true" />
-                <element signature="e#57367#57380#0" expanded="true" />
+                <element signature="e#54454#54467#0" expanded="true" />
+                <element signature="e#54741#54754#0" expanded="true" />
+                <element signature="e#55140#55153#0" expanded="true" />
+                <element signature="e#55195#55201#0" expanded="true" />
+                <element signature="e#55472#55485#0" expanded="true" />
+                <element signature="e#55527#55533#0" expanded="true" />
+                <element signature="e#55801#55814#0" expanded="true" />
+                <element signature="e#56109#56122#0" expanded="true" />
+                <element signature="e#56412#56425#0" expanded="true" />
+                <element signature="e#56748#56761#0" expanded="true" />
+                <element signature="e#57056#57069#0" expanded="true" />
+                <element signature="e#57385#57398#0" expanded="true" />
                 <element signature="e#57696#57709#0" expanded="true" />
                 <element signature="e#58064#58077#0" expanded="true" />
                 <element signature="e#58570#58583#0" expanded="true" />
@@ -658,6 +660,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
@@ -988,18 +991,18 @@
             <element signature="e#43061#43074#0" expanded="true" />
             <element signature="e#43357#43370#0" expanded="true" />
             <element signature="e#43664#43677#0" expanded="true" />
-            <element signature="e#54436#54449#0" expanded="true" />
-            <element signature="e#54723#54736#0" expanded="true" />
-            <element signature="e#55122#55135#0" expanded="true" />
-            <element signature="e#55177#55183#0" expanded="true" />
-            <element signature="e#55454#55467#0" expanded="true" />
-            <element signature="e#55509#55515#0" expanded="true" />
-            <element signature="e#55783#55796#0" expanded="true" />
-            <element signature="e#56091#56104#0" expanded="true" />
-            <element signature="e#56394#56407#0" expanded="true" />
-            <element signature="e#56730#56743#0" expanded="true" />
-            <element signature="e#57038#57051#0" expanded="true" />
-            <element signature="e#57367#57380#0" expanded="true" />
+            <element signature="e#54454#54467#0" expanded="true" />
+            <element signature="e#54741#54754#0" expanded="true" />
+            <element signature="e#55140#55153#0" expanded="true" />
+            <element signature="e#55195#55201#0" expanded="true" />
+            <element signature="e#55472#55485#0" expanded="true" />
+            <element signature="e#55527#55533#0" expanded="true" />
+            <element signature="e#55801#55814#0" expanded="true" />
+            <element signature="e#56109#56122#0" expanded="true" />
+            <element signature="e#56412#56425#0" expanded="true" />
+            <element signature="e#56748#56761#0" expanded="true" />
+            <element signature="e#57056#57069#0" expanded="true" />
+            <element signature="e#57385#57398#0" expanded="true" />
             <element signature="e#57696#57709#0" expanded="true" />
             <element signature="e#58064#58077#0" expanded="true" />
             <element signature="e#58570#58583#0" expanded="true" />
@@ -1095,16 +1098,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cluster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="43" column="46" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SpCons.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12">
@@ -1112,6 +1105,16 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1201#1218#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cluster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="43" column="46" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
