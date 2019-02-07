@@ -370,18 +370,10 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         return (isConnected()&&(this.numOfVertices()-1==this.numOfEdges()));
     }
 
-    public SuperVertex getRandomVertexFromTheGraph(){
-        Random rand = new Random();
-        Iterator<SuperVertex> v = vertices.iterator();
-        SuperVertex iVertex = null;
-        int randIndex = rand.nextInt(vertices.size());
-        for(int i = 0; (v.hasNext() &&(i<=randIndex)); i++)
-            iVertex = v.next();
-        return iVertex;
-    }
+
 
     private void fixTheGraph(){
-        SuperVertex v = this.getRandomVertexFromTheGraph();
+        SuperVertex v = this.getRandomVertex();
         Set<SuperVertex> vComponent = this.getLNeighbors(this.getNeighbors(v),this.numOfVertices());
         Set<SuperVertex> othersComponent = this.getVertices();
         othersComponent.removeAll(vComponent);

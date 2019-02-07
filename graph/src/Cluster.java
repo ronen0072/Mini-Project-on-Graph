@@ -1,7 +1,4 @@
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 public class  Cluster implements ClusterInterface{
     protected Set<SuperVertex> vertices ;
@@ -37,6 +34,16 @@ public class  Cluster implements ClusterInterface{
                 return v;
         }
         return null;
+    }
+
+    public SuperVertex getRandomVertex(){
+        Random rand = new Random();
+        Iterator<SuperVertex> v = vertices.iterator();
+        SuperVertex iVertex = null;
+        int randIndex = rand.nextInt(vertices.size());
+        for(int i = 0; (v.hasNext() &&(i<=randIndex)); i++)
+            iVertex = v.next();
+        return iVertex;
     }
 
     protected Set<SuperVertex> getVertices(){

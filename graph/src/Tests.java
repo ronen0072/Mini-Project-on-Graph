@@ -248,6 +248,96 @@ public class Tests {
         return g;
 
     }
+    private Graph example2(){
+        Graph g = new Graph("example");
+        SuperVertex[] v = new SuperVertex[61];
+        for (int i=1; i<=60; i++){
+            v[i] = new SuperVertex(i);
+            g.addVertex(v[i]);
+        }
+        for (int i=1; i<=4; i++)
+            g.addEdge(v[5],v[i]);
+        g.addEdge(v[1],v[2]);
+        g.addEdge(v[4],v[7]);
+        g.addEdge(v[3],v[6]);
+        g.addEdge(v[6],v[7]);
+        g.addEdge(v[7],v[13]);
+
+        g.addEdge(v[13],v[15]);
+        g.addEdge(v[13],v[14]);
+        for (int i=14; i<=19; i++)
+            if((i != 16)&&(i != 18))
+                g.addEdge(v[16],v[i]);
+        g.addEdge(v[14],v[18]);
+
+        g.addEdge(v[10],v[9]);
+        g.addEdge(v[10],v[11]);
+        g.addEdge(v[9],v[8]);
+        g.addEdge(v[11],v[12]);
+
+        g.addEdge(v[9],v[15]);
+        g.addEdge(v[12],v[34]);
+        g.addEdge(v[17],v[34]);
+        g.addEdge(v[34],v[35]);
+        g.addEdge(v[35],v[38]);
+
+        for (int i=20; i<=24; i++)
+            if(i != 22)
+                g.addEdge(v[22],v[i]);
+        g.addEdge(v[20],v[21]);
+        g.addEdge(v[20],v[23]);
+        g.addEdge(v[24],v[25]);
+
+        for (int i=25; i<=28; i++)
+            if(i != 26)
+                g.addEdge(v[26],v[i]);
+        g.addEdge(v[28],v[27]);
+        g.addEdge(v[28],v[25]);
+
+
+        g.addEdge(v[29],v[24]);
+        g.addEdge(v[24],v[31]);
+        g.addEdge(v[29],v[31]);
+        g.addEdge(v[29],v[33]);
+        g.addEdge(v[32],v[33]);
+        g.addEdge(v[31],v[32]);
+        g.addEdge(v[33],v[30]);
+
+
+
+        g.addEdge(v[30],v[36]);
+        g.addEdge(v[36],v[37]);
+        g.addEdge(v[37],v[38]);
+        g.addEdge(v[38],v[39]);
+        g.addEdge(v[39],v[40]);
+        g.addEdge(v[40],v[41]);
+        g.addEdge(v[41],v[49]);
+
+        for (int i=46; i<=53; i++)
+            if((i != 47)&&(i != 49)&&(i != 52))
+                g.addEdge(v[49],v[i]);
+
+        g.addEdge(v[46],v[47]);
+        g.addEdge(v[47],v[48]);
+        g.addEdge(v[51],v[52]);
+        g.addEdge(v[52],v[53]);
+
+        for (int i=43; i<=45; i++)
+            g.addEdge(v[42],v[i]);
+        g.addEdge(v[45],v[47]);
+
+
+        g.addEdge(v[54],v[55]);
+        g.addEdge(v[54],v[56]);
+        g.addEdge(v[55],v[57]);
+        g.addEdge(v[55],v[58]);
+        g.addEdge(v[56],v[58]);
+        g.addEdge(v[56],v[59]);
+        g.addEdge(v[59],v[60]);
+        g.addEdge(v[60],v[51]);
+        return g;
+
+    }
     public boolean graphTestGraphName() {
         Graph g = new Graph("ronen");
         return (g.getName().equals("ronen"));
@@ -1663,7 +1753,7 @@ public class Tests {
             System.out.println("calcNeighbors success!!");
             if(expendNeighborsTest()){
                 System.out.println("expendNeighbors success!!");
-                if(spConsTest()){
+                if(spConsTest1()){
                     System.out.println("SpCons success!!");
                 }else{
                     System.out.println("SpCons Failed :(");
@@ -1681,6 +1771,8 @@ public class Tests {
         if (!downPartTest1()) {failCount++; System.out.println("downPartTest1");}
         if (!downPartTest2()) {failCount++; System.out.println("downPartTest2");}
         if (!downPartTest3()) {failCount++; System.out.println("downPartTest3");}
+        if (!spConsTest2()) {failCount++; System.out.println("spConsTest2");}
+        if (!spConsTest3()) {failCount++; System.out.println("spConsTest3");}
         return failCount;
     }
     public boolean calcNeighborsTest(){
@@ -1692,15 +1784,15 @@ public class Tests {
         s.addVertex(v1);
         s.addVertex(v2);
         Set<SuperVertex> vertices = new HashSet<SuperVertex>();
-        Set<SuperVertex> u = new HashSet<SuperVertex>();
+        Cluster u = new Cluster("U");
         Set<Edge> edges = new HashSet<Edge>();
         vertices.add(v1);
         vertices.add(v2);
         vertices.add(v3);
         vertices.add(v4);
-        u.add(v1);
-        u.add(v2);
-        u.add(v3);
+        u.addVertex(v1);
+        u.addVertex(v2);
+        u.addVertex(v3);
         Edge edge1 = new Edge(v1,v2);
         Edge edge2 = new Edge(v1,v3);
         Edge edge3 = new Edge(v1,v4);
@@ -1725,15 +1817,15 @@ public class Tests {
         s.addVertex(v1);
         s.addVertex(v2);
         Set<SuperVertex> vertices = new HashSet<SuperVertex>();
-        Set<SuperVertex> u = new HashSet<SuperVertex>();
+        Cluster u = new Cluster("U");
         Set<Edge> edges = new HashSet<Edge>();
         vertices.add(v1);
         vertices.add(v2);
         vertices.add(v3);
         vertices.add(v4);
-        u.add(v1);
-        u.add(v2);
-        u.add(v3);
+        u.addVertex(v1);
+        u.addVertex(v2);
+        u.addVertex(v3);
         Edge edge1 = new Edge(v1,v2);
         Edge edge2 = new Edge(v1,v3);
         Edge edge3 = new Edge(v1,v4);
@@ -1752,7 +1844,7 @@ public class Tests {
 
         if(neighbors.size()==3){
             if (neighbors.contains(v1)&&neighbors.contains(v2)&&neighbors.contains(v3)){
-                neighbors.removeAll(u);
+                neighbors.removeAll(u.getVertices());
                 if(neighbors.size()==0){
                     return true;
                 }
@@ -1798,10 +1890,9 @@ public class Tests {
         return SpCons.downPart(g, partitionG).isConnected();
     }
 
-    public boolean spConsTest() {
-        boolean ans = true;
+    public boolean spConsTest1() {
         Graph g = new Graph("graph");
-        Graph h = SpCons.SpCons(g);
+        Graph h = SpCons.SpCons(g, 1, 0);
         Set<SuperVertex> vertices = new HashSet<SuperVertex>();
         Set<Edge> edges = new HashSet<Edge>();
         SuperVertex v1 = new SuperVertex(1, "1");
@@ -1857,11 +1948,23 @@ public class Tests {
         edges.add(edge13);
         edges.add(edge14);
         Graph g1 = new Graph("graph", vertices, edges);
-        Graph h1 = SpCons.SpCons(g1);
-        if(!(h1.numOfEdges() == h1.vertices.size()-1)){
-            ans =false;
-        }
-        return ans;
+        Graph h1 = SpCons.SpCons(g1, 4, 0);
+        return ((h1.isConnected())&&(g1.numOfEdges()>h1.numOfEdges()));
+    }
+    public boolean spConsTest2() {
+        Graph g = example2();
+        System.out.println(g.isConnected());
+        Graph h = SpCons.SpCons(g, 4, 0.5);
+        System.out.println(h.numOfEdges());
+        return ((h.isConnected())&&(g.numOfEdges()>h.numOfEdges()));
+    }
+    public boolean spConsTest3() {
+        Graph g = new Graph("spConsTest3", 200, 0.8, 0.02);
+        //System.out.println(g.isConnected());
+        System.out.println("num of edges in g: "+g.numOfEdges());
+        Graph h = SpCons.SpCons(g, 4, 0.5);
+        System.out.println("num of edges in h: "+h.numOfEdges());
+        return ((h.isConnected())&&(g.numOfEdges()>h.numOfEdges()));
     }
 }
 
