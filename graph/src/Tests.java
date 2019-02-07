@@ -1211,7 +1211,8 @@ public class Tests {
         SpannedCluster s15 = new SpannedCluster(g.getVertex(15),c15,g.getSubGraph(c15));
         SpannedCluster s17 = new SpannedCluster(g.getVertex(17),c17,g.getSubGraph(c17));
 
-        //System.out.println(g.getShortestPath(s1,s7));
+        //System.out.println(g.getShortestPath(s
+        // 1,s7));
         return g.getShortestPath(s1,s7).numOfEdges()==3;
     }
     private boolean graphTestGetShortestPath3(){
