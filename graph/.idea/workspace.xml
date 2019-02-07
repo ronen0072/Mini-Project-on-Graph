@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa18e5f0-1ba5-4c85-a1b8-04986b284687" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/graph/Cluster.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/graph/Cluster.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests.java" afterDir="false" />
-    </list>
+    <list default="true" id="aa18e5f0-1ba5-4c85-a1b8-04986b284687" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -394,7 +390,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="1246" />
     <option name="width" value="684" />
     <option name="height" value="729" />
@@ -664,11 +660,18 @@
       <option name="project" value="LOCAL" />
       <updated>1549357776479</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Merge branch 'master' of https://github.com/ronen0072/Mini-Project-on-Graph&#10;&#10;# Conflicts:&#10;#&#9;graph/.idea/workspace.xml">
+      <created>1549545765025</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1549545765025</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
@@ -680,10 +683,10 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.3281075" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50121456" side_tool="true" weight="0.46003553" />
       <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.49878544" weight="0.3285968" />
-      <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.49924356" weight="0.3143872" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="3" sideWeight="0.49924356" visible="true" weight="0.3143872" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" sideWeight="0.49878544" visible="true" weight="0.19005328" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49878544" weight="0.19005328" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.41512606" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -767,7 +770,8 @@
     <MESSAGE value="Merge branch 'master' of https://github.com/ronen0072/Mini-Project-on-Graph&#10;                         &#10;                         # Conflicts:&#10;                         #&#9;graph/src/ClusterInterface.java&#10;                         #&#9;graph/src/Edge.java&#10;                         #&#9;graph/src/Vertex.java&#10;                          getShortestPath Works!!!!&#10;                          Fix bugs" />
     <MESSAGE value="new example to graph (example2)" />
     <MESSAGE value="changes getShortestPath to return graph" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes getShortestPath to return graph" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/ronen0072/Mini-Project-on-Graph&#10;&#10;# Conflicts:&#10;#&#9;graph/.idea/workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/ronen0072/Mini-Project-on-Graph&#10;&#10;# Conflicts:&#10;#&#9;graph/.idea/workspace.xml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
