@@ -32,7 +32,7 @@ public class SpCons {
          for (int j =1; j<= J-1; j++){
              Set<SpannedCluster> partitionC = new HashSet<SpannedCluster>(partitionCTag);
              partitionC.addAll(getAi(partitionG,j));
-             HTag = ProcedureSC(G,partitionC,sigma(j),delta(j),partitionCTag, partitionR);
+             HTag = ProcedureSC(G,partitionC,sigma(j),2*delta(j),partitionCTag, partitionR);
              H.addAllEdges(HTag.getEdges());
          }
          partitionR.addAll(getAi(partitionG,J));
@@ -49,7 +49,7 @@ public class SpCons {
          return H;
     }
     public static Graph downPart( Graph G, Set<SpannedCluster> partitionG){//creates the partition
-        System.out.println("Down_Part");
+        //System.out.println("Down_Part");
         Cluster vertexSetU = new Cluster("U",G.getVertices());
         Set<CenteredCluster> centeredClusterSTag = new HashSet<CenteredCluster>();
         Graph H = new Graph("DP_H");
@@ -93,7 +93,7 @@ public class SpCons {
              Iterator spundClus = partitionU.iterator();
              while (spundClus.hasNext()){
                  SpannedCluster center = (SpannedCluster) spundClus.next();
-                 Set<SpannedCluster> neighbors = G.getLSpannedClusterNeighbors(center,1);
+                 Set<SpannedCluster> neighbors = G.getLSpannedClusterNeighbors(center,delta);
                  if(neighbors.size() >= sigma) {//Check if the neighbors group is big enough
                      Cluster allVertices = new Cluster("allVertices");
                      allVertices.addVertices(center.getVertices());
@@ -126,7 +126,7 @@ public class SpCons {
          for (int i=0; i<partitionR.size();i++){
              for (int j=i+1; j<partitionR.size();j++){
                  Graph shortPath = G.getShortestPath(spClusterToArr[i],spClusterToArr[j]);
-                 if(shortPath.numOfEdges()<= 2*delta){
+                 if(shortPath.numOfEdges()<= delta){
                     HTag.addVertices(shortPath.getVertices());
                     HTag.addAllEdges(shortPath.getEdges());
                  }

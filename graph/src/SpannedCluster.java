@@ -32,15 +32,15 @@ public class SpannedCluster extends Graph {
         while (clusterIterator.hasNext()){//adding all vertices to check the subGraph
             mergedVertices.addAll(clusterIterator.next().getVertices());
         }
-                this.center = centerCluster.getCenter();
-                this.addVertices(mergedVertices);
-                this.addAllEdges(centerCluster.getEdges());
-                Iterator<SpannedCluster> clusIterator = clusters.iterator();
-                while (clusIterator.hasNext()){
-                    SpannedCluster toMerge = clusIterator.next();
-                    this.addAllEdges((subGraph.getShortestPath(centerCluster,toMerge)).getEdges());
-                    this.addAllEdges(((SpannedCluster) toMerge).getEdges());
-                }
+        this.center = centerCluster.getCenter();
+        this.addVertices(mergedVertices);
+        this.addAllEdges(centerCluster.getEdges());
+        Iterator<SpannedCluster> clusIterator = clusters.iterator();
+        while (clusIterator.hasNext()){
+            SpannedCluster toMerge = clusIterator.next();
+            this.addAllEdges((subGraph.getShortestPath(centerCluster,toMerge)).getEdges());
+            this.addAllEdges(((SpannedCluster) toMerge).getEdges());
+        }
     }
 
     public SuperVertex getCenter(){

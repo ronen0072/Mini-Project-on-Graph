@@ -40,6 +40,8 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         int verticesCuonter = 0;
         while (verticesCuonter != numOfVertices) {
             int numOfVerticesInSubGraph = ((rand.nextInt(numOfVertices - verticesCuonter) + 1));
+            while (numOfVerticesInSubGraph >= numOfVertices/2)
+                numOfVerticesInSubGraph = ((rand.nextInt(numOfVertices - verticesCuonter) + 1));
             for (int i = (verticesCuonter + 1); (i <= verticesCuonter + numOfVerticesInSubGraph); i++) {
                 for (int j = (verticesCuonter + i); (j <= verticesCuonter + numOfVerticesInSubGraph); j++) {
                     if (rand.nextDouble() <= ProbabilityInSubGraph)
@@ -109,7 +111,7 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
                     sourceVertex.increaseDegree();
                     targetVertex.increaseDegree();
                     return toAdd;
-                } else System.out.println("the edge:" + toAdd + " is already in the graph.");
+                } //else System.out.println("the edge:" + toAdd + " is already in the graph.");
             } else
                 System.out.println("the edge:(" + sourceVertex + "," + targetVertex + ") contains vertex which does not exist in the graph.");
         }
@@ -124,7 +126,7 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
                 toAdd.getTargetVertex().increaseDegree();
                 return toAdd;
             } else {
-                System.out.println("the edge:" + toAdd + " is already in the graph.");
+                //System.out.println("the edge:" + toAdd + " is already in the graph.");
                 return null;
             }
         }
@@ -320,7 +322,7 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         }
     }
 
-    public Set<SuperVertex> getLNeighbors(Set<SuperVertex> vertices,int l){
+    public Set<SuperVertex> getLNeighbors(Set<SuperVertex> vertices,double l){
         Set<SuperVertex> lNeighbors = new HashSet<SuperVertex>();
         try {
             if (!containsAllVertices(vertices))
@@ -342,7 +344,7 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
         }
     }
 
-    public Set<SpannedCluster> getLSpannedClusterNeighbors(SpannedCluster centerCluster, int l){
+    public Set<SpannedCluster> getLSpannedClusterNeighbors(SpannedCluster centerCluster, double l){
         Set<SuperVertex> lNeighbors = getLNeighbors(centerCluster.getVertices(), l);
         Set<SpannedCluster> spannedClusterLNeighbors = new HashSet<SpannedCluster>();
         //spannedClusterLNeighbors.add(centerCluster);
@@ -369,8 +371,6 @@ public class Graph extends Cluster implements GraphInterface,Cloneable{
     public boolean isTree(){
         return (isConnected()&&(this.numOfVertices()-1==this.numOfEdges()));
     }
-
-
 
     private void fixTheGraph(){
         SuperVertex v = this.getRandomVertex();
