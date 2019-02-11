@@ -15,7 +15,7 @@ public class SpCons {
     private static double delta(int j){
         return Math.pow((Math.log(K)/epsilon),j);
     }
-    private static final int sigma(int j){
+    private static int sigma(int j){
        return (int) Math.ceil(Math.pow(N,tj(J -j)-tj(J-j+1)));
     }
 
