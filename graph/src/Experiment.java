@@ -1,10 +1,12 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -62,12 +64,26 @@ public class Experiment {
         }
 
         //Write the workbook in file system
-        FileOutputStream out = new FileOutputStream(
-                new File(directory+fileName+numOfVertices+".xlsx"));
+        String m = "You need to close the "+fileName+" in order to continue !!!";
+        boolean writtenSuccessfully = false;
+        while (!writtenSuccessfully) {
+            try {
+                FileOutputStream out = new FileOutputStream(
+                        new File(directory + fileName));
 
-        workbook.write(out);
-        out.close();
-        System.out.println(fileName+numOfVertices+".xlsx written successfully");
+                workbook.write(out);
+                out.close();
+                System.out.println(fileName + " written successfully");
+                writtenSuccessfully = true;
+
+            } catch (FileNotFoundException e) {
+                if (m != null) {
+                    System.out.println(m);
+                    m = null;
+                }
+                TimeUnit.SECONDS.sleep(20);
+            }
+        }
     }
 
 
